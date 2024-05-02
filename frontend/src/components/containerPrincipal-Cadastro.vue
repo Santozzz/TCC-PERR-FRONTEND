@@ -99,10 +99,14 @@ export default {
             if (this.form.tel.length < 11) {
                 this.nothing.push('O campo de telefone deve ter pelo menos 11 caracteres');
             } else {
-                console.log(this.form);
-                this.$router.push({ name: 'entrar' });
+                if (this.form.senha.length < 6) {
+                    this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
+                } else {
+                    console.log(this.form);
+                    this.$router.push({ name: 'entrar' });
+                }
             }
-            
+
         }
     },
     fecharAlert(index){
