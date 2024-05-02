@@ -16,7 +16,7 @@
                     </h3>
                     <form class="form">
                         <input type="text" v-model="form.name" @input="validateInput" placeholder="Nome Completo">
-                        <input type="tel" v-model="form.tel" placeholder="Telefone">
+                        <input type="tel" v-model="form.tel" @input="applyMask" placeholder="Telefone">
                         <div class="row-input">
                             <input type="email" v-model="form.email" placeholder="Email">
                             <div class="password">
@@ -91,11 +91,12 @@ export default {
     submitData(){
         this.nothing = [];
 
-        if(!this.form.name, !this.form.tel, !this.form.email, !this.form.senha) {
+        if(!this.form.name || !this.form.tel || !this.form.email || !this.form.senha) {
             this.nothing.push('Preencha todos os campos');
         }
         else{
             console.log(this.form);
+            this.$router.pus
         }
     },
     fecharAlert(index){
