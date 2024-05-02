@@ -15,7 +15,7 @@
                         oportunidade de emprego para você !
                     </h3>
                     <form class="form">
-                        <input type="text" v-model="form.name" @input="validateInput" placeholder="Nome Completo">
+                        <input type="text" v-model="form.name" placeholder="Nome Completo">
                         <input type="tel" v-model="form.tel" @input="applyMask" placeholder="Telefone">
                         <div class="row-input">
                             <input type="email" v-model="form.email" placeholder="Email">
@@ -24,7 +24,7 @@
                                 <i class="fa-solid" :class="showPassword ? 'fa-eye' : 'fa-eye-slash'" @click="togglePasswordVisibility"></i>
                             </div>
                         </div>
-                        <input type="submit" @click.prevent="submitData" value="CADASTRAR-SE">
+                        <input type="submit" @click.prevent="validForm" value="CADASTRAR-SE">
                         <p>Já tenho uma conta.<router-link to="/Entrar">Entrar</router-link></p>
                     </form>
                     <ul class="container-alert">
@@ -85,18 +85,24 @@ export default {
       if (telefone.length > 10) {
         event.target.value = telefone.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
       } else {
-        event.target.value = telefone.replace(/^(\d{2})(\d{4})(\d{4}).*/, '($1) $2-$3');
+        this.quantTel.push('Digite seu número por inteiro')
       }
     },
-    submitData(){
+    validForm(){
         this.nothing = [];
 
         if(!this.form.name || !this.form.tel || !this.form.email || !this.form.senha) {
             this.nothing.push('Preencha todos os campos');
         }
         else{
-            console.log(this.form);
-            this.$router.pus
+
+            if (this.form.tel.length < 11) {
+                this.nothing.push('O campo de telefone deve ter pelo menos 11 caracteres');
+            } else {
+                console.log(this.form);
+                this.$router.push({ name: 'entrar' });
+            }
+            
         }
     },
     fecharAlert(index){
