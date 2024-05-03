@@ -64,7 +64,7 @@ export default {
     checkForm: function() {
         this.errors = [];
 
-        if(!this.email, !this.senha) {
+        if(!this.email || !this.senha) {
             this.errors.push('Preencha todos os campos');
         }
     },
