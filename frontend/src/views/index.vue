@@ -1,10 +1,17 @@
-<script setup>
+<script>
+import topHeader from '@/components/top-header.vue';
 
+export default {
+    name: 'index',
+    components: {
+        topHeader
+    }, 
+}
 </script>
 
 <template>
     <div>
-        <router-link to="/Cadastro">sdlmasd</router-link>
+        <topHeader />
     </div>
 </template>
 

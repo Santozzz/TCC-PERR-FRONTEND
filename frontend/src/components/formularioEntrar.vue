@@ -4,7 +4,7 @@
             <router-link to="/">PER<strong>R</strong></router-link>
         </div>
         <div class="container-form">
-            <form class="form" v-on:submit.prevent="checkForm">
+            <form class="form">
                 <div class="topForm">
                     <h2>Entrar</h2>
                     <p>Fique ligado em todas as novidades referente ao mundo de trabalho</p>
@@ -15,7 +15,7 @@
                     <i class="fa-solid" :class="showPassword ? 'fa-eye' : 'fa-eye-slash'" @click="togglePasswordVisibility"></i>
                 </div>
                 <a href="">Esqueceu a senha ?</a>
-                <input type="submit" value="Entrar">
+                <input type="submit" @click.prevent="getData" value="Entrar">
                 <div class="line"></div>
                 <p>
                     Ao clicar em Continuar, você aceita o Contrato do Usuário, a <strong>Política de Privacidade</strong> e 
@@ -61,7 +61,7 @@ export default {
       this.showPassword = !this.showPassword;
       this.inputType = this.showPassword ? 'text' : 'password';
     },
-    checkForm: function() {
+    getData() {
         this.errors = [];
 
         if(!this.email || !this.senha) {
