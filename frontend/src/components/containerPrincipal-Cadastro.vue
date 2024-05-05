@@ -24,7 +24,7 @@
                                 <i class="fa-solid" :class="showPassword ? 'fa-eye' : 'fa-eye-slash'" @click="togglePasswordVisibility"></i>
                             </div>
                         </div>
-                        <input type="submit" @click.prevent="validForm" value="CADASTRAR-SE">
+                        <input type="submit" @click.prevent="submitData" value="CADASTRAR-SE">
                         <p>Já tenho uma conta.<router-link to="/Entrar">Entrar</router-link></p>
                     </form>
                     <ul class="container-alert">
@@ -57,6 +57,8 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {     
@@ -88,9 +90,7 @@ export default {
         this.quantTel.push('Digite seu número por inteiro')
       }
     },
-    validForm(){
-        this.nothing = [];
-
+    submitData(){
         if(!this.form.name || !this.form.tel || !this.form.email || !this.form.senha) {
             this.nothing.push('Preencha todos os campos');
         }
@@ -102,8 +102,15 @@ export default {
                 if (this.form.senha.length < 6) {
                     this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
                 } else {
-                    console.log(this.form);
-                    this.$router.push({ name: 'entrar' });
+                    axios.post('http://localhost:5000/api/usuarios', this.form)
+                    .then(response => {
+                        console.log('Usuário cadastrado com sucesso:', response.data);
+                        this.$router.push({ name: 'entrar' });
+                    })
+                    .catch(error => {
+                        console.error('Erro ao cadastrar usuário:', error);
+                        this.nothing.push('Erro ao cadastrar usuário. Verifique o console para mais detalhes.');
+                    });
                 }
             }
 

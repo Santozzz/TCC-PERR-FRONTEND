@@ -12,7 +12,7 @@
                     </button>
                     <div class="dropdown-content">
                         <a href="#">Minha Conta</a>
-                        <a href="#">Sair</a>
+                        <router-link to="/Cadastro">Sair</router-link>
                     </div>
                 </div>
             </nav>
