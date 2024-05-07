@@ -421,7 +421,7 @@ export default {
     /* 1200 Pixel */
     @media screen and (min-width: 1200px) {
         .container-principal{
-            height: 50vh;
+            height: 55vh;
         }
         .formCadastro{
             width: 50%;
