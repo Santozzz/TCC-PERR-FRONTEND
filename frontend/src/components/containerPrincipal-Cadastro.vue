@@ -14,7 +14,7 @@
                         Cadastre-se já para encontrar a melhor 
                         oportunidade de emprego para você !
                     </h3>
-                    <form class="form">
+                    <form class="form" method="post">
                         <input type="text" v-model="form.name" placeholder="Nome Completo">
                         <input type="tel" v-model="form.tel" @input="applyMask" placeholder="Telefone">
                         <div class="row-input">
@@ -102,14 +102,16 @@ export default {
                 if (this.form.senha.length < 6) {
                     this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
                 } else {
-                    axios.post('http://localhost:5000/api/usuarios', this.form)
+                    axios.post('../../../backend/PHPapi/conexao.php', this.form)
                     .then(response => {
-                        console.log('Usuário cadastrado com sucesso:', response.data);
-                        this.$router.push({ name: 'entrar' });
+                      console.log('Usuário cadastrado com sucesso:', response.data);
+                      // Redireciona para a página de login após o cadastro
+                      this.$router.push({ name: 'Entrar' });
                     })
                     .catch(error => {
-                        console.error('Erro ao cadastrar usuário:', error);
-                        this.nothing.push('Erro ao cadastrar usuário. Verifique o console para mais detalhes.');
+                      console.error('Erro ao cadastrar usuário:', error);
+                      this.nothing.push('Erro ao cadastrar');
+                      // Manipula o erro, se necessário
                     });
                 }
             }

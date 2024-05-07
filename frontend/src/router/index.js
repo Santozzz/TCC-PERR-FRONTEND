@@ -17,6 +17,11 @@ const router = createRouter({
       path: '/Entrar',
       name: 'entrar',
       component: () => import('../views/Entrar.vue')
+    },
+    {
+      path: '/Teste',
+      name: 'teste',
+      component: () => import('../../../backend/PHPapi/conexao.php')
     }
   ]
 })
