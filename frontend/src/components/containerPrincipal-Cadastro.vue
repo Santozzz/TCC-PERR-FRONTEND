@@ -14,7 +14,7 @@
                         Cadastre-se já para encontrar a melhor 
                         oportunidade de emprego para você !
                     </h3>
-                    <form class="form" method="post">
+                    <form class="form" method="POST">
                         <input type="text" v-model="form.name" placeholder="Nome Completo">
                         <input type="tel" v-model="form.tel" @input="applyMask" placeholder="Telefone">
                         <div class="row-input">
@@ -102,7 +102,7 @@ export default {
                 if (this.form.senha.length < 6) {
                     this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
                 } else {
-                    axios.post('../../../backend/PHPapi/conexao.php', this.form)
+                    axios.post( )
                     .then(response => {
                       console.log('Usuário cadastrado com sucesso:', response.data);
                       // Redireciona para a página de login após o cadastro
