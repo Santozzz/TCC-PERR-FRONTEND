@@ -1,12 +1,12 @@
 <script>
 import Navbar from '@/components/ALL/Navbar.vue';
-import headerUser from './../components/Home/headerUser.vue'
+import grid from './../components/Home/grid.vue'
 
 export default {
     name: 'index',
     components: {
         Navbar,
-        headerUser,
+        grid,
     }, 
 }
 </script>
@@ -14,7 +14,7 @@ export default {
 <template>
     <div>
         <Navbar/>
-        <headerUser />
+        <grid />
     </div>
 </template>
 
