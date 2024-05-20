@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="container-cursos">
-                <h3>Confira nossos cursos!</h3>
+                <h4>Confira nossos cursos!</h4>
                 <div class="gridCards"> 
                     <div class="row">
                         <div class="cardPrincipal">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="vagaSugeridas">
-                        <h3>Vagas sugeridas</h3>
+                        <h4>Vagas sugeridas</h4>
                         <div class="rowVagas">
                             <div class="cardVagas">
                                 
@@ -70,7 +70,6 @@ export default {
         height: 10vh;
         background-color: #ffffff;
         border-radius: 10px;
-        border: .5px solid #ccc;
         box-shadow: 0 1px 1px 1px #ccc;
     }
     .user-notify{
@@ -94,9 +93,9 @@ export default {
         width: 90%;
         padding: 5px;
     }
-    .container-cursos h3{
+    .container-cursos h4{
         text-align: left;
-        width: 100%;
+        width: 97%;
         color: #F78024;
         letter-spacing: 1px;
         padding-bottom: 5px;
@@ -120,7 +119,6 @@ export default {
         height: 40vh;
         background-color: #fff;
         border-radius: 10px;
-        border: .5px solid #ccc;
         box-shadow: 0 1px 1px 1px #ccc;
     }
     .container-cardSecundarios{
@@ -135,7 +133,6 @@ export default {
         height: 48%;
         background-color: #fff;
         border-radius: 10px;
-        border: .5px solid #ccc;
         box-shadow: 0 1px 1px 1px #ccc;
     }
     .vagaSugeridas{
@@ -145,8 +142,8 @@ export default {
         justify-content: space-between;
         width: 100%;
     }
-    .vagaSugeridas h3{
-        width: 102%;
+    .vagaSugeridas h4{
+        width: 99%;
     }
     .rowVagas{
         display: flex;
@@ -158,7 +155,6 @@ export default {
         height: 15vh;
         background-color: #fff;
         border-radius: 10px;
-        border: px solid #ccc;
         box-shadow: 0 1px 1px 1px #ccc;
     }
 </style>

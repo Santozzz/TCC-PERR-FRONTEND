@@ -49,7 +49,7 @@ export default {
     .navbar{
       position: fixed;
       height: 90vh;
-      width: 20%;
+      width: 18%;
       background-color: #131921;
     }
     header{
