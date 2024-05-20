@@ -1,10 +1,14 @@
 <script>
-import topHeader from '@/components/top-header.vue';
+import topHeader from '@/components/ALL/top-header.vue';
+import Navbar from '../components/ALL/Navbar.vue'
+import headerUser from './../components/Home/headerUser.vue'
 
 export default {
     name: 'index',
     components: {
-        topHeader
+        topHeader,
+        Navbar,
+        headerUser,
     }, 
 }
 </script>
@@ -12,6 +16,8 @@ export default {
 <template>
     <div>
         <topHeader />
+        <Navbar/>
+        <headerUser/>
     </div>
 </template>
 

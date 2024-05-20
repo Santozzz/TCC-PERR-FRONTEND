@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="img-decorativa">
-                    <img src="../assets/img/Cadastro/img-decorativa.jpg" alt="">
+                    <img src="../../assets/img/Cadastro/img-decorativa.jpg" alt="">
                 </div>
             </div>
         </div>

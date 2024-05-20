@@ -36,7 +36,7 @@ export default {
         height: 38vh;
         background-position: center;
         background-size: cover;
-        background-image: url(../assets/img/Cadastro/bg-headerCadastro.jpg);
+        background-image: url(../../assets/img/Cadastro/bg-headerCadastro.jpg);
         z-index: 1;
         box-shadow: 0 0 10px 1px #000;
     }

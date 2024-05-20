@@ -1,5 +1,5 @@
 <script>
-import formularioEntrar from '../components/formularioEntrar.vue'
+import formularioEntrar from '../components/Entrar/formularioEntrar.vue'
 
 export default {
     name: 'Entrar',

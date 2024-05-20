@@ -1,12 +1,12 @@
 <script>
-import headerCadastro from '../components/headerCadastro.vue'
-import containerPrincipal from '../components/containerPrincipal-Cadastro.vue'
+import headerCadastro from '../components/Cadastro/headerCadastro.vue'
+import containerPrincipal from '../components/Cadastro/containerPrincipal-Cadastro.vue'
 
 export default {
     name: 'Cadastro',
     components: {
         headerCadastro,
-        containerPrincipal
+        containerPrincipal,
     }, 
 }
 </script>
