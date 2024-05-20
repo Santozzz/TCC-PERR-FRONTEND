@@ -1,6 +1,6 @@
 <script>
 import Navbar from '@/components/ALL/Navbar.vue';
-import grid from './../components/Home/grid.vue'
+import grid from './../components/Home/grid.vue';
 
 export default {
     name: 'index',
