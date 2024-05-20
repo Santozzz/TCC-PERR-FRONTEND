@@ -1,7 +1,9 @@
 <template>
     <div>  
-        <div class="header">
-
+        <div class="container">
+            <div class="header">
+    
+            </div>
         </div>
     </div>
 </template>
@@ -13,9 +15,17 @@ export default {
 </script>
 
 <style scoped>
+    .container{
+        display: flex;
+        width: 80%;
+        margin: 20px 20%;
+        justify-content: center;
+    }
     .header{
-        width: 60%;
-        height: 8vh;
-        background-color: #b91010;
+        width: 80%;
+        height: 10vh;
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        box-shadow: 0 2px 1px 1px #929292;
     }
 </style>
