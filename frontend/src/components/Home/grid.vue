@@ -3,7 +3,7 @@
         <div class="container">
             <div class="header">
                 <div class="user-notify">
-                    <p>[ Usuario ]</p>
+                    <p>[ usuario ]</p>
                     <i class="fa-solid fa-bell"></i>    
                 </div>
             </div>
@@ -15,11 +15,21 @@
     
                         </div>
                         <div class="container-cardSecundarios">
-                            <div class="card">
-                                
+                            <div class="rowCardCourse">
+                                <div class="card">
+                                    
+                                </div>
+                                <div class="card">
+                                    
+                                </div>
                             </div>
-                            <div class="card">
-    
+                            <div class="rowCardCourse">
+                                <div class="card">
+                                    
+                                </div>
+                                <div class="card">
+        
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -120,20 +130,29 @@ export default {
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
+        cursor: pointer;
     }
     .container-cardSecundarios{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: flex-end;
         height: 40vh;
-        width: 48%;
+        width: 50%;
+    }
+    .rowCardCourse{
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+        height: 48%;
     }
     .card{
-        width: 100%;
-        height: 48%;
+        width: 48%;
+        height: 100%;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
+        cursor: pointer;
     }
     .vagaSugeridas{
         display: flex;
@@ -156,5 +175,6 @@ export default {
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
+        cursor: pointer;
     }
 </style>

@@ -21,62 +21,77 @@
         </header>
         <nav class="navbar">
           <ul class="nav-list">
-            <li>
-              <div class="icon">
-                <i class="fa-solid fa-home"></i>
-              </div>
-              <div class="namePage">
-                <router-link to="/">Página inicial</router-link>
-              </div>
-            </li>
-            <li>
-              <div class="icon">
-                <i class="fa-solid fa-briefcase"></i>
-              </div>
-              <div class="namePage">
-                <router-link to="/vagaemprego">Vagas de Emprego</router-link>
-              </div>
-            </li>
-            <li>
-              <div class="icon">
-                <i class="fa-solid fa-bell"></i>
-              </div>
-              <div class="namePage">
-                <router-link to="/index.vue">Notificações</router-link>
-              </div>
-            </li>
-            <li>
-              <div class="icon">
-                <i class="fa-solid fa-book-open"></i>
-              </div>
-              <div class="namePage">
-                <router-link to="/index.vue">Seu Currículo</router-link>
-              </div>
-            </li>
-            <li>
-              <div class="icon">
-                <i class="fa-solid fa-bookmark"></i>
-              </div>
-              <div class="namePage">
-                <router-link to="/index.vue">Favoritos</router-link>
-              </div>
-            </li>
-            <li>
-              <div class="icon">
-                <i class="fa-solid fa-laptop"></i>
-              </div>
-              <div class="namePage">
-                <router-link to="/index.vue">Cursos</router-link>
-              </div>
-            </li>
-            <li>
-              <div class="icon">
-                <i class="fa-solid fa-headset"></i>
-              </div>
-              <div class="namePage">
-                <router-link to="/index.vue">Entrevista</router-link>
-              </div>
-            </li>
+            <router-link to="/">
+              <li>
+                <div class="icon">
+                  <i class="fa-solid fa-home"></i>
+                </div>
+                <div class="namePage">
+                  <p>Página inicial</p>
+                </div>
+              </li>
+            </router-link>
+            <router-link to="/VagaEmprego">
+              <li>
+                <div class="icon">
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="namePage">
+                  <p>Vagas de Emprego</p>
+                </div>
+              </li>
+            </router-link>
+            <router-link to="/">
+              <li>
+                <div class="icon">
+                  <i class="fa-solid fa-bell"></i>
+                </div>
+                <div class="namePage">
+                  <p>Notificações</p>
+                </div>
+              </li>
+            </router-link>
+            <router-link to="/">
+              <li>
+                <div class="icon">
+                  <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="namePage">
+                  <p>Seu currículo</p>
+                </div>
+              </li>
+            </router-link>
+            <router-link to="/">
+              <li>
+                <div class="icon">
+                  <i class="fa-solid fa-bookmark"></i>
+                </div>
+                <div class="namePage">
+                  <p>Favoritos</p>
+                </div>
+              </li>
+            </router-link>
+            <router-link to="/">
+              <li>
+                <div class="icon">
+                  <i class="fa-solid fa-laptop"></i>
+                </div>
+                <div class="namePage">
+                  <p>Cursos</p>
+                </div>
+              </li>
+            </router-link>
+            <router-link to="/">
+              <li>
+                <div class="icon">
+                  <i class="fa-solid fa-headset"></i>
+                </div>
+                <div class="namePage">
+                  <p>Entrevista</p>
+                </div>
+              </li>
+            </router-link>
+            
           </ul>
           <div class="container-contact">
             <div class="line"></div>
@@ -117,6 +132,7 @@ export default {
       width: 18%;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: space-around;
       background-color: #131921;
     }
@@ -206,8 +222,15 @@ export default {
       justify-content: space-between;
       align-items: center;
       height: 55vh;
+      width: 80%;
       list-style: none;
       margin-top: 10%;
+    }
+    .nav-list a{
+      text-decoration: none;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
     .nav-list li{
       display: flex;
@@ -222,7 +245,7 @@ export default {
       cursor: pointer;
     }
     .nav-list li .icon{
-      width: 10%;
+      width: 20%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -236,7 +259,10 @@ export default {
       justify-content: start;
       align-items: center;
     }
-    .nav-list li a{
+    .namePage p{
+      font-weight: 400;
+    }
+    .nav-list a li{
       color: #fff;
       font-size: 14px;
       font-weight: 500;
