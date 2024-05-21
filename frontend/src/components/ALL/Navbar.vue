@@ -140,7 +140,7 @@ export default {
       align-items: center;
     }
     .logo a{
-      color: #000;
+      color: #ffffff;
       text-decoration: none;
       font-size: 35px;
       font-style: italic;
@@ -148,7 +148,7 @@ export default {
       letter-spacing: 1px;
     }
     .logo a strong{
-      color: #fff;
+      color: #000000;
     }
     .dropbtn {
       display: flex;
