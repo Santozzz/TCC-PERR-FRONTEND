@@ -3,8 +3,13 @@
         <header>
             <nav>
               <div class="space">
-                <div class="logo">
-                    <router-link to="/">PER<strong>R</strong></router-link>
+                <div class="mob-logo">
+                  <div class="openMenu">
+                    <i @click="toggleMenu" :class="{ 'menuOpen': isMenuOpen }" class="fa-solid fa-bars"></i>
+                  </div>
+                  <div class="logo">
+                      <router-link to="/">PER<strong>R</strong></router-link>
+                  </div>
                 </div>
                 <div class="dropdown" :class="{ 'show': isDropdownOpen }">
                     <button @click="toggleDropdown" class="dropbtn">
@@ -19,7 +24,7 @@
               </div>
             </nav>
         </header>
-        <nav class="navbar">
+        <nav class="navbar" :class="['navbar', { 'navbarOpen': isMenuOpen }]">
           <ul class="nav-list">
             <router-link to="/">
               <li>
@@ -109,7 +114,8 @@
 export default {
   data() {
     return {
-      isDropdownOpen: false
+      isDropdownOpen: false,
+      isMenuOpen: false,
     };
   },
   computed: {
@@ -120,6 +126,9 @@ export default {
   methods: {
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen;
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
     }
   }
 };
@@ -145,6 +154,20 @@ export default {
       width: 95%;
       align-items: center;
       justify-content: space-between;
+    }
+    .mob-logo{
+      display: flex;
+      width: 15%;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .openMenu i{
+      color: #fff;
+      font-size: 30px;
+      transition: .5s ease;
+    }
+    .openMenu i:active{
+      transform: scale(.9);
     }
     nav{
       background-color: #FF9352;
@@ -295,5 +318,101 @@ export default {
       border-radius: 50%;
       padding: 8px;
       cursor: pointer;
+    }
+    @media screen and (min-width: 1261px){
+        .openMenu{
+          display: none;
+        }
+    }
+    @media screen and (max-width: 1260px){
+        .navbar{
+          transform: translate(-100%);
+        }
+        .navbar.navbarOpen{
+          transform: translate(0%);
+          animation-name: move;
+          animation-duration: 1s ease;
+        }
+        @keyframes move {
+          0%{
+            transform: translate(-100%);
+          }
+          100%{
+              transform: translate(0%);
+          }
+        }
+    }
+    @media screen and (max-width: 1252px){
+      .navbar{
+        width: 20%;
+      }
+    }
+    @media screen and (max-width: 1137px){
+      .navbar{
+        width: 23%;
+      }
+    }
+    @media screen and (max-width: 1000px){
+        .mob-logo{
+          width: 18%;
+        }
+        .navbar{
+          width: 25%;
+        }
+    }
+    @media screen and (max-width: 910px){
+        .navbar{
+          width: 28%;
+        }
+    }
+    @media screen and (max-width: 835px){
+        .mob-logo{
+          width: 22%;
+        }
+        .navbar{
+          width: 31%;
+        }
+    }
+    @media screen and (max-width: 730px){
+        .navbar{
+          width: 35%;
+        }
+    }
+    @media screen and (max-width: 650px){
+        .mob-logo{
+          width: 26%;
+        }
+        .navbar{
+          width: 44%;
+        }
+    }
+    @media screen and (max-width: 535px){
+        .mob-logo{
+          width: 32%;
+        }
+        .navbar{
+          width: 49%;
+        }
+    }
+    @media screen and (max-width: 468px){
+        .navbar{
+          width: 54%;
+        }
+    }
+    @media screen and (max-width: 425px){
+        .mob-logo{
+          width: 38%;
+        }
+        .navbar{
+          width: 64%;
+        }
+    }
+    @media screen and (max-width: 360px){
+        .mob-logo{
+          width: 43%;
+        }
+        .navbar{
+          width: 68;
+        }
     }
 </style>

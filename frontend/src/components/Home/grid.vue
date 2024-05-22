@@ -177,4 +177,10 @@ export default {
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
     }
+    @media screen and (max-width: 1260px){
+        .container{
+            margin: 40px auto;
+            width: 100%;
+        }
+    }
 </style>
