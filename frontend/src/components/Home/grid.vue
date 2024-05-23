@@ -89,11 +89,13 @@ export default {
         align-items: center;
     }
     .user-notify p{
-        font-size: 25px;
+        font-size: 20px;
+        color: #252F3F;
     }
     .user-notify i{
         font-size: 25px;
         cursor: pointer;
+        color: #252F3F;
     }
     .container-cursos{
         display: flex;

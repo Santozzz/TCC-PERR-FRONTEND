@@ -204,7 +204,7 @@ export default {
     .dropbtn .fa-user{
       color: #fff;
       padding: 12px 14px;
-      background-color: #000;
+      background-color: #252F3F;
       border-radius: 50%;
     }
     .perfil {
@@ -244,10 +244,9 @@ export default {
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      height: 55vh;
-      width: 80%;
+      height: 56%;
+      width: 90%;
       list-style: none;
-      margin-top: 10%;
     }
     .nav-list a{
       text-decoration: none;
@@ -268,7 +267,7 @@ export default {
       cursor: pointer;
     }
     .nav-list li .icon{
-      width: 20%;
+      width: 15%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -294,12 +293,12 @@ export default {
     }
     .line{
       height: 1px;
-      width: 80%;
+      width: 90%;
       background-color: #fff;
     }
     .container-contact{
       width: 90%;
-      height: 30%;
+      height: 35%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -307,7 +306,7 @@ export default {
     }
     .contacts{
       display: flex;
-      width: 55%;
+      width: 65%;
       justify-content: space-between;
       align-items: center;
     }
@@ -335,13 +334,13 @@ export default {
         }
         @keyframes move {
           0%{
-            transform: translate(-100%);
+            transform: translate(-100%)
           }
           100%{
-              transform: translate(0%);
+              transform: translate(0%)
           }
         }
-    }
+      }
     @media screen and (max-width: 1252px){
       .navbar{
         width: 20%;

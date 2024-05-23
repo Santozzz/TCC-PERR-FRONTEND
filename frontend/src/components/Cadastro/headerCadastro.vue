@@ -119,23 +119,27 @@ export default {
         .header{
             display: flex;
         }
+        .logo a{
+            font-size: 85px;
+        }
         .frase p{
             text-align: center;
+            font-size: 16px;
         }
     }
     /* 1000 Pixel */
     @media screen and (min-width: 1000px) {
         .logo a{
-            font-size: 110px;
+            font-size: 85px;
         }
         .frase p{
-            font-size: 30px;
+            font-size: 18px;
         }
     }
     /* 1500 Pixel */
     @media screen and (min-width: 1500px) {
         .logo a{
-            font-size: 150px;
+            font-size: 110px;
         }
         .frase p{
             font-size: 35px;
