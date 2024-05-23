@@ -165,6 +165,7 @@ export default {
       color: #fff;
       font-size: 30px;
       transition: .5s ease;
+      cursor: pointer;
     }
     .openMenu i:active{
       transform: scale(.9);
