@@ -244,7 +244,7 @@ export default {
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      height: 56%;
+      height: 60%;
       width: 90%;
       list-style: none;
     }
@@ -298,7 +298,7 @@ export default {
     }
     .container-contact{
       width: 90%;
-      height: 35%;
+      height: 30%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -325,19 +325,22 @@ export default {
     }
     @media screen and (max-width: 1260px){
         .navbar{
-          transform: translate(-100%);
+          transform: translateX(-100%);
+          opacity: 0;
         }
         .navbar.navbarOpen{
-          transform: translate(0%);
-          animation-name: move;
-          animation-duration: 1s ease;
+          transform: translateX(0);
+          opacity: 1;
+          animation: slideIn 1s forwards;
         }
-        @keyframes move {
-          0%{
-            transform: translate(-100%)
+        @keyframes slideIn {
+          from {
+            transform: translateX(-100%);
+            opacity: .8;
           }
-          100%{
-              transform: translate(0%)
+          to {
+            transform: translateX(0);
+            opacity: 1;
           }
         }
       }
