@@ -169,15 +169,22 @@ export default {
     .rowVagas{
         display: flex;
         width: 100%;
-        justify-content: space-between;
+        justify-content: space-around;
+        gap: 10px;
+        flex-wrap: wrap;
     }
     .cardVagas{
-        width: 24%;
+        width: 220px;
         height: 15vh;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
+    }
+    @media screen and (min-width: 1260px) {
+        .rowVagas{
+            flex-wrap: nowrap;
+        }
     }
     @media screen and (max-width: 1260px){
         .container{
