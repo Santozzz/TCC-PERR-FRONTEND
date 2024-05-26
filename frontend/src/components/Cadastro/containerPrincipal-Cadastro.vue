@@ -447,5 +447,8 @@ export default {
             padding: 15px;
             width: 42%;
         }
+        .password i{
+            top: 38%;
+        }
     }
 </style>

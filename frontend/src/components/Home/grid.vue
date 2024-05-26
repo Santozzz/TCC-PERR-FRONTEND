@@ -12,7 +12,7 @@
                 <div class="gridCards"> 
                     <div class="row">
                         <div class="cardPrincipal">
-    
+                            
                         </div>
                         <div class="container-cardSecundarios">
                             <div class="rowCardCourse">
@@ -127,7 +127,7 @@ export default {
         height: 60vh;
     }
     .cardPrincipal{
-        width: 50%;
+        width: 49.8%;
         height: 40vh;
         background-color: #fff;
         border-radius: 10px;
@@ -145,11 +145,11 @@ export default {
     .rowCardCourse{
         display: flex;
         justify-content: space-between;
-        width: 95%;
+        width: 99%;
         height: 48%;
     }
     .card{
-        width: 48%;
+        width: 49.5%;
         height: 100%;
         background-color: #fff;
         border-radius: 10px;
@@ -174,7 +174,7 @@ export default {
         flex-wrap: wrap;
     }
     .cardVagas{
-        width: 220px;
+        width: 100%;
         height: 15vh;
         background-color: #fff;
         border-radius: 10px;
