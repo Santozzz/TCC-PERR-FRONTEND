@@ -127,12 +127,16 @@ export default {
         height: 60vh;
     }
     .cardPrincipal{
-        width: 49.8%;
+        width: 49.5%;
         height: 40vh;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
+        transition: .3s;
+    }
+    .cardPrincipal:active{
+        transform: scale(.98);
     }
     .container-cardSecundarios{
         display: flex;
@@ -149,12 +153,16 @@ export default {
         height: 48%;
     }
     .card{
-        width: 49.5%;
+        width: 49%;
         height: 100%;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
+
+    }
+    .card:active{
+        transform: scale(.98);
     }
     .vagaSugeridas{
         display: flex;
@@ -175,11 +183,15 @@ export default {
     }
     .cardVagas{
         width: 100%;
-        height: 15vh;
+        height: 18vh;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
+        transition: .2s;
+    }
+    .cardVagas:active{
+        transform: scale(.98);
     }
     @media screen and (min-width: 1260px) {
         .rowVagas{
