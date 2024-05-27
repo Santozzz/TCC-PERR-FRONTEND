@@ -7,73 +7,105 @@
                     <i class="fa-solid fa-bell"></i>    
                 </div>
             </div>
-            <div class="container-cursos">
-                <h4>Confira nossos cursos!</h4>
-                <div class="gridCards"> 
+            <div class="gridCards"> 
+                <div class="container-cursos">
+                    <h4>Confira nossos cursos!</h4>
                     <div class="row">
                         <div class="cardPrincipal">
-                            
+                            <div class="banner-img"></div>
+                            <div class="display-video">
+                                <div class="legenda">
+                                    <p>Curso de português completo</p>
+                                </div>
+                                <div class="container-btn">
+                                    <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                </div>
+                            </div>
                         </div>
                         <div class="container-cardSecundarios">
                             <div class="rowCardCourse">
                                 <div class="card">
-                                    
+                                    <div class="banner-imgSec"></div>
+                                    <div class="display-videoSec">
+                                        <div class="legenda-cardSec">
+                                            <p>Curso de português completo</p>
+                                        </div>
+                                        <div class="container-btnSec">
+                                            <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card">
-                                    
+                                    <div class="banner-imgSec"></div>
+                                    <div class="display-videoSec">
+                                        <div class="legenda-cardSec">
+                                            <p>Curso de português completo</p>
+                                        </div>
+                                        <div class="container-btnSec">
+                                            <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="rowCardCourse">
                                 <div class="card">
-                                    
+                                    <div class="banner-imgSec"></div>
+                                    <div class="display-videoSec">
+                                        <div class="legenda-cardSec">
+                                            <p>Curso de português completo</p>
+                                        </div>
+                                        <div class="container-btnSec">
+                                            <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card">
-        
+                                    <div class="banner-imgSec"></div>
+                                    <div class="display-videoSec">
+                                        <div class="legenda-cardSec">
+                                            <p>Curso de português completo</p>
+                                        </div>
+                                        <div class="container-btnSec">
+                                            <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="vagaSugeridas">
-                        <h4>Encontre seu trabalho</h4>
-                        <div class="rowVagas">
-                            <div class="rowCardVagas">
-                                <div class="cardVagas">
-                                    <div class="img-categoria">
-                                        <img src="" alt="">
-                                    </div>
-                                    <div class="nome-categoria">
-                                        <p class="nomeVaga">Administração</p>
-                                        <p class="quantVagas">[ Quant. de vagas]</p>
-                                    </div>
-                                </div>
-                                <div class="cardVagas">
-                                    <div class="img-categoria">
-                                        <img src="" alt="">
-                                    </div>
-                                    <div class="nome-categoria">
-                                        <p class="nomeVaga">Gastronomia</p>
-                                        <p class="quantVagas">[ Quant. de vagas]</p>
-                                    </div>
+                </div>
+                <div class="vagaSugeridas">
+                    <h4>Encontre seu trabalho</h4>
+                    <div class="rowVagas">
+                        <div class="rowCardVagas">
+                            <div class="cardVagas">
+                                <div class="img-categoria"></div>
+                                <div class="nome-categoria">
+                                    <p class="nomeVaga">Administração</p>
+                                    <p class="quantVagas">[ Quant. de vagas]</p>
                                 </div>
                             </div>
-                            <div class="rowCardVagas">
-                                <div class="cardVagas">
-                                    <div class="img-categoria">
-                                        <img src="" alt="">
-                                    </div>
-                                    <div class="nome-categoria">
-                                        <p class="nomeVaga">Construção</p>
-                                        <p class="quantVagas">[ Quant. de vagas]</p>
-                                    </div>
+                            <div class="cardVagas">
+                                <div class="img-categoria"></div>
+                                <div class="nome-categoria">
+                                    <p class="nomeVaga">Gastronomia</p>
+                                    <p class="quantVagas">[ Quant. de vagas]</p>
                                 </div>
-                                <div class="cardVagas">
-                                    <div class="img-categoria">
-                                        <img src="" alt="">
-                                    </div>
-                                    <div class="nome-categoria">
-                                        <p class="nomeVaga">Informatica</p>
-                                        <p class="quantVagas">[ Quant. de vagas]</p>
-                                    </div>
+                            </div>
+                        </div>
+                        <div class="rowCardVagas">
+                            <div class="cardVagas">
+                                <div class="img-categoria"></div>
+                                <div class="nome-categoria">
+                                    <p class="nomeVaga">Construção</p>
+                                    <p class="quantVagas">[ Quant. de vagas]</p>
+                                </div>
+                            </div>
+                            <div class="cardVagas">
+                                <div class="img-categoria"></div>
+                                <div class="nome-categoria">
+                                    <p class="nomeVaga">Informatica</p>
+                                    <p class="quantVagas">[ Quant. de vagas]</p>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +118,14 @@
 
 <script>
 export default {
+    data() {
+        return{
+            
+        }
+    },
+    methods: {
 
+    }
 }
 </script>
 
@@ -95,7 +134,8 @@ export default {
         display: flex;
         flex-direction: column;
         width: 80%;
-        margin: 80px 20%;
+        height: 80vh;
+        margin: 20px 20%;
         justify-content: space-evenly;
         align-items: center;
     }
@@ -141,9 +181,9 @@ export default {
     }
     .row{
         display: flex;
-        height: 50vh;
         width: 100%;
         justify-content: space-between;
+        align-items: center;
     }
     .gridCards{
         display: flex;
@@ -151,19 +191,57 @@ export default {
         justify-content: space-between;
         align-items: center;
         width: 98%;
-        height: 60vh;
     }
     .cardPrincipal{
+        display: flex;
+        flex-direction: column; 
+        justify-content: space-around;
+        align-items: center;
         width: 49.5%;
         height: 40vh;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
-        transition: .3s;
     }
-    .cardPrincipal:active{
+    .banner-img{
+        width: 90%;
+        height: 65%;
+        background-color: #F78024;
+        border-radius: 5px;
+    }
+    .display-video{
+        display: flex;
+        width: 85%;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .legenda{
+        width: 55%;
+    }
+    .container-btn{
+        display: flex;
+        width: 45%;
+        justify-content: flex-end;
+    }
+    .container-btn button{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 50%;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        background-color: #F78024;
+        color: #ffffff;
+        cursor: pointer;
+        transition: .3
+    }
+    .container-btn button:active{
         transform: scale(.98);
+    }
+    .container-btn button i{
+        font-size: 10px;
     }
     .container-cardSecundarios{
         display: flex;
@@ -186,30 +264,45 @@ export default {
         border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
-
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .container-btnSec{
+        display: none;
     }
     .card:active{
         transform: scale(.98);
+    }
+    .banner-imgSec{
+        height: 60%;
+        width: 90%;
+        border-radius: 5px;
+        background-color: #F78024;
     }
     .vagaSugeridas{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        width: 100%;
+        width: 90%;
     }
     .vagaSugeridas h4{
-        width: 99%;
+        text-align: left;
+        width: 97%;
+        color: #F78024;
+        letter-spacing: 1px;
+        padding-bottom: 5px;
     }
     .rowVagas{
         display: flex;
         width: 100%;
         justify-content: space-around;
-        gap: 10px;
     }
     .rowCardVagas{
         display: flex;
-        width: 50%;
+        width: 49%;
         justify-content: space-between;
     }
     .cardVagas{
@@ -261,6 +354,18 @@ export default {
         .cardVagas .img-categoria{
             height: 65%;
         }
+        .user-notify p{
+            font-size: 25px;
+        }
+        .display-video p{
+            font-size: 20px;
+        }
+        .container-btn button{
+            font-size: 16px;
+            align-items: center;
+            width: 50%;
+        }
+
     }
     @media screen and (max-width: 1816px){  
         .cardVagas .quantVagas{
@@ -280,6 +385,15 @@ export default {
         .cardVagas{
             height: 16vh;
         }
+        .user-notify p{
+            font-size: 20px;
+        }
+        .display-video p{
+            font-size: 15px;
+        }
+        .container-btn button{
+            font-size: 15px;
+        }
     }
     @media screen and (max-width: 1500px){
         .cardVagas .nomeVaga{
@@ -298,6 +412,7 @@ export default {
     @media screen and (max-width: 1025px){
         .rowVagas{
             flex-direction: column;
+            gap: 10px;
         }
         .rowCardVagas{
             width: 100%;
@@ -307,6 +422,25 @@ export default {
         }
         .cardVagas .quantVagas{
             font-size: 18px;
+        }
+        .user-notify{
+           height: 8vh;
+        }
+        .row{
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            gap: 20px;
+        }
+        .container-cardSecundarios{
+            width: 100%;
+            height: 35vh;
+        }
+        .rowCardCourse{
+            width: 100%;
+        }
+        .cardPrincipal{
+            width: 100%;
         }
     }
     @media screen and (max-width: 700px){
@@ -325,9 +459,29 @@ export default {
             justify-content: space-between;
         }
         .cardVagas{
-            width: 90%;
+            width: 100%;
             height: 17vh;
             justify-content: space-around;
+        }
+        .container-cardSecundarios{
+            gap: 20px;
+            height: 100vh;
+        }
+        .rowCardCourse{
+            flex-direction: column;
+            gap: 20px;
+        }
+        .card{
+            width: 100%;
+            height: 35vh;
+        }
+        .vagaSugeridas h4{
+            font-size: 23px;
+        }
+    }
+    @media screen and (max-width: 470px){
+        .banner-img{
+            height: 55%;
         }
     }
 </style>

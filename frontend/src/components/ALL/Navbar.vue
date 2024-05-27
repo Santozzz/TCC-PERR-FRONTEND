@@ -337,13 +337,13 @@ export default {
     }
     @media screen and (max-width: 1674px){  
       .nav-list .namePage p{
-        font-size: 20px;
+        font-size: 17px;
       }
       .nav-list .icon i{
-        font-size: 20px;
+        font-size: 17px;
       }
       .logo a{
-            font-size: 40px;
+        font-size: 40px;
       }      
     }
     @media screen and (max-width: 1482px){  
