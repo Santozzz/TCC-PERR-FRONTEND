@@ -281,6 +281,7 @@ export default {
         border-radius: 5px;
         background-color: #F78024;
     }
+    
     .vagaSugeridas{
         display: flex;
         flex-direction: column;
@@ -434,13 +435,27 @@ export default {
         }
         .container-cardSecundarios{
             width: 100%;
-            height: 35vh;
+            height: 60vh;
+        }
+        .card .legenda-cardSec p{
+            text-align: center;
+            font-size: 22px;
         }
         .rowCardCourse{
             width: 100%;
         }
         .cardPrincipal{
             width: 100%;
+        }
+        .cardPrincipal .legenda p{
+            font-size: 23px;
+        }
+        .cardPrincipal .container-btn button{
+            width: 4rem;
+            font-size: 20px;
+        }
+        .cardPrincipal .container-btn button i{
+            font-size: 15px;
         }
     }
     @media screen and (max-width: 700px){
@@ -450,6 +465,7 @@ export default {
         .cardVagas .quantVagas{
             font-size: 14px;
         }
+
     }
     @media screen and (max-width: 555px){
         .rowCardVagas{
