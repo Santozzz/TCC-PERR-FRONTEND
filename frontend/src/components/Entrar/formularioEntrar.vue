@@ -93,6 +93,7 @@ export default {
     }
     .logo strong{
         color: #F78024;
+        font-style: italic;
     }
     .container-form{
         display: flex;

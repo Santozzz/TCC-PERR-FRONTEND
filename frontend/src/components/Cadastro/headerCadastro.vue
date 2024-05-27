@@ -90,11 +90,13 @@ export default {
         text-decoration: none;
         font-style: italic;
         font-family: sans-serif;
-        font-weight: 700;
+        font-weight: 800;
         font-size: 100px;
     }
     .logo a strong{
         color: #F78024;
+        font-style: italic;
+        font-size: 115px;
     }
     .frase p{
         color: #fff;

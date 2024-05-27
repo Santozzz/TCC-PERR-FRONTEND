@@ -189,6 +189,7 @@ export default {
     }
     .logo a strong{
       color: #000000;
+      font-style: italic;
     }
     .dropbtn {
       display: flex;
@@ -318,6 +319,40 @@ export default {
       border-radius: 50%;
       padding: 8px;
       cursor: pointer;
+    }
+    @media screen and (max-width: 1920px){
+      .logo a{
+        font-size: 55px;
+      }
+      .nav-list .namePage p{
+        font-size: 23px;
+      }
+      .nav-list .icon i{
+        font-size: 23px;
+      }
+      .contacts i{
+        font-size: 25px;
+        padding: 10px;
+      }
+    }
+    @media screen and (max-width: 1674px){  
+      .nav-list .namePage p{
+        font-size: 20px;
+      }
+      .nav-list .icon i{
+        font-size: 20px;
+      }
+      .logo a{
+            font-size: 40px;
+      }      
+    }
+    @media screen and (max-width: 1482px){  
+      .nav-list .namePage p{
+        font-size: 16px;
+      }
+      .nav-list .icon i{
+        font-size: 16px;
+      }
     }
     @media screen and (min-width: 1261px){
         .openMenu{

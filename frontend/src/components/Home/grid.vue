@@ -34,19 +34,47 @@
                         </div>
                     </div>
                     <div class="vagaSugeridas">
-                        <h4>Vagas sugeridas</h4>
+                        <h4>Encontre seu trabalho</h4>
                         <div class="rowVagas">
-                            <div class="cardVagas">
-                                
+                            <div class="rowCardVagas">
+                                <div class="cardVagas">
+                                    <div class="img-categoria">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="nome-categoria">
+                                        <p class="nomeVaga">Administração</p>
+                                        <p class="quantVagas">[ Quant. de vagas]</p>
+                                    </div>
+                                </div>
+                                <div class="cardVagas">
+                                    <div class="img-categoria">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="nome-categoria">
+                                        <p class="nomeVaga">Gastronomia</p>
+                                        <p class="quantVagas">[ Quant. de vagas]</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="cardVagas">
-    
-                            </div>
-                            <div class="cardVagas">
-    
-                            </div>
-                            <div class="cardVagas">
-    
+                            <div class="rowCardVagas">
+                                <div class="cardVagas">
+                                    <div class="img-categoria">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="nome-categoria">
+                                        <p class="nomeVaga">Construção</p>
+                                        <p class="quantVagas">[ Quant. de vagas]</p>
+                                    </div>
+                                </div>
+                                <div class="cardVagas">
+                                    <div class="img-categoria">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="nome-categoria">
+                                        <p class="nomeVaga">Informatica</p>
+                                        <p class="quantVagas">[ Quant. de vagas]</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -179,10 +207,17 @@ export default {
         width: 100%;
         justify-content: space-around;
         gap: 10px;
-        flex-wrap: wrap;
+    }
+    .rowCardVagas{
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
     }
     .cardVagas{
-        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 49%;
         height: 18vh;
         background-color: #fff;
         border-radius: 10px;
@@ -190,18 +225,110 @@ export default {
         cursor: pointer;
         transition: .2s;
     }
+    .img-categoria{
+        width: 40%;
+        height: 70%;
+        background-color: #F78024
+    }
+    .nome-categoria{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 30%;
+        width: 50%;
+    }
+    .quantVagas{
+        color: #808080;
+        font-weight: 400;
+        font-size: 13px;
+    }
+    .nome-categoria .nomeVaga{
+        font-size: 18px;
+    }
     .cardVagas:active{
         transform: scale(.98);
     }
-    @media screen and (min-width: 1260px) {
-        .rowVagas{
-            flex-wrap: nowrap;
+    @media screen and (max-width: 1920px){
+        .container-cursos h4{
+            font-size: 26px;
+            margin: 10px 0 10px 0;
+        }
+        .cardVagas .nomeVaga{
+            font-size: 25px;
+        }
+        .cardVagas .quantVagas{
+            font-size: 20px;
+        }
+        .cardVagas .img-categoria{
+            height: 65%;
+        }
+    }
+    @media screen and (max-width: 1816px){  
+        .cardVagas .quantVagas{
+            font-size: 16px;
+        }
+    }
+    @media screen and (max-width: 1708px){  
+        .cardVagas .nomeVaga{
+            font-size: 22px;
+        }
+    }
+    @media screen and (max-width: 1674px){
+        .container-cursos h4{
+            font-size: 18px;
+            margin: 5px 0 5px 0;
+        }   
+        .cardVagas{
+            height: 16vh;
+        }
+    }
+    @media screen and (max-width: 1500px){
+        .cardVagas .nomeVaga{
+            font-size: 18px;
+        }
+        .cardVagas .quantVagas{
+            font-size: 14px;
         }
     }
     @media screen and (max-width: 1260px){
         .container{
             margin: 40px auto;
             width: 100%;
+        }
+    }
+    @media screen and (max-width: 1025px){
+        .rowVagas{
+            flex-direction: column;
+        }
+        .rowCardVagas{
+            width: 100%;
+        }
+        .cardVagas .nomeVaga{
+            font-size: 25px;
+        }
+        .cardVagas .quantVagas{
+            font-size: 18px;
+        }
+    }
+    @media screen and (max-width: 700px){
+        .cardVagas .nomeVaga{
+            font-size: 20px;
+        }
+        .cardVagas .quantVagas{
+            font-size: 14px;
+        }
+    }
+    @media screen and (max-width: 555px){
+        .rowCardVagas{
+            height: 35vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cardVagas{
+            width: 90%;
+            height: 17vh;
+            justify-content: space-around;
         }
     }
 </style>
