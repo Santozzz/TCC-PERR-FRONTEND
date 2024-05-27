@@ -95,8 +95,7 @@ export default {
         display: flex;
         flex-direction: column;
         width: 80%;
-        height: 80vh;
-        margin: 20px 20%;
+        margin: 80px 20%;
         justify-content: space-evenly;
         align-items: center;
     }
