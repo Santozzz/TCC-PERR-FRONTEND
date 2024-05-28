@@ -91,6 +91,8 @@ export default {
       }
     },
     submitData(){
+        this.nothing = []
+
         if(!this.form.name || !this.form.tel || !this.form.email || !this.form.senha) {
             this.nothing.push('Preencha todos os campos');
         }
