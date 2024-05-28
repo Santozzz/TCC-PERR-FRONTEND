@@ -23,6 +23,31 @@ const router = createRouter({
       name: 'vagaemprego',
       component: () => import('../views/VagaEmprego.vue')
     },
+    {
+      path: '/Notificacoes',
+      name: 'notificacoes',
+      component: () => import('../views/Notificacoes.vue')
+    },
+    {
+      path: '/SeuCurriculo',
+      name: 'seucurriculo',
+      component: () => import('../views/SeuCurriculo.vue')
+    },
+    {
+      path: '/Favoritos',
+      name: 'favoritos',
+      component: () => import('../views/Favoritos.vue')
+    },
+    {
+      path: '/Cursos',
+      name: 'cursos',
+      component: () => import('../views/Cursos.vue')
+    },
+    {
+      path: '/Entrevista',
+      name: 'entrevista',
+      component: () => import('../views/Entrevista.vue')
+    },
   ]
 })
 

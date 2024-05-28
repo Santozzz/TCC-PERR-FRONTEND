@@ -46,7 +46,7 @@
                 </div>
               </li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/Notificacoes">
               <li>
                 <div class="icon">
                   <i class="fa-solid fa-bell"></i>
@@ -56,7 +56,7 @@
                 </div>
               </li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/SeuCurriculo">
               <li>
                 <div class="icon">
                   <i class="fa-solid fa-book-open"></i>
@@ -66,7 +66,7 @@
                 </div>
               </li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/Favoritos">
               <li>
                 <div class="icon">
                   <i class="fa-solid fa-bookmark"></i>
@@ -76,7 +76,7 @@
                 </div>
               </li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/Cursos">
               <li>
                 <div class="icon">
                   <i class="fa-solid fa-laptop"></i>
@@ -86,7 +86,7 @@
                 </div>
               </li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/Entrevista">
               <li>
                 <div class="icon">
                   <i class="fa-solid fa-headset"></i>
@@ -348,10 +348,14 @@ export default {
     }
     @media screen and (max-width: 1482px){  
       .nav-list .namePage p{
-        font-size: 16px;
+        font-size: 15px;
       }
       .nav-list .icon i{
-        font-size: 16px;
+        font-size: 15px;
+      }
+      .contacts i{
+        font-size: 15px;
+        padding: 8px;
       }
     }
     @media screen and (min-width: 1261px){
