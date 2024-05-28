@@ -228,7 +228,7 @@ export default {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        width: 50%;
+        width: 100%;
         height: 30px;
         border-radius: 5px;
         border: none;
@@ -395,6 +395,7 @@ export default {
         .container-btn button{
             font-size: 15px;
         }
+        
     }
     @media screen and (max-width: 1500px){
         .cardVagas .nomeVaga{
@@ -408,6 +409,9 @@ export default {
         .container{
             margin: 40px auto;
             width: 100%;
+        }
+        .display-video p{
+            font-size: 16px;
         }
     }
     @media screen and (max-width: 1025px){
@@ -438,7 +442,6 @@ export default {
             height: 60vh;
         }
         .card .legenda-cardSec p{
-            text-align: center;
             font-size: 22px;
         }
         .rowCardCourse{
@@ -451,7 +454,7 @@ export default {
             font-size: 23px;
         }
         .cardPrincipal .container-btn button{
-            width: 4rem;
+            width: 8rem;
             font-size: 20px;
         }
         .cardPrincipal .container-btn button i{
@@ -464,6 +467,19 @@ export default {
         }
         .cardVagas .quantVagas{
             font-size: 14px;
+        }
+        .display-video{
+            width: 90%;
+            flex-direction: column;
+        }
+        .legenda{
+            width: 100%;
+            text-align: center;
+        }
+
+        .container-btn{
+            width: 100%;
+            justify-content: center;
         }
 
     }
