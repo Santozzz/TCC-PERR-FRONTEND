@@ -66,7 +66,9 @@
                                             <p>Curso de português completo</p>
                                         </div>
                                         <div class="container-btnSec">
-                                            <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                            <button>
+                                                    Assistir<i class="fa-solid fa-play"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -237,6 +239,7 @@ export default {
         cursor: pointer;
         transition: .3
     }
+
     .container-btn button:active{
         transform: scale(.98);
     }
@@ -439,7 +442,7 @@ export default {
         }
         .container-cardSecundarios{
             width: 100%;
-            height: 60vh;
+            height: 70vh;
         }
         .card .legenda-cardSec p{
             font-size: 22px;
@@ -454,7 +457,6 @@ export default {
             font-size: 23px;
         }
         .cardPrincipal .container-btn button{
-            width: 8rem;
             font-size: 20px;
         }
         .cardPrincipal .container-btn button i{
@@ -476,10 +478,12 @@ export default {
             width: 100%;
             text-align: center;
         }
-
         .container-btn{
-            width: 100%;
+            width: 60%;
             justify-content: center;
+        }
+        .container-btn button{
+            width: 100%;
         }
 
     }
@@ -497,15 +501,16 @@ export default {
         }
         .container-cardSecundarios{
             gap: 20px;
-            height: 100vh;
+            height: 150vh;
         }
         .rowCardCourse{
             flex-direction: column;
             gap: 20px;
+            height: 49%;
         }
         .card{
             width: 100%;
-            height: 35vh;
+            height: 40vh;
         }
         .vagaSugeridas h4{
             font-size: 23px;
