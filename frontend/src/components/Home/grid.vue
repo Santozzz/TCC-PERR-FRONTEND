@@ -4,7 +4,27 @@
             <div class="header">
                 <div class="user-notify">
                     <p>[ usuario ]</p>
-                    <i class="fa-solid fa-bell"></i>    
+                    <i class="fa-solid fa-bell" :class="{ 'notifyOpen': isBellNotify }" @click="toggleNotify"></i>    
+                    <div class="notifications" :class="['notify', { 'notifyOpen': isBellNotify }]">
+                        <h4>Notificações</h4>
+                        <div class="container-notify">
+                            <div class="notify">
+                                <span>
+
+                                </span>
+                            </div>
+                            <div class="notify">
+                                <span>
+
+                                </span>
+                            </div>
+                            <div class="notify">
+                                <span>
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="gridCards"> 
@@ -122,11 +142,13 @@
 export default {
     data() {
         return{
-            
+            isBellNotify: false,
         }
     },
     methods: {
-
+        toggleNotify(){
+            this.isBellNotify = !this.isBellNotify;
+        }
     }
 }
 </script>
@@ -151,6 +173,7 @@ export default {
         box-shadow: 0 1px 1px 1px #ccc;
     }
     .user-notify{
+        position: relative;
         display: flex;
         width: 90%;
         justify-content: space-between;
@@ -164,6 +187,47 @@ export default {
         font-size: 25px;
         cursor: pointer;
         color: #252F3F;
+    }
+    .notifications.notifyOpen{
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        height: 300px;
+    }
+    .notifications h4{
+        width: 90%;
+        margin-top: 5px;
+        color: #F78024;
+        font-weight: ;
+    }
+    .notifications{
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 58%;
+        background-color: #ffffff;
+        box-shadow: 0 1px 1px 1px #ccc;
+        border-radius: 10px 0 10px 10px;
+    }
+    .container-notify{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        overflow-y: scroll;
+        height: 95%;
+        width: 100%;
+
+    }
+    .notify{
+        width: 90%;
+        height: 8vh;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 1px 1px 1px #ccc;
     }
     .container-cursos{
         display: flex;
@@ -327,7 +391,7 @@ export default {
         transition: .2s;
     }
     .img-categoria{
-        width: 40%;
+        width: 45%;
         height: 70%;
         background-color: #F78024;
     }

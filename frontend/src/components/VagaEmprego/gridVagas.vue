@@ -17,16 +17,48 @@
             <div class="container-vagas">
                 <div class="buscaRapida">
                     <div class="cardAreas">
-                        
+                        <div class="img-areas"></div>
+                        <div class="cardDescription">
+                            <div class="nomeArea">
+                                <p>Supermercados</p>
+                            </div>
+                            <div class="quantVagas">
+                                <p>[ quant. vagas ]</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="cardAreas">
-
+                        <div class="img-areas"></div>
+                        <div class="cardDescription">
+                            <div class="nomeArea">
+                                <p>Supermercados</p>
+                            </div>
+                            <div class="quantVagas">
+                                <p>[ quant. vagas ]</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="cardAreas">
-
+                        <div class="img-areas"></div>
+                        <div class="cardDescription">
+                            <div class="nomeArea">
+                                <p>Supermercados</p>
+                            </div>
+                            <div class="quantVagas">
+                                <p>[ quant. vagas ]</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="cardAreas">
-
+                        <div class="img-areas"></div>
+                        <div class="cardDescription">
+                            <div class="nomeArea">
+                                <p>Supermercados</p>
+                            </div>
+                            <div class="quantVagas">
+                                <p>[ quant. vagas ]</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <h4>Procure por vagas de emprego aqui !</h4>
@@ -152,6 +184,9 @@ export default {
         width: 100%;
     }
     .cardAreas{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
         width: 24%;
         height: 75%;
         background-color: #ffffff;
@@ -162,6 +197,14 @@ export default {
     }
     .cardAreas:active{
         transform: scale(.98);
+    }
+    .img-areas{
+        background-color: #F78024;
+        height: 70%;
+        width: 45%;
+    }
+    .quantVagas p{
+        color: #7e7e7e;
     }
     .gridCardVagas{
         display: flex;
