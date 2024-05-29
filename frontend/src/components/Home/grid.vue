@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="vagaSugeridas">
-                    <h4>Encontre seu trabalho</h4>
+                    <h4>Vagas populares</h4>
                     <div class="rowVagas">
                         <div class="rowCardVagas">
                             <div class="cardVagas">
@@ -136,8 +136,7 @@ export default {
         display: flex;
         flex-direction: column;
         width: 80%;
-        height: 80vh;
-        margin: 20px 20%;
+        margin: 30px 20%;
         justify-content: space-evenly;
         align-items: center;
     }
@@ -145,7 +144,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 88%;
+        width: 89%;
         height: 10vh;
         background-color: #ffffff;
         border-radius: 10px;
@@ -302,11 +301,11 @@ export default {
     .rowVagas{
         display: flex;
         width: 100%;
-        justify-content: space-around;
+        justify-content: space-between;
     }
     .rowCardVagas{
         display: flex;
-        width: 49%;
+        width: 49.5%;
         justify-content: space-between;
     }
     .cardVagas{
@@ -324,7 +323,7 @@ export default {
     .img-categoria{
         width: 40%;
         height: 70%;
-        background-color: #F78024
+        background-color: #F78024;
     }
     .nome-categoria{
         display: flex;
