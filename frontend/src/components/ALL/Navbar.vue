@@ -391,6 +391,9 @@ export default {
       .navbar{
         width: 23%;
       }
+      .mob-logo{
+          width: 19%;   
+      }    
     }
     @media screen and (max-width: 1000px){
         .mob-logo{
@@ -403,6 +406,9 @@ export default {
     @media screen and (max-width: 910px){
         .navbar{
           width: 28%;
+        }
+        .mob-logo{
+          width: 21%;
         }
     }
     @media screen and (max-width: 835px){
@@ -417,6 +423,9 @@ export default {
         .navbar{
           width: 35%;
         }
+        .mob-logo{
+          width: 25%;
+        }
     }
     @media screen and (max-width: 650px){
         .mob-logo{
@@ -424,6 +433,11 @@ export default {
         }
         .navbar{
           width: 44%;
+        }
+    }
+    @media screen and (max-width: 600px){
+        .mob-logo{
+          width: 30%;
         }
     }
     @media screen and (max-width: 535px){
@@ -438,10 +452,13 @@ export default {
         .navbar{
           width: 54%;
         }
+        .mob-logo{
+          width: 35%;
+        }
     }
     @media screen and (max-width: 425px){
         .mob-logo{
-          width: 38%;
+          width: 45%;
         }
         .navbar{
           width: 64%;
