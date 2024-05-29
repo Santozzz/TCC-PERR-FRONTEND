@@ -15,7 +15,7 @@
                             <div class="banner-img"></div>
                             <div class="display-video">
                                 <div class="legenda">
-                                    <p>Curso de português completo</p>
+                                    <p>[ legenda ]</p>
                                 </div>
                                 <div class="container-btn">
                                     <button>Assistir<i class="fa-solid fa-play"></i></button>
@@ -28,7 +28,7 @@
                                     <div class="banner-imgSec"></div>
                                     <div class="display-videoSec">
                                         <div class="legenda-cardSec">
-                                            <p>Curso de português completo</p>
+                                            <p>[ legenda ]</p>
                                         </div>
                                         <div class="container-btnSec">
                                             <button>Assistir<i class="fa-solid fa-play"></i></button>
@@ -39,7 +39,7 @@
                                     <div class="banner-imgSec"></div>
                                     <div class="display-videoSec">
                                         <div class="legenda-cardSec">
-                                            <p>Curso de português completo</p>
+                                            <p>[ legenda ]</p>
                                         </div>
                                         <div class="container-btnSec">
                                             <button>Assistir<i class="fa-solid fa-play"></i></button>
@@ -52,7 +52,7 @@
                                     <div class="banner-imgSec"></div>
                                     <div class="display-videoSec">
                                         <div class="legenda-cardSec">
-                                            <p>Curso de português completo</p>
+                                            <p>[ legenda ]</p>
                                         </div>
                                         <div class="container-btnSec">
                                             <button>Assistir<i class="fa-solid fa-play"></i></button>
@@ -63,7 +63,7 @@
                                     <div class="banner-imgSec"></div>
                                     <div class="display-videoSec">
                                         <div class="legenda-cardSec">
-                                            <p>Curso de português completo</p>
+                                            <p>[ legenda ]</p>
                                         </div>
                                         <div class="container-btnSec">
                                             <button>
@@ -220,6 +220,12 @@ export default {
     .legenda{
         width: 55%;
     }
+    .display-videoSec{
+        width: 80%;
+    }
+    .legenda-cardSec{ 
+        width: 100%;
+    }
     .container-btn{
         display: flex;
         width: 45%;
@@ -368,7 +374,6 @@ export default {
             align-items: center;
             width: 50%;
         }
-
     }
     @media screen and (max-width: 1816px){  
         .cardVagas .quantVagas{
@@ -397,7 +402,6 @@ export default {
         .container-btn button{
             font-size: 15px;
         }
-        
     }
     @media screen and (max-width: 1500px){
         .cardVagas .nomeVaga{
