@@ -479,14 +479,14 @@ export default {
         }
         .legenda{
             width: 100%;
-            text-align: center;
+            text-align: left;
         }
         .container-btn{
-            width: 60%;
-            justify-content: center;
+            width: 100%;
+            justify-content: right;
         }
         .container-btn button{
-            width: 100%;
+            width: 40%;
         }
 
     }
