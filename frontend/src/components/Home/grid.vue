@@ -8,20 +8,11 @@
                     <div class="notifications" :class="['notify', { 'notifyOpen': isBellNotify }]">
                         <h4>Notificações</h4>
                         <div class="container-notify">
-                            <div class="notify">
-                                <span>
-
-                                </span>
+                            <div v-if="notifys.length" v-for="(notify, index) in notifys" :key="index" class="notify">
+                                {{ notify }}
                             </div>
-                            <div class="notify">
-                                <span>
+                            <div v-else>
 
-                                </span>
-                            </div>
-                            <div class="notify">
-                                <span>
-
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -143,6 +134,7 @@ export default {
     data() {
         return{
             isBellNotify: false,
+            notifys: [],
         }
     },
     methods: {
@@ -191,6 +183,7 @@ export default {
     .notifications.notifyOpen{
         display: flex;
         flex-direction: column;
+        justify-content: start;
         width: 40%;
         height: 300px;
     }
@@ -212,21 +205,23 @@ export default {
         box-shadow: 0 1px 1px 1px #ccc;
         border-radius: 10px 0 10px 10px;
     }
-    .container-notify{
+    .container-notify {
         display: flex;
-        justify-content: space-evenly;
+        gap: 10px;
         align-items: center;
         flex-direction: column;
         overflow-y: scroll;
-        height: 95%;
+        height: 500px;
         width: 100%;
     }
-    .notify{
+
+    .notify {
         width: 90%;
-        height: 8vh;
+        min-height: 60px; /* Definindo uma altura mínima */
         border-radius: 5px;
         background-color: #fff;
         box-shadow: 0 1px 1px 1px #ccc;
+        flex-shrink: 0; /* Evitando que os cartões se comprimam */
     }
     /* Estilizando a barra de rolagem */
     .container-notify {
@@ -246,13 +241,13 @@ export default {
 
     /* Estilizando o polegar da barra de rolagem */
     .container-notify::-webkit-scrollbar-thumb {
-      background: #888; /* Cor do polegar da barra de rolagem */
+      background: #b2b2b2; /* Cor do polegar da barra de rolagem */
       border-radius: 10px; /* Borda arredondada */
     }
 
     /* Estilizando o polegar da barra de rolagem ao passar o mouse */
     .container-notify::-webkit-scrollbar-thumb:hover {
-      background: #555; /* Cor do polegar da barra de rolagem ao passar o mouse */
+      background: #959595; /* Cor do polegar da barra de rolagem ao passar o mouse */
     }
     .container-cursos{
         display: flex;

@@ -65,11 +65,15 @@
                 <div class="gridCardVagas">
                     <div class="container-row">
                         <div class="row">
-                            <div v-if="items.length">
-                                <h4>[ titulo da linha ]</h4>
-                                <span class="items" v-for="(item, index) in items" :key="index">
-                                    {{ item }}
+                            <div class="container-item" v-if="items.length">
+                                <span v-for="(titulo, index) in titulos" :key="index" class="ttl-row">
+                                    <h4>{{ titulo }}</h4>
                                 </span>
+                                <div class="container-card">                                    
+                                    <span class="card" v-for="(item, index) in items" :key="index">
+                                        {{ item }}
+                                    </span>
+                                </div>
                             </div>
                             <div class="nao-vagas" v-else>
                                 <div class="img"></div>
@@ -87,6 +91,7 @@
 export default {
     data() {
         return {
+            titulos: [],
             items: [],
         }
     },
@@ -171,10 +176,10 @@ export default {
 
     }
     .container-vagas h4{
-        width: 99%;
+        width: 100%;
         font-size: 25px;
         font-weight: 500;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         color: #F78024;
     }
     .buscaRapida{
@@ -215,17 +220,14 @@ export default {
         width: 100%;
     }
     .container-row h4{
-        font-size: 19px;
+        font-size: 20px;
         margin-bottom: 5px;
     }
     .row{
         display: flex;
-        justify-content: space-evenly;
-        align-items: center;
         width: 100%;
-        height: 23vh;
+        height: 26vh;
         margin-bottom: 5px;
-
     }
     .img{
         background-image: url(../../assets/img/VagaEmprego/nao-vagas.jpg);
@@ -234,11 +236,40 @@ export default {
         width: 200px;
         height: 200px;
     }
+    .container-item{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    }
+    .ttl-row{
+        width: 100%;
+    }
+    .container-card{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    .card{
+        width: 33%;
+        height: 100%;
+        background-color: #F78024;
+    }
     .nao-vagas{
         display: flex;
         flex-direction: column;
         width: 100%;
         align-items: center;
         justify-content: center;
+    }
+    @media screen and (max-width: 1260px){
+        .container{
+            margin: 40px auto;
+            width: 100%;
+        }
     }
 </style>
