@@ -20,7 +20,7 @@
                         <div class="img-areas"></div>
                         <div class="cardDescription">
                             <div class="nomeArea">
-                                <p>Supermercados</p>
+                                <p>Lojas</p>
                             </div>
                             <div class="quantVagas">
                                 <p>[ quant. vagas ]</p>
@@ -31,7 +31,7 @@
                         <div class="img-areas"></div>
                         <div class="cardDescription">
                             <div class="nomeArea">
-                                <p>Supermercados</p>
+                                <p>Fábrica</p>
                             </div>
                             <div class="quantVagas">
                                 <p>[ quant. vagas ]</p>
@@ -42,7 +42,7 @@
                         <div class="img-areas"></div>
                         <div class="cardDescription">
                             <div class="nomeArea">
-                                <p>Supermercados</p>
+                                <p>Transportes</p>
                             </div>
                             <div class="quantVagas">
                                 <p>[ quant. vagas ]</p>
@@ -53,7 +53,7 @@
                         <div class="img-areas"></div>
                         <div class="cardDescription">
                             <div class="nomeArea">
-                                <p>Supermercados</p>
+                                <p>Saúde</p>
                             </div>
                             <div class="quantVagas">
                                 <p>[ quant. vagas ]</p>
@@ -64,9 +64,9 @@
                 <h4>Procure por vagas de emprego aqui !</h4>
                 <div class="gridCardVagas">
                     <div class="container-row">
-                        <h4>[ titulo da linha ]</h4>
                         <div class="row">
                             <div v-if="items.length">
+                                <h4>[ titulo da linha ]</h4>
                                 <span class="items" v-for="(item, index) in items" :key="index">
                                     {{ item }}
                                 </span>
@@ -145,6 +145,7 @@ export default {
     }
     .input-search i{
         color: #ffffff;
+        cursor: pointer;
     }
     .filter{
         display: flex;

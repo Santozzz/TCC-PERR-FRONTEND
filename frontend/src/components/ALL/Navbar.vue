@@ -265,7 +265,7 @@ export default {
       transition: .5s ease;
     }
     .nav-list li:hover{
-      background-color: #252c35;
+      background-color: #1c212c;
       cursor: pointer;
     }
     .nav-list li .icon{

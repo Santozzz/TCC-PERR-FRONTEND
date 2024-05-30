@@ -198,7 +198,7 @@ export default {
         width: 90%;
         margin-top: 5px;
         color: #F78024;
-        font-weight: ;
+        font-weight: 500;
     }
     .notifications{
         display: none;
@@ -220,7 +220,6 @@ export default {
         overflow-y: scroll;
         height: 95%;
         width: 100%;
-
     }
     .notify{
         width: 90%;
@@ -228,6 +227,32 @@ export default {
         border-radius: 5px;
         background-color: #fff;
         box-shadow: 0 1px 1px 1px #ccc;
+    }
+    /* Estilizando a barra de rolagem */
+    .container-notify {
+      overflow-y: scroll;
+    }
+
+    /* Estilizando a barra de rolagem */
+    .container-notify::-webkit-scrollbar {
+      width: 8px;/* Largura da barra de rolagem */
+    }
+
+    /* Estilizando o fundo da barra de rolagem */
+    .container-notify::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Cor do fundo da barra de rolagem */
+      border-radius: 10px; /* Borda arredondada */
+    }
+
+    /* Estilizando o polegar da barra de rolagem */
+    .container-notify::-webkit-scrollbar-thumb {
+      background: #888; /* Cor do polegar da barra de rolagem */
+      border-radius: 10px; /* Borda arredondada */
+    }
+
+    /* Estilizando o polegar da barra de rolagem ao passar o mouse */
+    .container-notify::-webkit-scrollbar-thumb:hover {
+      background: #555; /* Cor do polegar da barra de rolagem ao passar o mouse */
     }
     .container-cursos{
         display: flex;
