@@ -16,47 +16,51 @@
             </div>
             <div class="container-vagas">
                 <div class="buscaRapida">
-                    <div class="cardAreas">
-                        <div class="img-areas"></div>
-                        <div class="cardDescription">
-                            <div class="nomeArea">
-                                <p>Lojas</p>
+                    <div class="rowCardArea">
+                        <div class="cardAreas">
+                            <div class="img-areas"></div>
+                            <div class="cardDescription">
+                                <div class="nomeArea">
+                                    <p>Lojas</p>
+                                </div>
+                                <div class="quantVagas">
+                                    <p>[ quant. vagas ]</p>
+                                </div>
                             </div>
-                            <div class="quantVagas">
-                                <p>[ quant. vagas ]</p>
+                        </div>
+                        <div class="cardAreas">
+                            <div class="img-areas"></div>
+                            <div class="cardDescription">
+                                <div class="nomeArea">
+                                    <p>Fábrica</p>
+                                </div>
+                                <div class="quantVagas">
+                                    <p>[ quant. vagas ]</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="cardAreas">
-                        <div class="img-areas"></div>
-                        <div class="cardDescription">
-                            <div class="nomeArea">
-                                <p>Fábrica</p>
-                            </div>
-                            <div class="quantVagas">
-                                <p>[ quant. vagas ]</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cardAreas">
-                        <div class="img-areas"></div>
-                        <div class="cardDescription">
-                            <div class="nomeArea">
-                                <p>Transportes</p>
-                            </div>
-                            <div class="quantVagas">
-                                <p>[ quant. vagas ]</p>
+                    <div class="rowCardArea">
+                        <div class="cardAreas">
+                            <div class="img-areas"></div>
+                            <div class="cardDescription">
+                                <div class="nomeArea">
+                                    <p>Transportes</p>
+                                </div>
+                                <div class="quantVagas">
+                                    <p>[ quant. vagas ]</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="cardAreas">
-                        <div class="img-areas"></div>
-                        <div class="cardDescription">
-                            <div class="nomeArea">
-                                <p>Saúde</p>
-                            </div>
-                            <div class="quantVagas">
-                                <p>[ quant. vagas ]</p>
+                        <div class="cardAreas">
+                            <div class="img-areas"></div>
+                            <div class="cardDescription">
+                                <div class="nomeArea">
+                                    <p>Saúde</p>
+                                </div>
+                                <div class="quantVagas">
+                                    <p>[ quant. vagas ]</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,7 +127,7 @@ export default {
     .container-pesquisa{
         display: flex;
         justify-content: center;
-        width: 90%;
+        width: 100%;
     }
     .input-search{
         display: flex;
@@ -189,12 +193,18 @@ export default {
         height: 22vh;
         width: 100%;
     }
+    .rowCardArea{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 49.5%;
+        height: 100%;
+    }
     .cardAreas{
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        width: 24%;
-        height: 75%;
+        width: 49%;
         background-color: #ffffff;
         box-shadow: 0 1px 1px 1px #ccc;
         border-radius: 5px;
@@ -266,10 +276,197 @@ export default {
         align-items: center;
         justify-content: center;
     }
+    @media screen and (max-width: 1920px){
+        .input-search input{
+            padding: 13px;
+        }
+        .input-search i{
+            font-size: 25px;
+        }
+        .input-search input::placeholder{
+            font-size: 20px;
+        }
+        .filter{
+            height: 45%;
+        }
+        .filter button{
+            font-size: 23px;
+        }
+        .cardDescription .nomeArea p{
+            font-size: 25px;
+        }
+        .cardDescription .quantVagas p{
+            font-size: 20px;
+        }
+        .container-vagas h4{
+            font-size: 35px;
+        }
+        .img{
+            width: 300px;
+            height: 420px;
+        }
+        .cardAreas{
+            height: 65%;
+        }
+        .nao-vagas p{
+            font-size: 25px;
+        }
+    }
+    @media screen and (max-width:  1550px) {
+        .cardAreas{
+            height: 60%;
+        }
+        .cardDescription .nomeArea p{
+            font-size: 20px;
+        }
+        .cardDescription .quantVagas p{
+            font-size: 17px;
+        }
+        .container-vagas h4{
+            font-size: 25px;
+        }
+        .img{
+            width: 200px;
+            height: 250px;
+        }
+        .nao-vagas p{
+            font-size: 20px;
+        }
+    }
+    @media screen and (max-width: 1350px){     
+        .input-search input{
+            padding: 5px;
+        }
+        .input-search input::placeholder{
+            font-size: 15px;
+        }
+        .input-search i{
+            font-size: 15px;
+        }
+        .filter button{
+            font-size: 15px;
+        }
+    }
     @media screen and (max-width: 1260px){
         .container{
             margin: 40px auto;
             width: 100%;
         }
+        .input-search input{
+            padding: 10px;
+        }
+        .container-pesquisa{
+            width: 85%;
+        }
+        .filter{
+            width: 15%;
+        }
+        .filter button {
+            font-size: 22px;
+        }
     }
-</style>
+    @media screen and (max-width: 950px){
+        .input-search{
+            width: 95%;
+        }
+        .filter{
+            width: 15%;        
+        }
+        .filter button{
+            font-size: 22px;
+        }
+        .input-search input{
+            padding: 10px;
+        }
+        .buscaRapida{
+            flex-direction: column;
+            height: 30vh;
+            margin: 30px 0 30px 0;
+        }
+        .rowCardArea{
+            width: 100%;
+            height: 48%;
+        }
+        .cardDescription .nomeArea p{
+            font-size: 25px;
+        }
+        .cardDescription .quantVagas p{
+            font-size: 20px;
+        }
+        .cardAreas{
+            height: 100%;
+        }
+        .img-areas{
+            width: 30%;
+        }
+    }
+    @media screen and (max-width: 800px){
+        .img-areas{
+            width: 35%;
+        }
+        .container-pesquisa{
+            width: 80%;
+        }
+        .filter{
+            width: 20%;
+        }
+    }
+    @media screen and (max-width: 640px){   
+        .cardAreas{
+            height: 100%;
+        }
+        .buscaRapida{
+            height: 25vh;
+        }
+        .input-search input{
+            width: 90%;
+        }
+        .input-search input::placeholder{
+            font-size: 20px;
+        }
+        .input-search{
+            width: 90%;
+        }
+        .container-pesquisa{
+            width: 100%;
+        }
+        .container-icon i{
+            font-size: 20px;
+        }
+        .filter{
+            width: 25%;
+        }
+    }
+    @media screen and (max-width: 550px){
+        .rowCardArea{
+            height: 49%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .buscaRapida{
+            height: 70vh;
+        }
+        .cardAreas{
+            width: 100%;
+            height: 48%;
+            justify-content: space-around;
+        }
+        .filter{
+            justify-content: center;
+            height: 30%;
+            width: 120%;
+        }
+        .container-pesquisa{
+            width: 105%;
+        }
+        .headerVagas{
+            height: 15vh;
+            flex-direction: column;
+            align-items: center;
+        }
+    }    
+    @media screen and(max-width: 462px){
+        
+    }   
+</style>        

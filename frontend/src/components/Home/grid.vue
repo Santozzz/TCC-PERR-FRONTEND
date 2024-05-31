@@ -190,7 +190,7 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: start;
-        width: 0%;
+        width: 42%;
         height: 300px;
     }
     .notifications h4{
