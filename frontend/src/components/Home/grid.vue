@@ -8,11 +8,17 @@
                     <div class="notifications" :class="['notify', { 'notifyOpen': isBellNotify }]">
                         <h4>Notificações</h4>
                         <div class="container-notify">
-                            <div v-if="notifys.length" v-for="(notify, index) in notifys" :key="index" class="notify">
-                                {{ notify }}
+                            <div class="verify" v-if="notifys.length">
+                                <div v-for="(notify, index) in notifys" :key="index" class="notify">
+                                    <div class="space">                                        
+                                        {{ notify.asdasd }}
+                                        <button>Abrir</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div v-else>
-
+                            <div class="not-notify" v-else>
+                                <div class="img-notNotify"></div>
+                                <p>Você não tem nenhuma notificação</p>
                             </div>
                         </div>
                     </div>
@@ -184,12 +190,13 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: start;
-        width: 40%;
+        width: 0%;
         height: 300px;
     }
     .notifications h4{
         width: 90%;
         margin-top: 5px;
+        margin-bottom: 10px;
         color: #F78024;
         font-weight: 500;
     }
@@ -214,14 +221,51 @@ export default {
         height: 500px;
         width: 100%;
     }
-
-    .notify {
+    .verify{
         width: 90%;
+    }
+    .space{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        height: 8.5vh;
+        margin: auto;
+    }
+    .space button{
+        border: none;
+        background-color: #F78024;
+        padding: 5px 20px;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+    }
+    .not-notify{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 90%;
+    }
+    .not-notify p{
+        font-size: 10px;
+    }
+    .img-notNotify{
+        height: 180px;
+        width: 200px;
+        background-image: url(../../assets/img/Home/img-notNotify.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .notify {
+        width: 100%;
         min-height: 60px; /* Definindo uma altura mínima */
         border-radius: 5px;
         background-color: #fff;
         box-shadow: 0 1px 1px 1px #ccc;
         flex-shrink: 0; /* Evitando que os cartões se comprimam */
+        margin-bottom: 10px;
     }
     /* Estilizando a barra de rolagem */
     .container-notify {
@@ -438,6 +482,9 @@ export default {
             font-size: 26px;
             margin: 10px 0 10px 0;
         }
+        .notifications.notifyOpen{
+            height: 500px;
+        }
         .cardVagas .nomeVaga{
             font-size: 25px;
         }
@@ -468,6 +515,9 @@ export default {
         .cardVagas .nomeVaga{
             font-size: 22px;
         }
+        .notifications.notifyOpen{
+            height: 450px;
+        }
     }
     @media screen and (max-width: 1674px){
         .container-cursos h4{
@@ -486,6 +536,9 @@ export default {
         .container-btn button{
             font-size: 15px;
         }
+        .notifications.notifyOpen{
+            height: 400px;
+        }
     }
     @media screen and (max-width: 1500px){
         .cardVagas .nomeVaga{
@@ -493,6 +546,10 @@ export default {
         }
         .cardVagas .quantVagas{
             font-size: 14px;
+        }
+        .notifications.notifyOpen{
+            width: 50%;
+            left: 50%;
         }
     }
     @media screen and (max-width: 1260px){
@@ -550,6 +607,13 @@ export default {
             font-size: 15px;
         }
     }
+    @media screen and (max-width: 856px){
+        .notifications.notifyOpen{
+            height: 350px;
+            width: 65%;
+            left: 35%;
+        }
+    }
     @media screen and (max-width: 700px){
         .cardVagas .nomeVaga{
             font-size: 20px;
@@ -572,7 +636,15 @@ export default {
         .container-btn button{
             width: 40%;
         }
-
+        .notifications.notifyOpen .not-notify p{
+            font-size: 18px;
+        }
+    }
+    @media screen and (max-width: 592px){
+        .notifications.notifyOpen{
+            width: 85%;
+            left: 15%;
+        }
     }
     @media screen and (max-width: 555px){
         .rowCardVagas{
@@ -606,6 +678,13 @@ export default {
     @media screen and (max-width: 470px){
         .banner-img{
             height: 55%;
+        }
+        .notifications.notifyOpen{
+            width: 100%;
+            left: 0%;
+        }
+        .notifications.notifyOpen .not-notify p{
+            font-size: 16px;
         }
     }
 </style>
