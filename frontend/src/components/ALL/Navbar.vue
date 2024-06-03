@@ -25,85 +25,87 @@
             </nav>
         </header>
         <nav class="navbar" :class="['navbar', { 'navbarOpen': isMenuOpen }]">
-          <ul class="nav-list">
-            <router-link to="/">
-              <li>
-                <div class="icon">
-                  <i class="fa-solid fa-home"></i>
-                </div>
-                <div class="namePage">
-                  <p>Página inicial</p>
-                </div>
-              </li>
-            </router-link>
-            <router-link to="/VagaEmprego">
-              <li>
-                <div class="icon">
-                  <i class="fa-solid fa-briefcase"></i>
-                </div>
-                <div class="namePage">
-                  <p>Vagas de Emprego</p>
-                </div>
-              </li>
-            </router-link>
-            <router-link to="/Notificacoes">
-              <li>
-                <div class="icon">
-                  <i class="fa-solid fa-bell"></i>
-                </div>
-                <div class="namePage">
-                  <p>Notificações</p>
-                </div>
-              </li>
-            </router-link>
-            <router-link to="/SeuCurriculo">
-              <li>
-                <div class="icon">
-                  <i class="fa-solid fa-book-open"></i>
-                </div>
-                <div class="namePage">
-                  <p>Seu currículo</p>
-                </div>
-              </li>
-            </router-link>
-            <router-link to="/Favoritos">
-              <li>
-                <div class="icon">
-                  <i class="fa-solid fa-bookmark"></i>
-                </div>
-                <div class="namePage">
-                  <p>Favoritos</p>
-                </div>
-              </li>
-            </router-link>
-            <router-link to="/Cursos">
-              <li>
-                <div class="icon">
-                  <i class="fa-solid fa-laptop"></i>
-                </div>
-                <div class="namePage">
-                  <p>Cursos</p>
-                </div>
-              </li>
-            </router-link>
-            <router-link to="/Entrevista">
-              <li>
-                <div class="icon">
-                  <i class="fa-solid fa-headset"></i>
-                </div>
-                <div class="namePage">
-                  <p>Entrevista</p>
-                </div>
-              </li>
-            </router-link>
-            
-          </ul>
-          <div class="container-contact">
-            <div class="line"></div>
-            <div class="contacts">
-              <i class="fa-brands fa-whatsapp"></i>
-              <i class="fa-brands fa-facebook"></i>
-              <i class="fa-brands fa-instagram"></i>
+          <div class="spaceNavbar">
+            <ul class="nav-list">
+              <router-link to="/">
+                <li>
+                  <div class="icon">
+                    <i class="fa-solid fa-home"></i>
+                  </div>
+                  <div class="namePage">
+                    <p>Página inicial</p>
+                  </div>
+                </li>
+              </router-link>
+              <router-link to="/VagaEmprego">
+                <li>
+                  <div class="icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                  </div>
+                  <div class="namePage">
+                    <p>Vagas de Emprego</p>
+                  </div>
+                </li>
+              </router-link>
+              <router-link to="/Notificacoes">
+                <li>
+                  <div class="icon">
+                    <i class="fa-solid fa-bell"></i>
+                  </div>
+                  <div class="namePage">
+                    <p>Notificações</p>
+                  </div>
+                </li>
+              </router-link>
+              <router-link to="/SeuCurriculo">
+                <li>
+                  <div class="icon">
+                    <i class="fa-solid fa-book-open"></i>
+                  </div>
+                  <div class="namePage">
+                    <p>Seu currículo</p>
+                  </div>
+                </li>
+              </router-link>
+              <router-link to="/Favoritos">
+                <li>
+                  <div class="icon">
+                    <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="namePage">
+                    <p>Favoritos</p>
+                  </div>
+                </li>
+              </router-link>
+              <router-link to="/Cursos">
+                <li>
+                  <div class="icon">
+                    <i class="fa-solid fa-laptop"></i>
+                  </div>
+                  <div class="namePage">
+                    <p>Cursos</p>
+                  </div>
+                </li>
+              </router-link>
+              <router-link to="/Entrevista">
+                <li>
+                  <div class="icon">
+                    <i class="fa-solid fa-headset"></i>
+                  </div>
+                  <div class="namePage">
+                    <p>Entrevista</p>
+                  </div>
+                </li>
+              </router-link>
+              
+            </ul>
+            <div class="container-contact">
+              <div class="line"></div>
+              <div class="contacts">
+                <i class="fa-brands fa-whatsapp"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+              </div>
             </div>
           </div>
         </nav>
@@ -135,6 +137,14 @@ export default {
 </script>
 
 <style scoped>
+    .spaceNavbar{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 95%;
+    }
     .navbar{
       position: fixed;
       height: 90vh;
@@ -143,7 +153,7 @@ export default {
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      background-color: #131921;
+      background-color: #252F3F;
     }
     header{
       width: 100%;
@@ -277,7 +287,7 @@ export default {
       align-items: center;
     }
     .nav-list li i{
-      color: #fff;
+      color: #9FA6B2;
     }
     .nav-list li .namePage{
       width: 80%;
@@ -289,7 +299,7 @@ export default {
       font-weight: 400;
     }
     .nav-list a li{
-      color: #fff;
+      color: #ffffff;
       font-size: 14px;
       font-weight: 500;
       letter-spacing: 1px;
@@ -302,7 +312,7 @@ export default {
     }
     .container-contact{
       width: 90%;
-      height: 30%;
+      height: 20%;
       display: flex;
       align-items: center;
       justify-content: space-between;

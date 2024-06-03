@@ -584,6 +584,9 @@ export default {
         .cardVagas .quantVagas{
             font-size: 12px;
         }
+        .cardVagas{
+            height: 15vh;
+        }
     }
     @media screen and (max-width: 1260px){
         .container{
