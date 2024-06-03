@@ -460,13 +460,26 @@ export default {
         .container-pesquisa{
             width: 105%;
         }
+        .container-icon i{
+            font-size: 15px;
+        }
         .headerVagas{
             height: 15vh;
             flex-direction: column;
             align-items: center;
         }
     }    
-    @media screen and(max-width: 462px){
-        
-    }   
+    @media screen and (max-width: 465px){
+        .container-vagas h4{
+            font-size: 20px;
+        }
+        .row .nao-vagas p{
+            font-size: 16px;
+        }
+    }
+    @media screen and (max-width: 367px){
+        .container-vagas h4 {
+            font-size: 19px;
+        }
+    }
 </style>        
