@@ -337,7 +337,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         width: 49.5%;
-        height: 50vh;
+        height: 45vh;
         border-radius: 2px;
         background-color: #fff;
         box-shadow: 0 1px 1px 1px #ccc;
@@ -395,7 +395,7 @@ export default {
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
-        height: 50vh;
+        height: 45vh;
         width: 50%;
     }
     .rowCardCourse{
@@ -415,6 +415,7 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        transition: .3s ease;
     }
     .spaceCardSecundario{
         display: flex;
