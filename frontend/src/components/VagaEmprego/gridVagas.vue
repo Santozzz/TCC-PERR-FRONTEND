@@ -122,7 +122,7 @@ export default {
         height: 10vh;
         background-color: #ffffff;
         box-shadow: 0 1px 1px 1px #ccc;
-        border-radius: 10px;
+        border-radius: 2px;
     }
     .container-pesquisa{
         display: flex;
@@ -135,13 +135,12 @@ export default {
         align-items: center;
         width: 95%;
         background-color: #252F3F;
-        border-radius: 5px;
-        
+        border-radius: 2px;
     }
     .input-search input{
         width: 90%;
         padding: 5px;
-        border-radius: 5px 0 0 5px;
+        border-radius: 2px 0 0 2px;
         border: 1px solid #ccc;
     }
     .input-search input:focus{
@@ -166,7 +165,7 @@ export default {
         width: 80%;
         border: 1px solid #ccc;
         background-color: #f9f9f9;
-        border-radius: 5px;
+        border-radius: 2px;
         font-size: 15px;
         cursor: pointer;
         height: 100%;
@@ -202,12 +201,12 @@ export default {
     }
     .cardAreas{
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
         width: 49%;
         background-color: #ffffff;
         box-shadow: 0 1px 1px 1px #ccc;
-        border-radius: 5px;
+        border-radius: 2px;
         cursor: pointer;
         transition: .3s;
     }
@@ -216,8 +215,11 @@ export default {
     }
     .img-areas{
         background-color: #F78024;
-        height: 70%;
+        height: 100%;
         width: 45%;
+    }
+    .cardDescription{
+        width: 52%;
     }
     .quantVagas p{
         color: #7e7e7e;
@@ -346,6 +348,9 @@ export default {
         .filter button{
             font-size: 15px;
         }
+        .cardAreas{
+            height: 15vh;
+        }
     }
     @media screen and (max-width: 1260px){
         .container{
@@ -450,7 +455,6 @@ export default {
         .cardAreas{
             width: 100%;
             height: 48%;
-            justify-content: space-around;
         }
         .filter{
             justify-content: center;

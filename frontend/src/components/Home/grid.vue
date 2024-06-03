@@ -177,7 +177,7 @@ export default {
         width: 89%;
         height: 10vh;
         background-color: #ffffff;
-        border-radius: 10px;
+        border-radius: 2px;
         box-shadow: 0 1px 1px 1px #ccc;
     }
     .user-notify{
@@ -338,6 +338,7 @@ export default {
         align-items: center;
         width: 49.5%;
         height: 50vh;
+        border-radius: 2px;
         background-color: #fff;
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
@@ -410,6 +411,7 @@ export default {
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
         display: flex;
+        border-radius: 2px;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
@@ -476,6 +478,7 @@ export default {
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
         transition: .2s;
+        border-radius: 2px;
     }
     .img-categoria{
         width: 45%;
