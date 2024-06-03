@@ -29,63 +29,73 @@
                     <h4>Confira nossos cursos!</h4>
                     <div class="row">
                         <div class="cardPrincipal">
-                            <div class="banner-img"></div>
-                            <div class="display-video">
-                                <div class="legenda">
-                                    <p>[ legenda ]</p>
-                                </div>
-                                <div class="container-btn">
-                                    <button>Assistir<i class="fa-solid fa-play"></i></button>
+                            <div class="spaceCardPrincipal">
+                                <div class="banner-img"></div>
+                                <div class="display-video">
+                                    <div class="legenda">
+                                        <p>[ legenda ]</p>
+                                    </div>
+                                    <div class="container-btn">
+                                        <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="container-cardSecundarios">
                             <div class="rowCardCourse">
                                 <div class="card">
-                                    <div class="banner-imgSec"></div>
-                                    <div class="display-videoSec">
-                                        <div class="legenda-cardSec">
-                                            <p>[ legenda ]</p>
-                                        </div>
-                                        <div class="container-btnSec">
-                                            <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                    <div class="spaceCardSecundario">
+                                        <div class="banner-imgSec"></div>
+                                        <div class="display-videoSec">
+                                            <div class="legenda-cardSec">
+                                                <p>[ legenda ]</p>
+                                            </div>
+                                            <div class="container-btnSec">
+                                                <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="banner-imgSec"></div>
-                                    <div class="display-videoSec">
-                                        <div class="legenda-cardSec">
-                                            <p>[ legenda ]</p>
-                                        </div>
-                                        <div class="container-btnSec">
-                                            <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                    <div class="spaceCardSecundario">
+                                        <div class="banner-imgSec"></div>
+                                        <div class="display-videoSec">
+                                            <div class="legenda-cardSec">
+                                                <p>[ legenda ]</p>
+                                            </div>
+                                            <div class="container-btnSec">
+                                                <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="rowCardCourse">
                                 <div class="card">
-                                    <div class="banner-imgSec"></div>
-                                    <div class="display-videoSec">
-                                        <div class="legenda-cardSec">
-                                            <p>[ legenda ]</p>
-                                        </div>
-                                        <div class="container-btnSec">
-                                            <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                    <div class="spaceCardSecundario">
+                                        <div class="banner-imgSec"></div>
+                                        <div class="display-videoSec">
+                                            <div class="legenda-cardSec">
+                                                <p>[ legenda ]</p>
+                                            </div>
+                                            <div class="container-btnSec">
+                                                <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="banner-imgSec"></div>
-                                    <div class="display-videoSec">
-                                        <div class="legenda-cardSec">
-                                            <p>[ legenda ]</p>
-                                        </div>
-                                        <div class="container-btnSec">
-                                            <button>
-                                                    Assistir<i class="fa-solid fa-play"></i>
-                                            </button>
+                                    <div class="spaceCardSecundario">
+                                        <div class="banner-imgSec"></div>
+                                        <div class="display-videoSec">
+                                            <div class="legenda-cardSec">
+                                                <p>[ legenda ]</p>
+                                            </div>
+                                            <div class="container-btnSec">
+                                                <button>
+                                                        Assistir<i class="fa-solid fa-play"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -324,20 +334,26 @@ export default {
     .cardPrincipal{
         display: flex;
         flex-direction: column; 
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         width: 49.5%;
-        height: 40vh;
+        height: 50vh;
         background-color: #fff;
-        border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
     }
+    .spaceCardPrincipal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 90%;
+        width: 100%;
+    }
     .banner-img{
-        width: 90%;
-        height: 65%;
+        width: 100%;
+        height: 75%;
         background-color: #F78024;
-        border-radius: 5px;
     }
     .display-video{
         display: flex;
@@ -347,12 +363,6 @@ export default {
     }
     .legenda{
         width: 55%;
-    }
-    .display-videoSec{
-        width: 80%;
-    }
-    .legenda-cardSec{ 
-        width: 100%;
     }
     .container-btn{
         display: flex;
@@ -384,7 +394,7 @@ export default {
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
-        height: 40vh;
+        height: 50vh;
         width: 50%;
     }
     .rowCardCourse{
@@ -397,13 +407,28 @@ export default {
         width: 49%;
         height: 100%;
         background-color: #fff;
-        border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
+    }
+    .spaceCardSecundario{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 90%;
+        width: 100%;
+    }
+    .display-videoSec{
+        justify-content: center;
+        display: flex;
+        width: 90%;
+    }
+    .legenda-cardSec{ 
+        width: 100%;
     }
     .container-btnSec{
         display: none;
@@ -412,9 +437,8 @@ export default {
         transform: scale(.98);
     }
     .banner-imgSec{
-        height: 60%;
-        width: 90%;
-        border-radius: 5px;
+        height: 75%;
+        width: 100%;
         background-color: #F78024;
     }
     

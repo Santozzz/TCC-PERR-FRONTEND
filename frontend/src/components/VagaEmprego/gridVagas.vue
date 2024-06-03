@@ -326,7 +326,7 @@ export default {
             font-size: 25px;
         }
         .img{
-            width: 200px;
+            width: 150px;
             height: 250px;
         }
         .nao-vagas p{
