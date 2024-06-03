@@ -171,6 +171,7 @@ export default {
       transform: scale(.9);
     }
     nav{
+      z-index: 999;
       background-color: #FF9352;
       position: fixed;
       width: 100%;
@@ -196,7 +197,7 @@ export default {
       align-items: center;
       gap: 10px;
       justify-content: space-between;
-      background-color: #FF9352;
+      background-color: transparent;
       color: #333333;
       padding: 10px;
       font-size: 16px;
@@ -223,7 +224,7 @@ export default {
       display: none;
       position: absolute;
       border-radius: 5px;
-      background-color: #ffffff;
+      background-color: #fff;
       min-width: 160px;
       box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
       z-index: 1;

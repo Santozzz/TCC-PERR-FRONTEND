@@ -469,11 +469,10 @@ export default {
     .cardVagas{
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
         width: 49%;
         height: 18vh;
         background-color: #fff;
-        border-radius: 10px;
         box-shadow: 0 1px 1px 1px #ccc;
         cursor: pointer;
         transition: .2s;
@@ -488,7 +487,7 @@ export default {
         flex-direction: column;
         justify-content: space-between;
         height: 30%;
-        width: 50%;
+        width: 53%;
     }
     .quantVagas{
         color: #808080;
@@ -509,6 +508,9 @@ export default {
         .notifications.notifyOpen{
             height: 500px;
         }
+        .cardVagas{
+            height: 14vh;
+        }
         .cardVagas .nomeVaga{
             font-size: 25px;
         }
@@ -516,7 +518,7 @@ export default {
             font-size: 20px;
         }
         .cardVagas .img-categoria{
-            height: 65%;
+            height: 100%;
         }
         .user-notify p{
             font-size: 25px;
@@ -574,6 +576,9 @@ export default {
         .notifications.notifyOpen{
             width: 50%;
             left: 50%;
+        }
+        .cardVagas .quantVagas{
+            font-size: 12px;
         }
     }
     @media screen and (max-width: 1260px){
