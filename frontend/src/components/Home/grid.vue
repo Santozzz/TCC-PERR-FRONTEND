@@ -172,9 +172,9 @@ export default {
     }
     .header{
         display: flex;
-        justify-content: center;
+        justify-content: center; 
         align-items: center;
-        width: 89%;
+        width: 88.5%;
         height: 10vh;
         background-color: #ffffff;
         border-radius: 2px;
