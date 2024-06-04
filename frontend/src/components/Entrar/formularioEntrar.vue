@@ -134,7 +134,8 @@ export default {
         background-color: #ffffff;
         padding: 20px;
         border-radius: 15px;
-        box-shadow: 0 0 3px 1px #ccc;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px #808080;
         margin-bottom: 10px;
     }
     .form input{
