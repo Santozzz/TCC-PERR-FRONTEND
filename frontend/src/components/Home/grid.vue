@@ -17,7 +17,7 @@
                                 </div>
                             </div>
                             <div class="not-notify" v-else>
-                                <div class="img-notNotify"></div>
+                                <img src="../../assets/img/Home/img-notNotify.jpg" alt="">
                                 <p>Você não tem nenhuma notificação</p>
                             </div>
                         </div>
@@ -261,12 +261,8 @@ export default {
     .not-notify p{
         font-size: 10px;
     }
-    .img-notNotify{
-        height: 180px;
+    .not-notify img{
         width: 200px;
-        background-image: url(../../assets/img/Home/img-notNotify.jpg);
-        background-position: center;
-        background-size: cover;
     }
     .notify {
         width: 100%;

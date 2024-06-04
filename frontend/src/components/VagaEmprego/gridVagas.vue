@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                             <div class="nao-vagas" v-else>
-                                <div class="img"></div>
+                                <img src="../../assets/img/VagaEmprego/nao-vagas.jpg" alt="">
                                 <p>No momento não há vagas disponíveis</p>
                             </div>
                         </div>
@@ -241,13 +241,6 @@ export default {
         height: 26vh;
         margin-bottom: 5px;
     }
-    .img{
-        background-image: url(../../assets/img/VagaEmprego/nao-vagas.jpg);
-        background-position: center;
-        background-size: cover;
-        width: 200px;
-        height: 200px;
-    }
     .container-item{
         width: 100%;
         height: 100%;
@@ -277,6 +270,9 @@ export default {
         width: 100%;
         align-items: center;
         justify-content: center;
+    }
+    .nao-vagas img{
+        width: 200px;
     }
     @media screen and (max-width: 1920px){
         .input-search input{
