@@ -195,6 +195,10 @@ export default {
         font-size: 25px;
         cursor: pointer;
         color: #252F3F;
+        transition: .2s ease;
+    }
+    .user-notify i:active{
+        transform: scale(.9);
     }
     .notifications.notifyOpen{
         display: flex;
