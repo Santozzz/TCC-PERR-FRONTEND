@@ -7,7 +7,7 @@
                     <span class="notify" v-for="(notify, index) in notifys" :key="index">
                         <span class="space">
                             {{ notify }}
-                            <button>Abrir</button>
+                            <button class="abrir">Abrir</button>
                         </span>
                     </span>
                 </div>
@@ -21,13 +21,13 @@
 </template>
 
 <script>
+
 export default {
     data() {
         return {
-            notifys: [
-            ],
+            notifys: [],
         }
-    }
+    },
 }
 </script>
 
@@ -106,7 +106,7 @@ export default {
         height: 9vh;
         width: 90%;
     }
-    .space button{
+    .space .abrir{
         color: #fff;
         background-color: #F78024;
         padding: 3px 20px;
