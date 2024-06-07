@@ -85,7 +85,7 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: start;
-        align-items: center;
+        align-items: start;
         width: 100%;
         height: 100%;
         gap: 10px;
@@ -124,6 +124,17 @@ export default {
     }
     .naoTem-notificacoes img{
         width: 200px;
+    }
+    @media screen and (max-width: 1920px){
+        .naoTem-notificacoes img{
+            width: 400px;
+        }
+        .naoTem-notificacoes p{
+            font-size: 30px;
+        }
+        .ttlNotificacao{
+            font-size: 35px;
+        }
     }
     @media screen and (max-width: 1260px){
         .container{

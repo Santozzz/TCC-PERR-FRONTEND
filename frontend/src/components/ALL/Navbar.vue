@@ -337,10 +337,10 @@ export default {
         font-size: 55px;
       }
       .nav-list .namePage p{
-        font-size: 23px;
+        font-size: 22px;
       }
       .nav-list .icon i{
-        font-size: 23px;
+        font-size: 21px;
       }
       .contacts i{
         font-size: 25px;
