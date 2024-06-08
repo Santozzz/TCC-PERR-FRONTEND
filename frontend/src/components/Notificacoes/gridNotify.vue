@@ -143,6 +143,9 @@ export default {
         }
     }
     @media screen and (max-width: 1450px){
+        .ttlNotificacao{
+            font-size: 26px;
+        }
         .naoTem-notificacoes img{
             width: 250px;
         }
