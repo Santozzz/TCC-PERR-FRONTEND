@@ -142,4 +142,12 @@ export default {
             width: 100%;
         }
     }
+    @media screen and (max-width: 1450px){
+        .naoTem-notificacoes img{
+            width: 250px;
+        }
+        .naoTem-notificacoes p{
+            font-size: 20px;
+        }
+    }
 </style>
