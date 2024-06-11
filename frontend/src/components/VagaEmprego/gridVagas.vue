@@ -272,7 +272,7 @@ export default {
         justify-content: center;
     }
     .nao-vagas img{
-        width: 200px;
+        width: 20%;
     }
     @media screen and (max-width: 1920px){
         .input-search input{
@@ -422,6 +422,9 @@ export default {
         .filter{
             width: 20%;
         }
+        .nao-vagas img{
+            width: 35%;
+        }
     }
     @media screen and (max-width: 640px){   
         .cardAreas{
@@ -485,7 +488,10 @@ export default {
             font-size: 20px;
         }
         .row .nao-vagas p{
-            font-size: 16px;
+            font-size: 19px;
+        }
+        .nao-vagas img{
+            width: 50%;
         }
     }
     @media screen and (max-width: 367px){

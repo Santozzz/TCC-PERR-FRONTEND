@@ -33,7 +33,7 @@
                                 <div class="banner-img"></div>
                                 <div class="display-video">
                                     <div class="legenda">
-                                        <p>[ legenda ]</p>
+                                        <p>[ legendaasddddddddddddddddddddddddddd ]</p>
                                     </div>
                                     <div class="container-btn">
                                         <button>Assistir<i class="fa-solid fa-play"></i></button>
@@ -76,7 +76,7 @@
                                         <div class="banner-imgSec"></div>
                                         <div class="display-videoSec">
                                             <div class="legenda-cardSec">
-                                                <p>[ legenda ]</p>
+                                                <p>[ legendsdasdadadasdsadasdsasda ]</p>
                                             </div>
                                             <div class="container-btnSec">
                                                 <button>Assistir<i class="fa-solid fa-play"></i></button>
@@ -364,6 +364,16 @@ export default {
     }
     .legenda{
         width: 55%;
+    }
+    .legenda p{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-wrap: nowrap;
+    }
+    .legenda-cardSec p{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-wrap: nowrap;
     }
     .container-btn{
         display: flex;
