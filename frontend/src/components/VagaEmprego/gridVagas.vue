@@ -310,6 +310,17 @@ export default {
             font-size: 25px;
         }
     }
+    @media screen and (max-width: 1600px){
+        .input-search input {
+            padding: 8px 5px;
+        }
+        .input-search input::placeholder {
+            font-size: 17px;
+        }
+        .container-icon i{
+            font-size: 16px;
+        }
+    }
     @media screen and (max-width:  1550px) {
         .cardAreas{
             height: 60%;

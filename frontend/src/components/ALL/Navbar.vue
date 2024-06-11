@@ -274,11 +274,15 @@ export default {
       padding: 10px;
       width: 100%;
       border-radius: 10px;
-      transition: .5s ease;
+      transition: .3s ease;
     }
     .nav-list li:hover{
+      transform: scale(1.03);
       background-color: #1c212c;
       cursor: pointer;
+    }
+    .nav-list li:active{
+      transform: scale(1);
     }
     .nav-list li .icon{
       width: 15%;
