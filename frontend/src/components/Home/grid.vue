@@ -393,7 +393,6 @@ export default {
         cursor: pointer;
         transition: .3
     }
-
     .container-btn button:active{
         transform: scale(.98);
     }
