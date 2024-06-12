@@ -377,6 +377,21 @@ export default {
             font-size: 22px;
         }
     }
+    @media screen and (max-width: 1240px){
+        .input-search input{
+            padding: 6px;
+        }
+        .container-pesquisa{
+            width: 85%;
+        }
+        .filter{
+            width: 15%;
+            height: 55%;
+        }
+        .filter button {
+            font-size: 18px;
+        }
+    }
     @media screen and (max-width: 950px){
         .input-search{
             width: 95%;
