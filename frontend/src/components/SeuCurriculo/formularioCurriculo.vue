@@ -156,7 +156,7 @@ export default {
     }
     .col-form input:focus{
         outline: none;
-        border: 1px solid #949494;
+        border: 1px solid #414141;
     }
     .container-formacao{
         display: flex;
