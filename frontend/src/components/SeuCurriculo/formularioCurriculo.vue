@@ -14,7 +14,7 @@
                     <input type="text" placeholder="Nacionalidade">
                 </div>
                 <div class="col-form">
-                    <input type="text" placeholder="[ algo a adicionar!!! ]">
+                    <input type="text" placeholder="Seu LinkedIn">
                     <input type="text" placeholder="[ numero ]">
                     <input type="text" placeholder="Cidade">
                     <input type="text" placeholder="Idioma">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="col-inputCheck">
-                        <h3>Ensino Fundamental</h3>
+                        <h3>Ensino Médio</h3>
                         <div class="item" v-for="(optionMed, index) in optionsMed" :key="index">
                             <div class="container-radio">
                                 <input type="radio" :name="groupname" :value="optionMed" v-model="selectedOptionMed">
@@ -47,13 +47,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-inputCheck">
-                        <h3>Ensino Fundamental</h3>
-                        <div class="item" v-for="(optionSup, index) in optionsSup" :key="index">
-                            <div class="container-radio">
+                    <div class="col-inputCheckSup">
+                        <h3>Ensino Superior</h3>
+                        <div class="itemSup" v-for="(optionSup, index) in optionsSup" :key="index">
+                            <div class="container-radioSup">
                                 <input type="radio" :name="groupname" :value="optionSup" v-model="selectedOptionSup">
                             </div>
-                            <div class="container-option">
+                            <div class="container-optionSup">
                                 <p>{{ optionSup }}</p>
                             </div>
                         </div>
@@ -68,9 +68,9 @@
 export default {
   data() {
     return {
-      optionsFund: ['Realizado', 'Não Realizado', 'Em Andamento'], // As opções do seu grupo
-      optionsMed: ['Realizado', 'Não Realizado', 'Em Andamento'], // As opções do seu grupo
-      optionsSup: ['Realizado', 'Não Realizado', 'Em Andamento'], // As opções do seu grupo
+      optionsFund: ['Realizado', 'Incompleto', 'Em Andamento'], // As opções do seu grupo
+      optionsMed: ['Realizado', 'Incompleto', 'Em Andamento'], // As opções do seu grupo
+      optionsSup: ['Doutorado', 'Mestrado', 'Pós-graduação', 'Graduação', 'Incompleto'], // As opções do seu grupo
       selectedOptionFund: '', // O valor selecionado
       selectedOptionMed: '', // O valor selecionado
       selectedOptionSup: '', // O valor selecionado
@@ -176,9 +176,10 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: start;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 25%;
         height: 18vh;
+        flex-wrap: wrap;
     }
     .col-inputCheck h3{
         width: 100%;
@@ -188,7 +189,7 @@ export default {
     .item{
         display: flex;
         width: 100%;
-        justify-content: space-between;
+        height: 20%;
         align-items: center;
     }
     .container-radio{
@@ -228,5 +229,73 @@ export default {
         display: flex;
         justify-content: start;
         width: 90%;
+    }
+    .col-inputCheckSup {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Define duas colunas iguais */
+        gap: 10px; /* Espaçamento entre os itens */
+        width: 50%; /* Ajuste conforme necessário */
+        align-items: center; /* Alinha verticalmente os itens ao centro */
+    }
+
+    .col-inputCheckSup h3 {
+        grid-column: span 2; /* Faz o título ocupar as duas colunas */
+        font-weight: 500;
+        color: #252F3F;
+    }
+    
+    .itemSup {
+        display: flex;
+        align-items: center;
+    }
+    
+    .container-radioSup {
+        display: flex;
+        justify-content: start;
+        width: 10%;
+    }
+    
+    .container-radioSup input {
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 1px solid #252F3F;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container-radioSup input:checked:before {
+        opacity: 1;
+    }
+    
+    .container-radioSup input:hover {
+        border: 1px solid #949494;
+    }
+    
+    .container-radioSup input::before {
+        content: '';
+        position: absolute;
+        height: 7px;
+        width: 7px;
+        background-color: #000000;
+        border-radius: 50%;
+        opacity: 0;
+    }
+    
+    .container-optionSup {
+        display: flex;
+        justify-content: start;
+        width: 90%;
+    }
+    @media screen and (max-width: 1260px){
+        .container{
+            margin: 40px auto;
+            width: 100%;
+        }
     }
 </style>
