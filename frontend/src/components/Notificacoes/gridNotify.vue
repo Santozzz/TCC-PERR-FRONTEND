@@ -44,7 +44,7 @@ export default {
         width: 90%;
         font-size: 25px;
         letter-spacing: 1px;
-        color: #F78024;
+        color: #252F3F;
         font-weight: 500;
         margin-bottom: 20px;
     }

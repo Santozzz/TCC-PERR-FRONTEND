@@ -183,7 +183,7 @@ export default {
         font-size: 25px;
         font-weight: 500;
         margin-bottom: 30px;
-        color: #F78024;
+        color: #252F3F;
     }
     .buscaRapida{
         display: flex;
