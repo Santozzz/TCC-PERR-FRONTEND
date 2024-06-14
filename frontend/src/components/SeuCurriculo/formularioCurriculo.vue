@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container"> 
+        <div class="container">
             <h2 class="ttl-curriculo">Seu Currículo</h2>
             <div class="infosPessoais-editar">
                 <h3 class="ttl">Informacões Pessoais</h3>
@@ -60,242 +60,428 @@
                     </div>
                 </div>
             </div>
+            <div class="container-cursos">
+                <div class="ttl-content">
+                    <h3 class="ttl">Cursos</h3>
+                    <button>Adicionar Cursos</button>
+                </div>
+                <div class="container-cardCourse">
+                    <div v-for="(course, index) in courses" :key="index" class="cardCourse">
+                        <div class="ttlCard">
+                            <h3>{{ course.title }}</h3>
+                        </div>
+                        <div class="periodo-nivel">
+                            <h4>Período: {{ course.period }}</h4>
+                            <h4>Nível: {{ course.level }}</h4>
+                        </div>
+                        <div class="description">
+                            <p>{{ course.description }}</p>
+                        </div>
+                    </div>
+                    <div v-for="(course, index) in courses" :key="index" class="cardCourse">
+                        <div class="ttlCard">
+                            <h3>{{ course.title }}</h3>
+                        </div>
+                        <div class="periodo-nivel">
+                            <h4>Período: {{ course.period }}</h4>
+                            <h4>Nível: {{ course.level }}</h4>
+                        </div>
+                        <div class="description">
+                            <p>{{ course.description }}</p>
+                        </div>
+                    </div>
+                    <div v-for="(course, index) in courses" :key="index" class="cardCourse">
+                        <div class="ttlCard">
+                            <h3>{{ course.title }}</h3>
+                        </div>
+                        <div class="periodo-nivel">
+                            <h4>Período: {{ course.period }}</h4>
+                            <h4>Nível: {{ course.level }}</h4>
+                        </div>
+                        <div class="description">
+                            <p>{{ course.description }}</p>
+                        </div>
+                    </div>
+                    <div v-for="(course, index) in courses" :key="index" class="cardCourse">
+                        <div class="ttlCard">
+                            <h3>{{ course.title }}</h3>
+                        </div>
+                        <div class="periodo-nivel">
+                            <h4>Período: {{ course.period }}</h4>
+                            <h4>Nível: {{ course.level }}</h4>
+                        </div>
+                        <div class="description">
+                            <p>{{ course.description }}</p>
+                        </div>
+                    </div>
+                    <div v-for="(course, index) in courses" :key="index" class="cardCourse">
+                        <div class="ttlCard">
+                            <h3>{{ course.title }}</h3>
+                        </div>
+                        <div class="periodo-nivel">
+                            <h4>Período: {{ course.period }}</h4>
+                            <h4>Nível: {{ course.level }}</h4>
+                        </div>
+                        <div class="description">
+                            <p>{{ course.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      optionsFund: ['Realizado', 'Incompleto', 'Em Andamento'], // As opções do seu grupo
-      optionsMed: ['Realizado', 'Incompleto', 'Em Andamento'], // As opções do seu grupo
-      optionsSup: ['Doutorado', 'Mestrado', 'Pós-graduação', 'Graduação', 'Incompleto'], // As opções do seu grupo
-      selectedOptionFund: '', // O valor selecionado
-      selectedOptionMed: '', // O valor selecionado
-      selectedOptionSup: '', // O valor selecionado
-    }
-  },
-  props: {
-    groupname: {
-      type: String,
-      required: true
+    data() {
+        return {
+            optionsFund: ['Realizado', 'Incompleto', 'Em Andamento'], // As opções do seu grupo
+            optionsMed: ['Realizado', 'Incompleto', 'Em Andamento'], // As opções do seu grupo
+            optionsSup: ['Doutorado', 'Mestrado', 'Pós-graduação', 'Graduação', 'Incompleto'], // As opções do seu grupo
+            selectedOptionFund: '', // O valor selecionado
+            selectedOptionMed: '', // O valor selecionado
+            selectedOptionSup: '', // O valor selecionado
+            courses: [
+                {
+                    title: '[ Curso ]',
+                    period: '[00/0000 - 00/0000]',
+                    level: '[ nível ]',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, nulla placeat voluptate explicabo nemo voluptatum facere expedita veritatis doloremque recusandae, tempore enim mollitia unde ipsum. Ad numquam iste eaque explicabo!',
+                },
+                // Adicione mais cursos conforme necessário
+            ],
+        }
     },
-  }
+    props: {
+        groupname: {
+            type: String,
+            required: true
+        },
+    }
 }
 </script>
 
 <style scoped>
-    .container{
-        display: flex;
-        flex-direction: column;
-        width: 80%;
-        margin: 30px 20%;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    .ttl-curriculo{
-        width: 90%;
-        font-weight: 500;
-        color: #252F3F;
-        margin-bottom: 50px;
-    }
-    .infosPessoais-editar{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 90%;
-        margin-bottom: 10px;
-    }
-    .infosPessoais-editar button {
-        border: none;
-        border-radius: 4px;
-        padding: 8px 25px;
-        background-color: #F78024;
-        color: #fff;
-        font-size: 15px;
-        cursor: pointer;
-        transition: .3s ease;
-    }
-    .infosPessoais-editar button:active{
-        transform: scale(.98);
-    }
-    .ttl-content{
-        width: 100%;
-        display: flex;
-        justify-content: start;
-    }
-    .ttl{
-        font-weight: 500;
-        font-size: 20px;
-        color: #252F3F;
-    }
-    .form-infoPessoais{
-        width: 90%;
-        height: 35vh;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-    .col-form{
-        display: flex;
-        flex-direction: column;
-        width: 49%;
-        height: 100%;
-        justify-content: space-around;
-    }
-    .col-form input{
-        height: 12%;
-        width: 95%;
-        padding: 10px;
-        border: 1px solid #b1b1b1;
-        border-radius: 5px;
-        transition: ease .5s;
-        font-size: 15px;
-    }
-    .col-form input:focus{
-        outline: none;
-        border: 1px solid #414141;
-    }
-    .container-formacao{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 90%;
-        height: 25vh;
-        margin-bottom: 50px;
-    }
-    .form-formacaoCheck{
-        display: flex;
-        width: 100%;
-        justify-content: start;
-        gap: 40px;
-    }
-    .col-inputCheck{
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: space-evenly;
-        width: 25%;
-        height: 18vh;
-        flex-wrap: wrap;
-    }
-    .col-inputCheck h3{
-        width: 100%;
-        font-weight: 500;
-        color: #252F3F;
-    }
-    .item{
-        display: flex;
-        width: 100%;
-        height: 20%;
-        align-items: center;
-    }
-    .container-radio{
-        display: flex;
-        justify-content: start;
-        width: 10%;
-    }
-    .container-radio input{
-        appearance: none;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        border: 1px solid #252F3F;
-        cursor: pointer;
-        outline: none;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .container-radio input:checked:before{
-        opacity: 1;
-    }
-    .container-radio input:hover{
-        border: 1px solid #949494;
-    }
-    .container-radio input::before{
-        content: '';
-        position: absolute;
-        height: 7px;
-        width: 7px;
-        background-color: #000000;
-        border-radius: 50%;
-        opacity: 0;
-    }
-    .container-option{
-        display: flex;
-        justify-content: start;
-        width: 90%;
-    }
-    .col-inputCheckSup {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Define duas colunas iguais */
-        gap: 10px; /* Espaçamento entre os itens */
-        width: 50%; /* Ajuste conforme necessário */
-        align-items: center; /* Alinha verticalmente os itens ao centro */
-    }
+/* Config. Geral do componente */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 30px 20%;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
-    .col-inputCheckSup h3 {
-        grid-column: span 2; /* Faz o título ocupar as duas colunas */
-        font-weight: 500;
-        color: #252F3F;
+.ttl-curriculo {
+    width: 90%;
+    font-weight: 500;
+    color: #252F3F;
+    margin-bottom: 50px;
+}
+
+.ttl-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ttl {
+    font-weight: 500;
+    font-size: 20px;
+    color: #252F3F;
+}
+
+.ttl-content button {
+    border: none;
+    border-radius: 4px;
+    padding: 8px 25px;
+    background-color: #F78024;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.ttl-content button:active {
+    transform: scale(.98);
+}
+
+/* Informações Pessoais */
+.infosPessoais-editar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.infosPessoais-editar button {
+    border: none;
+    border-radius: 4px;
+    padding: 8px 25px;
+    background-color: #F78024;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.infosPessoais-editar button:active {
+    transform: scale(.98);
+}
+
+.form-infoPessoais {
+    width: 90%;
+    height: 35vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.col-form {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.col-form input {
+    height: 12%;
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #b1b1b1;
+    border-radius: 5px;
+    transition: ease .5s;
+    font-size: 15px;
+}
+
+.col-form input:focus {
+    outline: none;
+    border: 1px solid #414141;
+}
+
+/* Formação Acadêmica */
+.container-formacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    height: 25vh;
+    margin-bottom: 50px;
+}
+
+.form-formacaoCheck {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    gap: 40px;
+}
+
+.col-inputCheck {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    width: 25%;
+    height: 18vh;
+    flex-wrap: wrap;
+}
+
+.col-inputCheck h3 {
+    width: 100%;
+    font-weight: 500;
+    color: #252F3F;
+}
+
+.item {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+}
+
+.container-radio {
+    display: flex;
+    justify-content: start;
+    width: 10%;
+}
+
+.container-radio input {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #252F3F;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-radio input:checked:before {
+    opacity: 1;
+}
+
+.container-radio input:hover {
+    border: 1px solid #949494;
+}
+
+.container-radio input::before {
+    content: '';
+    position: absolute;
+    height: 7px;
+    width: 7px;
+    background-color: #000000;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.container-option {
+    display: flex;
+    justify-content: start;
+    width: 90%;
+}
+
+.col-inputCheckSup {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Define duas colunas iguais */
+    gap: 10px;
+    /* Espaçamento entre os itens */
+    width: 50%;
+    /* Ajuste conforme necessário */
+    align-items: center;
+    /* Alinha verticalmente os itens ao centro */
+}
+
+.col-inputCheckSup h3 {
+    grid-column: span 2;
+    /* Faz o título ocupar as duas colunas */
+    font-weight: 500;
+    color: #252F3F;
+}
+
+.itemSup {
+    display: flex;
+    align-items: center;
+}
+
+.container-radioSup {
+    display: flex;
+    justify-content: start;
+    width: 10%;
+}
+
+.container-radioSup input {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #252F3F;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-radioSup input:checked:before {
+    opacity: 1;
+}
+
+.container-radioSup input:hover {
+    border: 1px solid #949494;
+}
+
+.container-radioSup input::before {
+    content: '';
+    position: absolute;
+    height: 7px;
+    width: 7px;
+    background-color: #000000;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.container-optionSup {
+    display: flex;
+    justify-content: start;
+    width: 90%;
+}
+
+/* Cursos */
+.container-cursos {
+    width: 90%;
+}
+
+.container-cardCourse {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 55vh;
+    gap: 30px;
+}
+
+.cardCourse {
+    display: flex;
+    flex: 1 0 28%;
+    cursor: pointer;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 90%;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+.ttlCard h3 {
+    font-weight: 600;
+    font-size: 20px;
+    color: #252F3F;
+    user-select: none;
+}
+
+.periodo-nivel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 90%;
+    height: 15%;
+}
+
+.periodo-nivel h4 {
+    font-weight: 600;
+    font-size: 15px;
+    color: #252F3F;
+    user-select: none;
+}
+
+.description {
+    width: 90%;
+    height: 65%;
+}
+
+.description p {
+    text-align: justify;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 100%;
+    user-select: none;
+}
+
+@media screen and (max-width: 1260px) {
+    .container {
+        margin: 40px auto;
+        width: 100%;
     }
-    
-    .itemSup {
-        display: flex;
-        align-items: center;
-    }
-    
-    .container-radioSup {
-        display: flex;
-        justify-content: start;
-        width: 10%;
-    }
-    
-    .container-radioSup input {
-        appearance: none;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        border: 1px solid #252F3F;
-        cursor: pointer;
-        outline: none;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .container-radioSup input:checked:before {
-        opacity: 1;
-    }
-    
-    .container-radioSup input:hover {
-        border: 1px solid #949494;
-    }
-    
-    .container-radioSup input::before {
-        content: '';
-        position: absolute;
-        height: 7px;
-        width: 7px;
-        background-color: #000000;
-        border-radius: 50%;
-        opacity: 0;
-    }
-    
-    .container-optionSup {
-        display: flex;
-        justify-content: start;
-        width: 90%;
-    }
-    @media screen and (max-width: 1260px){
-        .container{
-            margin: 40px auto;
-            width: 100%;
-        }
-    }
+}
 </style>
