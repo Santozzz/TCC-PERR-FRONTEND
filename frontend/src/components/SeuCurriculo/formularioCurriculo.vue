@@ -63,7 +63,7 @@
             <div class="container-cursos">
                 <div class="ttl-content">
                     <h3 class="ttl">Cursos</h3>
-                    <button>Adicionar Cursos</button>
+                    <button @click="addCourse">Adicionar Cursos</button>
                 </div>
                 <div class="container-cardCourse">
                     <div v-for="(course, index) in courses" :key="index" class="cardCourse">
@@ -78,53 +78,33 @@
                             <p>{{ course.description }}</p>
                         </div>
                     </div>
-                    <div v-for="(course, index) in courses" :key="index" class="cardCourse">
-                        <div class="ttlCard">
-                            <h3>{{ course.title }}</h3>
-                        </div>
-                        <div class="periodo-nivel">
-                            <h4>Período: {{ course.period }}</h4>
-                            <h4>Nível: {{ course.level }}</h4>
-                        </div>
-                        <div class="description">
-                            <p>{{ course.description }}</p>
-                        </div>
-                    </div>
-                    <div v-for="(course, index) in courses" :key="index" class="cardCourse">
-                        <div class="ttlCard">
-                            <h3>{{ course.title }}</h3>
-                        </div>
-                        <div class="periodo-nivel">
-                            <h4>Período: {{ course.period }}</h4>
-                            <h4>Nível: {{ course.level }}</h4>
-                        </div>
-                        <div class="description">
-                            <p>{{ course.description }}</p>
+                </div>
+            </div>
+            <div :class="{ 'container-addCourse': true, 'addCourseOpen': isClassAdded }">
+                <div class="ttl-addCourse">
+                    <h4>Adicionando Cursos</h4>
+                    <i class="fa-solid fa-x"></i>
+                </div>
+                <div class="row-addCourse">
+                    <div class="col-addCourse">
+                        <div class="cardAddCourse">
+                            <div class="ttl-curso">
+                                <h3>{{ ttlCurso }}</h3>
+                            </div>
                         </div>
                     </div>
-                    <div v-for="(course, index) in courses" :key="index" class="cardCourse">
-                        <div class="ttlCard">
-                            <h3>{{ course.title }}</h3>
-                        </div>
-                        <div class="periodo-nivel">
-                            <h4>Período: {{ course.period }}</h4>
-                            <h4>Nível: {{ course.level }}</h4>
-                        </div>
-                        <div class="description">
-                            <p>{{ course.description }}</p>
-                        </div>
-                    </div>
-                    <div v-for="(course, index) in courses" :key="index" class="cardCourse">
-                        <div class="ttlCard">
-                            <h3>{{ course.title }}</h3>
-                        </div>
-                        <div class="periodo-nivel">
-                            <h4>Período: {{ course.period }}</h4>
-                            <h4>Nível: {{ course.level }}</h4>
-                        </div>
-                        <div class="description">
-                            <p>{{ course.description }}</p>
-                        </div>
+                    <div class="col-addCourse">
+                        <form action="" class="formAddCourse">
+                            <input v-model="ttlCurso" maxlength="50" type="text" placeholder="Insira o nome do curso">
+                            <input type="text" placeholder="Insira o periodo de duração do curso">
+                            <select name="" id="">
+                                <option value="profissional">Profissional</option>
+                                <option value="amador">Intermediario</option>
+                                <option value="amador">Amador</option>
+                            </select>
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <input type="submit" value="Adicionar">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -142,15 +122,7 @@ export default {
             selectedOptionFund: '', // O valor selecionado
             selectedOptionMed: '', // O valor selecionado
             selectedOptionSup: '', // O valor selecionado
-            courses: [
-                {
-                    title: '[ Curso ]',
-                    period: '[00/0000 - 00/0000]',
-                    level: '[ nível ]',
-                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, nulla placeat voluptate explicabo nemo voluptatum facere expedita veritatis doloremque recusandae, tempore enim mollitia unde ipsum. Ad numquam iste eaque explicabo!',
-                },
-                // Adicione mais cursos conforme necessário
-            ],
+            isClassAdded: false
         }
     },
     props: {
@@ -158,13 +130,19 @@ export default {
             type: String,
             required: true
         },
-    }
+    },
+    methods: {
+        addCourse() {
+            this.isClassAdded = !this.isClassAdded; // Alterna o estado da classe
+        }
+    },
 }
 </script>
 
 <style scoped>
 /* Config. Geral do componente */
 .container {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -426,20 +404,143 @@ export default {
     overflow: hidden;
     width: 100%;
     height: 55vh;
-    gap: 30px;
+    gap: 50px;
 }
 
-.cardCourse {
+.container-addCourse {
     display: flex;
-    flex: 1 0 28%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 999;
+    position: fixed;
+    width: 75vw;
+    height: 80vh;
+    left: 22%;
+    top: 15%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 1000px 100px #41414133;
+    border-radius: 5px;
+    display: none;
+}
+
+.ttl-addCourse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 10%;
+}
+
+.ttl-addCourse h4 {
+    color: #252F3F;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.ttl-addCourse i {
     cursor: pointer;
-    box-sizing: border-box;
+    font-size: 20px;
+}
+
+.row-addCourse {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+}
+
+.col-addCourse {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    width: 50%;
+    height: 100%;
+}
+
+.cardAddCourse {
+    width: 75%;
     height: 90%;
-    border: 2px solid #000;
-    border-radius: 10px;
+    border: 2px solid #252F3F;
+    border-radius: 5px;
+}
+
+.ttl-curso {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+}
+
+.ttl-curso h3 {
+    color: #252F3F;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #252F3F;
+}
+
+.ttl-addCourse {
+    font-size: 20%;
+}
+
+.formAddCourse {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    height: 90%;
+}
+
+.formAddCourse input {
+    padding: 10px;
+    border: 1px solid #b1b1b1;
+    border-radius: 5px;
+    transition: .3s ease;
+}
+
+.formAddCourse input[type="submit"] {
+    border: none;
+    background-color: #F78024;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.formAddCourse input:focus {
+    outline: none;
+    border: 1px solid #414141;
+}
+
+.formAddCourse select {
+    padding: 10px;
+    border: 1px solid #b1b1b1;
+    border-radius: 5px;
+    transition: .3s ease;
+}
+
+.formAddCourse select:focus {
+    outline: none;
+    border: 1px solid #414141;
+}
+
+.formAddCourse textarea {
+    padding: 10px;
+    box-sizing: content-box;
+    border: 1px solid #b1b1b1;
+    border-radius: 5px;
+    transition: .3s ease;
+}
+
+.formAddCourse textarea:focus {
+    outline: none;
+    border: 1px solid #414141;
+}
+
+.container-addCourse.addCourseOpen {
+    display: flex;
 }
 
 .ttlCard h3 {
