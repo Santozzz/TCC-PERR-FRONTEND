@@ -189,7 +189,7 @@ header {
 
 nav {
   z-index: 999;
-  background-color: #FF9352;
+  background-color: #F78024;
   position: fixed;
   width: 100%;
   height: 10vh;

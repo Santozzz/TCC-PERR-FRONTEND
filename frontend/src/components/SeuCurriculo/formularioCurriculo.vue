@@ -122,7 +122,7 @@ export default {
             selectedOptionFund: '', // O valor selecionado
             selectedOptionMed: '', // O valor selecionado
             selectedOptionSup: '', // O valor selecionado
-            isClassAdded: false
+            isClassAdded: false,
         }
     },
     props: {
@@ -408,7 +408,6 @@ export default {
 }
 
 .container-addCourse {
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
