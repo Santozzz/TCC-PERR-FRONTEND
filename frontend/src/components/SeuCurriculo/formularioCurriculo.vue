@@ -89,20 +89,29 @@
                     <div class="col-addCourse">
                         <div class="cardAddCourse">
                             <div class="ttl-curso">
-                                <h3>{{ ttlCurso }}</h3>
+                                <h3>{{ Course.ttl }}</h3>
+                            </div>
+                            <div class="time-level">
+                                <p>Período: {{ Course.time }}</p>
+                                <p>Nível: {{ Course.level }}</p>
+                            </div>
+                            <div class="description">
+                                <h3>Sobre</h3>
+                                <p>{{ Course.description }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-addCourse">
                         <form action="" class="formAddCourse">
-                            <input v-model="ttlCurso" maxlength="50" type="text" placeholder="Insira o nome do curso">
-                            <input type="text" placeholder="Insira o periodo de duração do curso">
-                            <select name="" id="">
-                                <option value="profissional">Profissional</option>
-                                <option value="amador">Intermediario</option>
-                                <option value="amador">Amador</option>
+                            <input v-model="Course.ttl" maxlength="30" type="text" placeholder="Insira o nome do curso">
+                            <input v-model="Course.time" type="text" maxlength="17"
+                                placeholder="Insira o periodo de duração do curso">
+                            <select v-model="Course.level" name="" id="">
+                                <option value="Profissional">Profissional</option>
+                                <option value="Intermediário">Intermediario</option>
+                                <option value="Amador">Amador</option>
                             </select>
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <textarea v-model="Course.description" id="" cols="30" rows="10"></textarea>
                             <input type="submit" value="Adicionar">
                         </form>
                     </div>
@@ -123,6 +132,12 @@ export default {
             selectedOptionMed: '', // O valor selecionado
             selectedOptionSup: '', // O valor selecionado
             isClassAdded: false,
+            Course: {
+                ttl: null,
+                time: null,
+                level: null,
+                description: null,
+            },
         }
     },
     props: {
@@ -460,6 +475,9 @@ export default {
 }
 
 .cardAddCourse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 75%;
     height: 90%;
     border: 2px solid #252F3F;
@@ -481,8 +499,32 @@ export default {
     border-bottom: 1px solid #252F3F;
 }
 
-.ttl-addCourse {
-    font-size: 20%;
+.time-level {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90%;
+    height: 20%;
+}
+
+.description {
+
+    width: 90%;
+    height: 60%;
+}
+
+.description h3 {
+    color: #252F3F;
+    font-weight: 500;
+    letter-spacing: 1px;
+    width: 100%;
+    text-align: center;
+}
+
+.description p {
+    text-indent: 20px;
+    width: 100%;
+    height: 100%;
 }
 
 .formAddCourse {
@@ -540,42 +582,6 @@ export default {
 
 .container-addCourse.addCourseOpen {
     display: flex;
-}
-
-.ttlCard h3 {
-    font-weight: 600;
-    font-size: 20px;
-    color: #252F3F;
-    user-select: none;
-}
-
-.periodo-nivel {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-    width: 90%;
-    height: 15%;
-}
-
-.periodo-nivel h4 {
-    font-weight: 600;
-    font-size: 15px;
-    color: #252F3F;
-    user-select: none;
-}
-
-.description {
-    width: 90%;
-    height: 65%;
-}
-
-.description p {
-    text-align: justify;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    height: 100%;
-    user-select: none;
 }
 
 @media screen and (max-width: 1260px) {
