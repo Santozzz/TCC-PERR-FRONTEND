@@ -111,7 +111,7 @@
                                 <option value="Intermediário">Intermediario</option>
                                 <option value="Amador">Amador</option>
                             </select>
-                            <textarea v-model="Course.description" id="" cols="30" rows="10"></textarea>
+                            <textarea placeholder="Faça uma breve descrição do curso" v-model="Course.description" id="" cols="30" rows="10"></textarea>
                             <input type="submit" value="Adicionar">
                         </form>
                     </div>
@@ -523,6 +523,7 @@ export default {
 
 .description p {
     text-indent: 20px;
+    text-align: justify;
     width: 100%;
     height: 100%;
 }

@@ -24,6 +24,10 @@ const User = mongoose.model(
       image: {
         type: String,
       },
+      curriculo: {
+        type: String,
+        required: true,
+      }
     },
     { timestamps: true }
   )
