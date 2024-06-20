@@ -63,27 +63,33 @@
             <div class="container-cursos">
                 <div class="ttl-content">
                     <h3 class="ttl">Cursos</h3>
-                    <button @click="addCourse">Adicionar Cursos</button>
+                    <button @click="openModalAddCourse">Adicionar Cursos</button>
                 </div>
-                <div class="container-cardCourse">
-                    <div v-for="(course, index) in courses" :key="index" class="cardCourse">
-                        <div class="ttlCard">
-                            <h3>{{ course.title }}</h3>
-                        </div>
-                        <div class="periodo-nivel">
-                            <h4>Período: {{ course.period }}</h4>
-                            <h4>Nível: {{ course.level }}</h4>
-                        </div>
-                        <div class="description">
-                            <p>{{ course.description }}</p>
+                <div v-if="cardsCourses.length" class="CardCourse-if">
+                    <div class="container-cardCourse">
+                        <div v-for="(cardCourse, index) in cardsCourses" :key="index" class="cardCourse">
+                            <div class="ttlCard">
+                                <h3>{{ cardCourse.ttl }}</h3>
+                            </div>
+                            <div class="periodo-nivel">
+                                <h4>Período: {{ cardCourse.time }}</h4>
+                                <h4>Nível: {{ cardCourse.level }}</h4>
+                            </div>
+                            <div class="description">
+                                <p>{{ cardCourse.description }}</p>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="naoTem-cursos" v-else>
+                    <img src="../../assets/img/SeuCurriculo/naoTem-cursos.jpg" alt="">
+                    <p>Você ainda não adicionou cursos ainda !</p>
                 </div>
             </div>
             <div :class="{ 'container-addCourse': true, 'addCourseOpen': isClassAdded }">
                 <div class="ttl-addCourse">
                     <h4>Adicionando Cursos</h4>
-                    <i class="fa-solid fa-x"></i>
+                    <i class="fa-solid fa-x" @click="closeModalAddCourse"></i>
                 </div>
                 <div class="row-addCourse">
                     <div class="col-addCourse">
@@ -102,7 +108,7 @@
                         </div>
                     </div>
                     <div class="col-addCourse">
-                        <form action="" class="formAddCourse">
+                        <form @submit.prevent="AddCourse" class="formAddCourse">
                             <input v-model="Course.ttl" maxlength="30" type="text" placeholder="Insira o nome do curso">
                             <input v-model="Course.time" type="text" maxlength="17"
                                 placeholder="Insira o periodo de duração do curso">
@@ -111,11 +117,27 @@
                                 <option value="Intermediário">Intermediario</option>
                                 <option value="Amador">Amador</option>
                             </select>
-                            <textarea placeholder="Faça uma breve descrição do curso" v-model="Course.description" id="" cols="30" rows="10"></textarea>
+                            <textarea maxlength="300" placeholder="Faça uma breve descrição do curso"
+                                v-model="Course.description" id="" cols="30" rows="10"></textarea>
                             <input type="submit" value="Adicionar">
                         </form>
                     </div>
                 </div>
+                <!-- Verificação para ter ceerteza que todos os campos do formulario de adicionar cursos esteja preenchido -->
+                <ul class="container-alert">
+                    <li :class="{ active: isActive }" class="alert-form" v-for="(error, index) in nothing" :key="index">
+                        <div class="alert">
+                            <div class="delete">
+                                <h3>Ocorreu um erro</h3>
+                                <i @click="fecharAlert" class="fa-regular fa-circle-xmark"></i>
+                            </div>
+                            <div class="line"></div>
+                            <div class="error">
+                                {{ error }}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -138,6 +160,8 @@ export default {
                 level: null,
                 description: null,
             },
+            cardsCourses: [],
+            nothing: [],
         }
     },
     props: {
@@ -147,10 +171,34 @@ export default {
         },
     },
     methods: {
-        addCourse() {
+        openModalAddCourse() {
             this.isClassAdded = !this.isClassAdded; // Alterna o estado da classe
-        }
-    },
+        },
+        AddCourse() {
+            this.nothing = []
+
+            if (!this.Course.ttl || !this.Course.time || !this.Course.level || !this.Course.description) {
+                this.nothing.push('Preencha todos os campos');
+            } else {
+                // Add the course to the courses array
+                this.cardsCourses.push({ ...this.Course });
+
+                // Reset the course form
+                this.Course.ttl = '';
+                this.Course.time = '';
+                this.Course.level = 'Intermediario';
+                this.Course.description = '';
+            }
+        },
+        fecharAlert(index) {
+            this.nothing.splice(index, 1)
+        },
+        closeModalAddCourse() {
+            // Close the modal
+            this.isClassAdded = false;
+
+        },
+    }
 }
 </script>
 
@@ -420,8 +468,65 @@ export default {
     width: 100%;
     height: 55vh;
     gap: 50px;
+    user-select: none;
+    overflow-x: scroll;
 }
 
+/* CardCourses */
+.cardCourse {
+    display: flex;
+    flex: 1 1 300px;
+    max-width: 280px;
+    min-width: 270px;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    border: 2px solid #252F3F;
+    border-radius: 5px;
+}
+
+.ttlCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+}
+
+.ttlCard h3 {
+    color: #252F3F;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #252F3F;
+}
+
+.periodo-nivel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90%;
+    height: 20%;
+}
+
+/* v-else para verificar se a cursos no tópico de cursos */
+.naoTem-cursos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+}
+
+.naoTem-cursos img {
+    width: 250px;
+}
+
+.naoTem-cursos p {
+    font-size: 20px;
+}
+
+/* Modal AddCourses */
 .container-addCourse {
     flex-direction: column;
     justify-content: space-around;
@@ -433,9 +538,21 @@ export default {
     left: 22%;
     top: 15%;
     background-color: #ffffff;
-    box-shadow: 0px 0px 1000px 100px #41414133;
+    box-shadow: 0px 1px 2px 2px #41414133;
     border-radius: 5px;
     display: none;
+    animation: openModal .1s ease-in;
+}
+
+/* Animação do modal abrindo */
+@keyframes openModal {
+    to {
+        transform: scale(1);
+    }
+
+    from {
+        transform: scale(.1);
+    }
 }
 
 .ttl-addCourse {
@@ -508,7 +625,6 @@ export default {
 }
 
 .description {
-
     width: 90%;
     height: 60%;
 }
@@ -583,6 +699,58 @@ export default {
 
 .container-addCourse.addCourseOpen {
     display: flex;
+}
+
+/* estilo da verificação ded preenchimento de formulario */
+.container-alert {
+    position: absolute;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 2%;
+    top: 2%;
+    z-index: 9;
+    list-style: none;
+}
+
+.alert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ee6060;
+    padding: 10px 1px;
+    border-radius: 5px;
+    color: #fff;
+    animation-name: move;
+    animation-duration: .5s;
+}
+
+.alert i {
+    cursor: pointer;
+}
+
+.delete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 5px;
+}
+
+.error {
+    display: flex;
+    width: 90%;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(-50%);
+    }
+
+    100% {
+        transform: translate(.1%);
+    }
 }
 
 @media screen and (max-width: 1260px) {

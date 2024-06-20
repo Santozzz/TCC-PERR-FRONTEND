@@ -99,7 +99,6 @@ export default {
                 this.nothing.push('Preencha todos os campos');
             }
             else {
-
                 if (this.form.tel.length < 11) {
                     this.nothing.push('O campo de telefone deve ter pelo menos 11 caracteres');
                 } else {
