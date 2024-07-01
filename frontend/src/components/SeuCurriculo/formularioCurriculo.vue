@@ -34,7 +34,10 @@
                     <button @click="openModalAddCourse">Adicionar Cursos</button>
                 </div>
                 <div v-if="cardsCertifys.length" class="CardCourse-if">
-                    <div class="container-cardCourse">
+                    <div class="Arrow" @click="direcao_certificados(1)">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div id="container-cardCourse">
                         <div v-for="(cardCertify, index) in cardsCertifys" :key="index" class="cardCourse">
                             <div class="nameCertify">
                                 <h3>{{ cardCertify.name }}</h3>
@@ -49,6 +52,9 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="Arrow" @click="direcao_certificados(2)">
+                        <i class="fa-solid fa-angle-right"></i>
                     </div>
                 </div>
                 <div class="naoTem-cursos" v-else>
@@ -96,6 +102,14 @@
                 </ul>
             </div>
             <!-- Fim de Certificados -->
+            <!-- Experiencias Profissionais -->
+            <div class="container-expoProfissionais">
+                <div class="ttl-content">
+                    <h3 class="ttl">Certificados</h3>
+                    <button>Adicionar Experiências</button>
+                </div>
+            </div>
+            <!-- Fim de Experiencias Profissionais -->
             <!-- Formação Academica -->
             <div class="container-formacao">
                 <div class="ttl-content">
@@ -193,6 +207,17 @@ export default {
             this.isClassAdded = false;
 
         },
+        direcao_certificados(e) {
+            let direcao = document.getElementById("container-cardCourse")
+
+            if (e == 1) {
+                //Right
+                direcao.scrollLeft = direcao.scrollLeft - 300;
+            } else if (e == 2) {
+                //Left
+                direcao.scrollLeft = direcao.scrollLeft + 300;
+            }
+        },
     }
 }
 </script>
@@ -288,20 +313,70 @@ export default {
     border: 1px solid #414141;
 }
 
+/* Resumo Sobre mim */
+.container-resumo {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 35vh;
+    margin-bottom: 20px;
+}
+
+.ttlResumo {
+    width: 100%;
+    color: #252F3F;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.container-resumo textarea {
+    width: 97.5%;
+    height: 70%;
+    border: 1px solid #949494;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.container-resumo textarea:focus {
+    outline: none;
+    border: 1px solid #414141;
+}
+
+/* Fim Resumo */
+
 /* Certificados */
 .container-cursos {
     width: 90%;
 }
 
-.container-cardCourse {
+#container-cardCourse {
     display: flex;
     align-items: center;
     overflow: hidden;
-    width: 100%;
+    width: 95%;
     height: 30vh;
-    gap: 50px;
+    gap: 20px;
     user-select: none;
     overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+#container-cardCourse::-webkit-scrollbar {
+    display: none;
+}
+
+.CardCourse-if {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.CardCourse-if .Arrow {
+    cursor: pointer;
 }
 
 /* CardCertify */
@@ -361,19 +436,18 @@ export default {
 /* v-else para verificar se a cursos no tópico de cursos */
 .naoTem-cursos {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 50vh;
+    height: 30vh;
 }
 
 .naoTem-cursos img {
-    width: 250px;
+    width: 200px;
 }
 
 .naoTem-cursos p {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 /* Modal AddCourses */
@@ -392,6 +466,10 @@ export default {
     border-radius: 5px;
     display: none;
     animation: openModal .2s ease-in;
+}
+
+.container-addCourse.addCourseOpen {
+    display: flex;
 }
 
 /* Animação do modal abrindo */
@@ -515,10 +593,6 @@ export default {
     border: 1px solid #414141;
 }
 
-.container-addCourse.addCourseOpen {
-    display: flex;
-}
-
 /* estilo da verificação de preenchimento de formulario */
 .container-alert {
     position: absolute;
@@ -561,35 +635,14 @@ export default {
     width: 90%;
 }
 
-/* Resumo Sobre mim */
-.container-resumo {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-evenly;
+/* Fim Certificados */
+
+/* Começo Experiencias Profissionais */
+.container-expoProfissionais {
     width: 90%;
-    height: 35vh;
 }
 
-.ttlResumo {
-    width: 100%;
-    color: #252F3F;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-.container-resumo textarea {
-    width: 97.5%;
-    height: 70%;
-    border: 1px solid #949494;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.container-resumo textarea:focus {
-    outline: none;
-    border: 1px solid #414141;
-}
+/* Fim Experiencias Profissionais */
 
 /* Formação Acadêmica */
 .container-formacao {
@@ -743,6 +796,8 @@ export default {
     width: 90%;
 }
 
+/* Fim Formação Academica */
+/* Animações */
 @keyframes move {
     0% {
         transform: translate(-50%);
@@ -753,6 +808,8 @@ export default {
     }
 }
 
+/* Fim Animações */
+/* Responsivo */
 @media screen and (max-width: 1260px) {
     .container {
         margin: 40px auto;
