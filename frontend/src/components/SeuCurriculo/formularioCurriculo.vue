@@ -67,23 +67,21 @@
                     <h4>Adicionando Cursos</h4>
                     <i class="fa-solid fa-x" @click="closeModalAddCourse"></i>
                 </div>
-                <div class="row-addCourse">
-                    <div class="col-addCourse">
-                        <div class="cardAddCourse">
-                            <div class="nameCertify">
-                                <h3>{{ Certify.name }}</h3>
-                            </div>
-                            <div class="companyCertify">
-                                <p>{{ Certify.company }}</p>
-                            </div>
+                <div class="col-addCourse">
+                    <div class="cardAddCourse">
+                        <div class="nameCertify">
+                            <h3>{{ Certify.name }}</h3>
                         </div>
-                        <form @submit.prevent="AddCourse" class="formAddCourse">
-                            <input v-model="Certify.name" type="text" placeholder="Insira o nome do curso">
-                            <input v-model="Certify.company" type="text"
-                                placeholder="Insira o nome da instituição de ensino">
-                            <input type="submit" value="Adicionar">
-                        </form>
+                        <div class="companyCertify">
+                            <p>{{ Certify.company }}</p>
+                        </div>
                     </div>
+                    <form @submit.prevent="AddCourse" class="formAddCourse">
+                        <input v-model="Certify.name" type="text" placeholder="Insira o nome do curso">
+                        <input v-model="Certify.company" type="text"
+                            placeholder="Insira o nome da instituição de ensino">
+                        <input type="submit" value="Adicionar">
+                    </form>
                 </div>
                 <!-- Verificação para ter ceerteza que todos os campos do formulario de adicionar certificados esteja preenchido -->
                 <ul class="container-alert">
@@ -126,7 +124,18 @@
                 </div>
             </div>
             <div :class="{ 'container-addExpe': true, 'addExpeOpen': isClassExpeAdded }">
+                <div class="ttl-addCourse">
+                    <h4>Adicionando Esperiência</h4>
+                    <i class="fa-solid fa-x" @click="closeModalAddExpe"></i>
+                </div>
+                <div class="rowExpe">
+                    <div class="colExpe">
 
+                    </div>
+                    <div class="colExpe">
+
+                    </div>
+                </div>
             </div>
             <!-- Fim de Experiencias Profissionais -->
             <!-- Formação Academica -->
@@ -227,6 +236,10 @@ export default {
         },
         openModalAddExpe() {
             this.isClassExpeAdded = true; // Alterna o estado da classe
+        },
+        closeModalAddExpe() {
+            // Close the modal
+            this.isClassExpeAdded = false;
         },
         AddCourse() {
             this.nothing = []
@@ -541,14 +554,6 @@ export default {
     font-size: 20px;
 }
 
-.row-addCourse {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 90%;
-    width: 100%;
-}
-
 .col-addCourse {
     display: flex;
     flex-direction: column;
@@ -699,11 +704,16 @@ export default {
 }
 
 .container-addExpe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     width: 70%;
     height: 80%;
     top: 15%;
     background-color: #ffffff;
     box-shadow: 0px 0px 20000px 20000px #0000003f;
+    border-radius: 10px;
     position: fixed;
     display: none;
     z-index: 999;
@@ -711,6 +721,19 @@ export default {
 
 .container-addExpe.addExpeOpen {
     display: flex;
+}
+
+.rowExpe {
+    display: flex;
+    justify-content: space-evenly;
+    height: 85%;
+    width: 95%;
+}
+
+.colExpe {
+    height: 100%;
+    width: 48%;
+    background-color: #0000003f;
 }
 
 /* Fim Experiencias Profissionais */
