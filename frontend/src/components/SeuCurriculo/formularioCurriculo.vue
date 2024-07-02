@@ -33,7 +33,7 @@
                     <h3 class="ttl">Certificados</h3>
                     <button @click="openModalAddCourse">Adicionar Cursos</button>
                 </div>
-                <div v-if="cardsCertifys.length" class="CardCourse-if">
+                <div v-if="cardsCertifys.length" class="contentCourse-if">
                     <div class="Arrow" @click="direcao_certificados(1)">
                         <i class="fa-solid fa-angle-left"></i>
                     </div>
@@ -62,7 +62,7 @@
                     <p>Você ainda não adicionou certificados ainda !</p>
                 </div>
             </div>
-            <div :class="{ 'container-addCourse': true, 'addCourseOpen': isClassAdded }">
+            <div :class="{ 'container-addCourse': true, 'addCourseOpen': isClassCourseAdded }">
                 <div class="ttl-addCourse">
                     <h4>Adicionando Cursos</h4>
                     <i class="fa-solid fa-x" @click="closeModalAddCourse"></i>
@@ -105,9 +105,28 @@
             <!-- Experiencias Profissionais -->
             <div class="container-expoProfissionais">
                 <div class="ttl-content">
-                    <h3 class="ttl">Certificados</h3>
-                    <button>Adicionar Experiências</button>
+                    <h3 class="ttl">Experiencias Profissionais</h3>
+                    <button @click="openModalAddExpe">Adicionar Experiências</button>
                 </div>
+                <div v-if="cardsExperiences.length" class="contentExpe-if">
+                    <div class="Arrow" @click="direcao_expe(1)">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div id="container-cardCourse">
+                        <div v-for="(cardExpe, index) in cardsExperiences" :key="index" class="cardExpe">
+                        </div>
+                    </div>
+                    <div class="Arrow" @click="direcao_expe(2)">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                </div>
+                <div class="naoTem-expe" v-else>
+                    <img src="../../assets/img/SeuCurriculo/naoTem-expe.jpg" alt="">
+                    <p>Você ainda não adicionou suas experiências ainda !</p>
+                </div>
+            </div>
+            <div :class="{ 'container-addExpe': true, 'addExpeOpen': isClassExpeAdded }">
+
             </div>
             <!-- Fim de Experiencias Profissionais -->
             <!-- Formação Academica -->
@@ -160,19 +179,36 @@
 export default {
     data() {
         return {
+            //Formação academica
             optionsFund: ['Realizado', 'Em Andamento', 'Incompleto'], // As opções do seu grupo
             optionsMed: ['Realizado', 'Em Andamento', 'Incompleto'], // As opções do seu grupo
             optionsSup: ['Pós-graduação', 'Doutorado', 'Graduação', 'Mestrado', 'Incompleto'], // As opções do seu grupo
             selectedOptionFund: '', // O valor selecionado
             selectedOptionMed: '', // O valor selecionado
             selectedOptionSup: '', // O valor selecionado
-            isClassAdded: false,
+            //Fim Formação Academica
+            //Certificados
+            isClassCourseAdded: false,
             Certify: {
                 name: null,
-                comnpany: null,
+                company: null,
             },
             cardsCertifys: [],
+            //Fim Certificados
+            //Experiencias
+            isClassExpeAdded: false,
+            cardsExperiences: [],
+            Experiense: {
+                company: null,
+                ocupation: null,
+                period: null,
+                activities: null,
+                responsibilities: null,
+            },
+            //Fim Experiencias
+            //Alertas
             nothing: [],
+            //Fim Alertas
         }
     },
     props: {
@@ -183,7 +219,14 @@ export default {
     },
     methods: {
         openModalAddCourse() {
-            this.isClassAdded = !this.isClassAdded; // Alterna o estado da classe
+            this.isClassCourseAdded = true; // Alterna o estado da classe
+        },
+        closeModalAddCourse() {
+            // Close the modal
+            this.isClassCourseAdded = false;
+        },
+        openModalAddExpe() {
+            this.isClassExpeAdded = true; // Alterna o estado da classe
         },
         AddCourse() {
             this.nothing = []
@@ -201,11 +244,6 @@ export default {
         },
         fecharAlert(index) {
             this.nothing.splice(index, 1)
-        },
-        closeModalAddCourse() {
-            // Close the modal
-            this.isClassAdded = false;
-
         },
         direcao_certificados(e) {
             let direcao = document.getElementById("container-cardCourse")
@@ -367,7 +405,7 @@ export default {
     display: none;
 }
 
-.CardCourse-if {
+.contentCourse-if {
     width: 100%;
     display: flex;
     position: relative;
@@ -436,10 +474,11 @@ export default {
 /* v-else para verificar se a cursos no tópico de cursos */
 .naoTem-cursos {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 30vh;
+    height: 40vh;
 }
 
 .naoTem-cursos img {
@@ -447,7 +486,7 @@ export default {
 }
 
 .naoTem-cursos p {
-    font-size: 15px;
+    font-size: 20px;
 }
 
 /* Modal AddCourses */
@@ -462,7 +501,7 @@ export default {
     left: 42%;
     top: 27%;
     background-color: #ffffff;
-    box-shadow: 0px 1px 2px 2px #41414133;
+    box-shadow: 0px 0px 20000px 20000px #0000003f;
     border-radius: 5px;
     display: none;
     animation: openModal .2s ease-in;
@@ -640,6 +679,37 @@ export default {
 /* Começo Experiencias Profissionais */
 .container-expoProfissionais {
     width: 90%;
+}
+
+.naoTem-expe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+}
+
+.naoTem-expe img {
+    width: 200px;
+}
+
+.naoTem-expe p {
+    font-size: 20px;
+}
+
+.container-addExpe {
+    width: 70%;
+    height: 80%;
+    top: 15%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20000px 20000px #0000003f;
+    position: fixed;
+    display: none;
+}
+
+.container-addExpe.addExpeOpen {
+    display: flex;
 }
 
 /* Fim Experiencias Profissionais */
