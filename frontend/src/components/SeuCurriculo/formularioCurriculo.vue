@@ -706,6 +706,7 @@ export default {
     box-shadow: 0px 0px 20000px 20000px #0000003f;
     position: fixed;
     display: none;
+    z-index: 999;
 }
 
 .container-addExpe.addExpeOpen {
