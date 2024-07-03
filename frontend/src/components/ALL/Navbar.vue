@@ -8,7 +8,7 @@
               <i @click="toggleMenu" :class="{ 'menuOpen': isMenuOpen }" class="fa-solid fa-bars"></i>
             </div>
             <div class="logo">
-              <router-link to="/">PER<strong>R</strong></router-link>
+              <router-link to="/">PERR</router-link>
             </div>
           </div>
           <div class="dropdown" :class="{ 'show': isDropdownOpen }">
@@ -205,11 +205,6 @@ nav {
   font-style: italic;
   font-weight: 700;
   letter-spacing: 1px;
-}
-
-.logo a strong {
-  color: #000000;
-  font-style: italic;
 }
 
 .dropbtn {
