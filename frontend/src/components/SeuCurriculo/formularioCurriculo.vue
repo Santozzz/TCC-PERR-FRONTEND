@@ -112,6 +112,7 @@
                     </div>
                     <div id="container-cardCourse">
                         <div v-for="(cardExpe, index) in cardsExperiences" :key="index" class="cardExpe">
+                            {{ cardExpe }}
                         </div>
                     </div>
                     <div class="Arrow" @click="direcao_expe(2)">
@@ -130,11 +131,45 @@
                 </div>
                 <div class="rowExpe">
                     <div class="colExpe">
-
+                        <div class="cardAddExpe">
+                            <div class="ttlExpe">
+                                <h3>{{ Experiense.ocupation }}</h3>
+                            </div>
+                            <div class="company-period">
+                                <p><strong>Empresa:</strong> {{ Experiense.company }}</p>
+                                <p><strong>Período:</strong> {{ Experiense.period }}</p>
+                            </div>
+                            <h4>Atividades</h4>
+                            <p class="activitiesExpe">
+                                {{ Experiense.activities }}
+                            </p>
+                        </div>
                     </div>
                     <div class="colExpe">
-
+                        <form class="addExpe" @submit.prevent="AddExpe">
+                            <input v-model="Experiense.ocupation" type="text">
+                            <input v-model="Experiense.company" type="text">
+                            <input v-model="Experiense.period" type="text">
+                            <textarea v-model="Experiense.activities"></textarea>
+                            <input type="submit" value="Adicionar">
+                        </form>
                     </div>
+                    <!-- Verificação para ter ceerteza que todos os campos do formulario de adicionar certificados esteja preenchido -->
+                    <ul class="container-alertExpe">
+                        <li :class="{ active: isActive }" class="alert-form" v-for="(error, index) in nothing"
+                            :key="index">
+                            <div class="alert">
+                                <div class="delete">
+                                    <h3>Ocorreu um erro</h3>
+                                    <i @click="fecharAlert" class="fa-regular fa-circle-xmark"></i>
+                                </div>
+                                <div class="line"></div>
+                                <div class="error">
+                                    {{ error }}
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <!-- Fim de Experiencias Profissionais -->
@@ -212,7 +247,6 @@ export default {
                 ocupation: null,
                 period: null,
                 activities: null,
-                responsibilities: null,
             },
             //Fim Experiencias
             //Alertas
@@ -246,6 +280,11 @@ export default {
 
             if (!this.Certify.name || !this.Certify.company) {
                 this.nothing.push('Preencha todos os campos');
+
+                // Adiciona o timeout para remover a mensagem de erro após 5 segundos
+                setTimeout(() => {
+                    this.nothing = [];
+                }, 5000);
             } else {
                 // Add the course to the courses array
                 this.cardsCertifys.push({ ...this.Certify });
@@ -253,6 +292,27 @@ export default {
                 // Reset the course form
                 this.Certify.company = '';
                 this.Certify.name = '';
+            }
+        },
+        AddExpe() {
+            this.nothing = []
+
+            if (!this.Experiense.activities || !this.Experiense.company || !this.Experiense.ocupation || !this.Experiense.period) {
+                this.nothing.push('Preencha todos os campos');
+
+                // Adiciona o timeout para remover a mensagem de erro após 5 segundos
+                setTimeout(() => {
+                    this.nothing = [];
+                }, 5000);
+            } else {
+                // Add the course to the courses array
+                this.cardsExperiences.push({ ...this.Experiense });
+
+                // Reset the course form
+                this.Experiense.activities = '';
+                this.Experiense.company = '';
+                this.Experiense.ocupation = '';
+                this.Experiense.period = '';
             }
         },
         fecharAlert(index) {
@@ -426,7 +486,7 @@ export default {
     align-items: center;
 }
 
-.CardCourse-if .Arrow {
+.contentCourse-if .Arrow {
     cursor: pointer;
 }
 
@@ -487,8 +547,7 @@ export default {
 /* v-else para verificar se a cursos no tópico de cursos */
 .naoTem-cursos {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
     height: 40vh;
@@ -632,7 +691,7 @@ export default {
     font-size: 15px;
 }
 
-.formAddCourse input:focus {
+.formAddCourse input[type="text"]:focus {
     outline: none;
     border: 1px solid #414141;
 }
@@ -641,6 +700,18 @@ export default {
 .container-alert {
     position: absolute;
     width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 2%;
+    top: 2%;
+    z-index: 9;
+    list-style: none;
+}
+
+.container-alertExpe {
+    position: absolute;
+    width: 40%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -688,15 +759,14 @@ export default {
 
 .naoTem-expe {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
     height: 40vh;
 }
 
 .naoTem-expe img {
-    width: 200px;
+    width: 180px;
 }
 
 .naoTem-expe p {
@@ -731,9 +801,100 @@ export default {
 }
 
 .colExpe {
+    display: flex;
+    justify-content: center;
     height: 100%;
     width: 48%;
-    background-color: #0000003f;
+}
+
+.cardAddExpe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 85%;
+    height: 90%;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+.cardAddExpe h4 {
+    color: #252F3F;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.ttlExpe {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.company-period {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.company-period strong {
+    color: #252F3F;
+    font-weight: 600;
+}
+
+.activitiesExpe {
+    text-indent: 10px;
+    text-align: justify;
+    width: 80%;
+    height: 50%;
+}
+
+.ttlExpe h3 {
+    color: #252F3F;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #252F3F;
+}
+
+.addExpe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    height: 90%;
+}
+
+.addExpe input {
+    padding: 10px;
+    border: 1px solid #b1b1b1;
+    border-radius: 5px;
+    transition: .3s ease;
+}
+
+.addExpe textarea {
+    padding: 10px;
+    height: 30%;
+    border: 1px solid #b1b1b1;
+    border-radius: 5px;
+    transition: .3s ease;
+}
+
+.addExpe textarea:focus {
+    outline: none;
+    border: 1px solid #414141;
+}
+
+.addExpe input[type="submit"] {
+    border: none;
+    background-color: #F78024;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+
+.addExpe input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #414141;
 }
 
 /* Fim Experiencias Profissionais */
