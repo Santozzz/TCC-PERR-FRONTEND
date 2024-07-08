@@ -110,9 +110,19 @@
                     <div class="Arrow" @click="direcao_expe(1)">
                         <i class="fa-solid fa-angle-left"></i>
                     </div>
-                    <div id="container-cardCourse">
+                    <div id="container-cardExpe">
                         <div v-for="(cardExpe, index) in cardsExperiences" :key="index" class="cardExpe">
-                            {{ cardExpe }}
+                            <div class="ttl-cardExpe">
+                                <h3>{{ cardExpe.ocupation }}</h3>
+                            </div>
+                            <div class="period-companyCardExpe">
+                                <p><strong>Empresa:</strong>{{ cardExpe.company }}</p>
+                                <p><strong>Período:</strong>{{ cardExpe.period }}</p>
+                            </div>
+                            <h5>Atividades</h5>
+                            <p class="activitiesCardExpe">
+                                {{ cardExpe.activities }}
+                            </p>
                         </div>
                     </div>
                     <div class="Arrow" @click="direcao_expe(2)">
@@ -329,6 +339,17 @@ export default {
                 direcao.scrollLeft = direcao.scrollLeft + 300;
             }
         },
+        direcao_expe(e) {
+            let direcao = document.getElementById("container-cardExpe")
+
+            if (e == 1) {
+                //Right
+                direcao.scrollLeft = direcao.scrollLeft - 200;
+            } else if (e == 2) {
+                //Left
+                direcao.scrollLeft = direcao.scrollLeft + 200;
+            }
+        },
     }
 }
 </script>
@@ -350,6 +371,10 @@ export default {
     font-weight: 500;
     color: #252F3F;
     margin-bottom: 50px;
+}
+
+.Arrow {
+    cursor: pointer;
 }
 
 .ttl-content {
@@ -484,10 +509,6 @@ export default {
     position: relative;
     justify-content: space-between;
     align-items: center;
-}
-
-.contentCourse-if .Arrow {
-    cursor: pointer;
 }
 
 /* CardCertify */
@@ -773,6 +794,84 @@ export default {
     font-size: 20px;
 }
 
+.container-expoProfissionais {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 65vh;
+}
+
+.contentExpe-if {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+    gap: 5px;
+}
+
+
+#container-cardExpe {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    width: 100%;
+    height: 95%;
+    padding: 10px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.cardExpe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    min-width: 270px;
+    max-width: 280px;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+.ttl-cardExpe {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+}
+
+.ttl-cardExpe h3 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #252F3F;
+    border-bottom: 1px solid #252F3F;
+}
+
+.period-companyCardExpe {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    height: 20%;
+    width: 80%;
+}
+
+.activitiesCardExpe {
+    height: 55%;
+    text-align: justify;
+    text-indent: 15px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    /* Número de linhas antes de truncar */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 85%;
+}
+
 .container-addExpe {
     display: flex;
     flex-direction: column;
@@ -842,8 +941,15 @@ export default {
 }
 
 .activitiesExpe {
-    text-indent: 10px;
     text-align: justify;
+    text-indent: 15px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 9;
+    /* Número de linhas antes de truncar */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 85%;
     width: 80%;
     height: 50%;
 }
