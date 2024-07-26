@@ -39,17 +39,16 @@
                     </div>
                     <div id="container-cardCourse">
                         <div v-for="(cardCertify, index) in cardsCertifys" :key="index" class="cardCourse">
+                            <div class="crudCard">
+                                <div class="content-crudBtn">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
                             <div class="nameCertify">
                                 <h3>{{ cardCertify.name }}</h3>
                             </div>
                             <div class="companyCertify">
                                 <p>{{ cardCertify.company }}</p>
-                            </div>
-                            <div class="crudCard">
-                                <div class="content-crudBtn">
-                                    <button>Deletar</button>
-                                    <button>Editar</button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -527,42 +526,27 @@ export default {
     overflow: hidden;
 }
 
-.cardCourse:hover {
-    transform: translateY(-5px);
-}
-
 .crudCard {
     width: 100%;
-    height: 10%;
+    height: 20%;
+    position: absolute;
 }
 
 .content-crudBtn {
-    transform: translateY(110%);
     width: 100%;
-    background: linear-gradient(transparent, #ffffff 99%);
     border-radius: 4px;
-    position: absolute;
     left: 0;
     bottom: 0;
     overflow: hidden;
     display: flex;
-    justify-content: space-evenly;
-    align-items: end;
+    justify-content: end;
     transition: .3s ease-in-out;
 }
 
-.content-crudBtn button {
+.content-crudBtn i {
     cursor: pointer;
-    border: none;
-    border-radius: 3px;
-    background-color: #F78024;
-    color: #fff;
     margin-bottom: 2%;
     padding: 5px 15px;
-}
-
-.cardCourse:hover .content-crudBtn {
-    transform: translateY(0);
 }
 
 /* v-else para verificar se a cursos no tópico de cursos */
