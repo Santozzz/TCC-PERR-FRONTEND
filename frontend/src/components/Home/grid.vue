@@ -3,7 +3,7 @@
         <div class="container">
             <div class="header">
                 <div class="user-notify">
-                    <p>[ usuario ]</p>
+                    <p>David da Silva Santos</p>
                     <i class="fa-solid fa-bell" :class="{ 'notifyOpen': isBellNotify }" @click="toggleNotify"></i>    
                     <div class="notifications" :class="['notify', { 'notifyOpen': isBellNotify }]">
                         <h4>Notificações</h4>
@@ -33,7 +33,7 @@
                                 <div class="banner-img"></div>
                                 <div class="display-video">
                                     <div class="legenda">
-                                        <p>[ legendaasddddddddddddddddddddddddddd ]</p>
+                                        <p>Curso de HTML e CSS completo.</p>
                                     </div>
                                     <div class="container-btn">
                                         <button>Assistir<i class="fa-solid fa-play"></i></button>
@@ -45,10 +45,10 @@
                             <div class="rowCardCourse">
                                 <div class="card">
                                     <div class="spaceCardSecundario">
-                                        <div class="banner-imgSec"></div>
+                                        <div class="banner-imgSec-1"></div>
                                         <div class="display-videoSec">
                                             <div class="legenda-cardSec">
-                                                <p>[ legenda ]</p>
+                                                <p>Curso industrial</p>
                                             </div>
                                             <div class="container-btnSec">
                                                 <button>Assistir<i class="fa-solid fa-play"></i></button>
@@ -58,10 +58,10 @@
                                 </div>
                                 <div class="card">
                                     <div class="spaceCardSecundario">
-                                        <div class="banner-imgSec"></div>
+                                        <div class="banner-imgSec-2"></div>
                                         <div class="display-videoSec">
                                             <div class="legenda-cardSec">
-                                                <p>[ legenda ]</p>
+                                                <p>Curso de logistica</p>
                                             </div>
                                             <div class="container-btnSec">
                                                 <button>Assistir<i class="fa-solid fa-play"></i></button>
@@ -73,10 +73,10 @@
                             <div class="rowCardCourse">
                                 <div class="card">
                                     <div class="spaceCardSecundario">
-                                        <div class="banner-imgSec"></div>
+                                        <div class="banner-imgSec-3"></div>
                                         <div class="display-videoSec">
                                             <div class="legenda-cardSec">
-                                                <p>[ legendsdasdadadasdsadasdsasda ]</p>
+                                                <p>Curso de inglês</p>
                                             </div>
                                             <div class="container-btnSec">
                                                 <button>Assistir<i class="fa-solid fa-play"></i></button>
@@ -86,10 +86,10 @@
                                 </div>
                                 <div class="card">
                                     <div class="spaceCardSecundario">
-                                        <div class="banner-imgSec"></div>
+                                        <div class="banner-imgSec-4"></div>
                                         <div class="display-videoSec">
                                             <div class="legenda-cardSec">
-                                                <p>[ legenda ]</p>
+                                                <p>Curso de Língua Portguesa</p>
                                             </div>
                                             <div class="container-btnSec">
                                                 <button>
@@ -108,14 +108,14 @@
                     <div class="rowVagas">
                         <div class="rowCardVagas">
                             <div class="cardVagas">
-                                <div class="img-categoria"></div>
+                                <div class="img-categoria-1"></div>
                                 <div class="nome-categoria">
                                     <p class="nomeVaga">Administração</p>
                                     <p class="quantVagas">[ Quant. de vagas]</p>
                                 </div>
                             </div>
                             <div class="cardVagas">
-                                <div class="img-categoria"></div>
+                                <div class="img-categoria-2"></div>
                                 <div class="nome-categoria">
                                     <p class="nomeVaga">Gastronomia</p>
                                     <p class="quantVagas">[ Quant. de vagas]</p>
@@ -124,14 +124,14 @@
                         </div>
                         <div class="rowCardVagas">
                             <div class="cardVagas">
-                                <div class="img-categoria"></div>
+                                <div class="img-categoria-3"></div>
                                 <div class="nome-categoria">
                                     <p class="nomeVaga">Construção</p>
                                     <p class="quantVagas">[ Quant. de vagas]</p>
                                 </div>
                             </div>
                             <div class="cardVagas">
-                                <div class="img-categoria"></div>
+                                <div class="img-categoria-4"></div>
                                 <div class="nome-categoria">
                                     <p class="nomeVaga">Informatica</p>
                                     <p class="quantVagas">[ Quant. de vagas]</p>
@@ -354,7 +354,9 @@ export default {
     .banner-img{
         width: 100%;
         height: 75%;
-        background-color: #F78024;
+        background-image: url(../../assets/img/Home/html-css.webp);
+        background-position: center;
+        background-size: cover;
     }
     .display-video{
         display: flex;
@@ -448,10 +450,33 @@ export default {
     .card:active{
         transform: scale(.98);
     }
-    .banner-imgSec{
+    .banner-imgSec-1{
         height: 75%;
         width: 100%;
-        background-color: #F78024;
+        background-image: url(../../assets/img/Home/curso-fabr.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .banner-imgSec-2{
+        height: 75%;
+        width: 100%;
+        background-image: url(../../assets/img/Home/curso-logi.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .banner-imgSec-3{
+        height: 75%;
+        width: 100%;
+        background-image: url(../../assets/img/Home/curso-ing.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .banner-imgSec-4{
+        height: 75%;
+        width: 100%;
+        background-image: url(../../assets/img/Home/curso-port.jfif);
+        background-position: center;
+        background-size: cover;
     }
     
     .vagaSugeridas{
@@ -490,10 +515,33 @@ export default {
         transition: .2s;
         border-radius: 2px;
     }
-    .img-categoria{
+    .img-categoria-1{
         width: 45%;
-        height: 70%;
-        background-color: #F78024;
+        height: 100%;
+        background-image: url(../../assets/img/Home/categ-adm.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .img-categoria-2{
+        width: 45%;
+        height: 100%;
+        background-image: url(../../assets/img/Home/categ-cont.webp);
+        background-position: center;
+        background-size: cover;
+    }
+    .img-categoria-3{
+        width: 45%;
+        height: 100%;
+        background-image: url(../../assets/img/Home/categ-const.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .img-categoria-4{
+        width: 45%;
+        height: 100%;
+        background-image: url(../../assets/img/Home/categ-info.jpg);
+        background-position: center;
+        background-size: cover;
     }
     .nome-categoria{
         display: flex;
