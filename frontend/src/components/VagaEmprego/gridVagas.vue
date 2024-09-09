@@ -21,7 +21,7 @@
                             <div class="img-areas"></div>
                             <div class="cardDescription">
                                 <div class="nomeArea">
-                                    <p>Lojas</p>
+                                    <p>Logistica</p>
                                 </div>
                                 <div class="quantVagas">
                                     <p>[ quant. vagas ]</p>
