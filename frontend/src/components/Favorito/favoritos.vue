@@ -66,7 +66,7 @@
                     <div class="card-vagas">
                         <div class="img-vaga"></div>
                         <div class="ttl-vaga">
-                            <h3>Curso de português básico</h3>
+                            <h3>Curso de inglês básico</h3>
                         </div>
                         <div class="btn-assistir">
                             <button>Assistir</button>
@@ -75,7 +75,7 @@
                     <div class="card-vagas">
                         <div class="img-vaga"></div>
                         <div class="ttl-vaga">
-                            <h3>Curso de português básico</h3>
+                            <h3>Curso de HTML e CSS básico ao avançado</h3>
                         </div>
                         <div class="btn-assistir">
                             <button>Assistir</button>
@@ -84,7 +84,7 @@
                     <div class="card-vagas">
                         <div class="img-vaga"></div>
                         <div class="ttl-vaga">
-                            <h3>Curso de português básico</h3>
+                            <h3>Curso de Administração</h3>
                         </div>
                         <div class="btn-assistir">
                             <button>Assistir</button>
@@ -93,7 +93,7 @@
                     <div class="card-vagas">
                         <div class="img-vaga"></div>
                         <div class="ttl-vaga">
-                            <h3>Curso de português básico</h3>
+                            <h3>Curso de Design Gráfico</h3>
                         </div>
                         <div class="btn-assistir">
                             <button>Assistir</button>
