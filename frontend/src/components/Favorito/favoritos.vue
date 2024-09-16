@@ -2,18 +2,102 @@
     <div>
         <div class="container">
             <div class="container-vagasFav">
-                <h3>Vagas favoritas</h3>
+                <h3 class="ttl-padrao">Vagas favoritas</h3>
                 <div class="container-cardVagasFav">
                     <div class="card-vagas">
-
+                        <div class="img-vaga"></div>
+                        <div class="ttl-vaga">
+                            <h3>Curso de português básico</h3>
+                        </div>
+                        <div class="btn-assistir">
+                            <button>Assistir</button>
+                        </div>
+                    </div>
+                    <div class="card-vagas">
+                        <div class="img-vaga"></div>
+                        <div class="ttl-vaga">
+                            <h3>Curso de português básico</h3>
+                        </div>
+                        <div class="btn-assistir">
+                            <button>Assistir</button>
+                        </div>
+                    </div>
+                    <div class="card-vagas">
+                        <div class="img-vaga"></div>
+                        <div class="ttl-vaga">
+                            <h3>Curso de português básico</h3>
+                        </div>
+                        <div class="btn-assistir">
+                            <button>Assistir</button>
+                        </div>
+                    </div>
+                    <div class="card-vagas">
+                        <div class="img-vaga"></div>
+                        <div class="ttl-vaga">
+                            <h3>Curso de português básico</h3>
+                        </div>
+                        <div class="btn-assistir">
+                            <button>Assistir</button>
+                        </div>
+                    </div>
+                    <div class="card-vagas">
+                        <div class="img-vaga"></div>
+                        <div class="ttl-vaga">
+                            <h3>Curso de português básico</h3>
+                        </div>
+                        <div class="btn-assistir">
+                            <button>Assistir</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="container-vagasFav">
-                <h3>Cursos favoritos</h3>
+                <h3 class="ttl-padrao">Cursos favoritos</h3>
                 <div class="container-cardVagasFav">
                     <div class="card-vagas">
-
+                        <div class="img-vaga"></div>
+                        <div class="ttl-vaga">
+                            <h3>Curso de português básico</h3>
+                        </div>
+                        <div class="btn-assistir">
+                            <button>Assistir</button>
+                        </div>
+                    </div>
+                    <div class="card-vagas">
+                        <div class="img-vaga"></div>
+                        <div class="ttl-vaga">
+                            <h3>Curso de português básico</h3>
+                        </div>
+                        <div class="btn-assistir">
+                            <button>Assistir</button>
+                        </div>
+                    </div>
+                    <div class="card-vagas">
+                        <div class="img-vaga"></div>
+                        <div class="ttl-vaga">
+                            <h3>Curso de português básico</h3>
+                        </div>
+                        <div class="btn-assistir">
+                            <button>Assistir</button>
+                        </div>
+                    </div>
+                    <div class="card-vagas">
+                        <div class="img-vaga"></div>
+                        <div class="ttl-vaga">
+                            <h3>Curso de português básico</h3>
+                        </div>
+                        <div class="btn-assistir">
+                            <button>Assistir</button>
+                        </div>
+                    </div>
+                    <div class="card-vagas">
+                        <div class="img-vaga"></div>
+                        <div class="ttl-vaga">
+                            <h3>Curso de português básico</h3>
+                        </div>
+                        <div class="btn-assistir">
+                            <button>Assistir</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,6 +125,54 @@ export default {
     align-items: center;
 }
 
+.ttl-padrao {
+    font-size: 20px;
+    color: #252F3F;
+    width: 95%;
+}
+
+.img-vaga {
+    width: 100%;
+    height: 50%;
+    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.ttl-vaga {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.ttl-vaga h3 {
+    font-weight: 500;
+    font-size: 16px;
+    width: 90%;
+    height: 100%;
+}
+
+.btn-assistir {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-assistir button {
+    width: 90%;
+    height: 90%;
+    background-color: #F78024;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
 .container-vagasFav {
     width: 100%;
     display: flex;
@@ -53,7 +185,7 @@ export default {
     align-items: center;
     overflow: hidden;
     width: 95%;
-    height: 40vh;
+    height: 45vh;
     gap: 20px;
     user-select: none;
     overflow-x: scroll;
@@ -68,19 +200,13 @@ export default {
     max-width: 280px;
     min-width: 270px;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 70%;
+    height: 90%;
     border-radius: 2px;
     background-color: #fff;
     box-shadow: 0 1px 1px 1px #ccc;
     transition: .3s ease-in-out;
     overflow: hidden;
-}
-
-h3 {
-    font-size: 20px;
-    color: #252F3F;
-    width: 95%;
 }
 </style>
