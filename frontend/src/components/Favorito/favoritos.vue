@@ -5,48 +5,48 @@
                 <h3 class="ttl-padrao">Vagas favoritas</h3>
                 <div class="container-cardVagasFav">
                     <div class="card-vagas">
-                        <div class="img-vaga"></div>
+                        <div class="img-vaga-1"></div>
                         <div class="ttl-vaga">
-                            <h3>Curso de português básico</h3>
+                            <h3>Vaga de ajudante de obras</h3>
                         </div>
                         <div class="btn-assistir">
                             <button>Assistir</button>
                         </div>
                     </div>
                     <div class="card-vagas">
-                        <div class="img-vaga"></div>
+                        <div class="img-vaga-2"></div>
                         <div class="ttl-vaga">
-                            <h3>Curso de português básico</h3>
+                            <h3>Vaga de auxiliar administrativo</h3>
                         </div>
                         <div class="btn-assistir">
-                            <button>Assistir</button>
+                            <button>Ver mais</button>
                         </div>
                     </div>
                     <div class="card-vagas">
-                        <div class="img-vaga"></div>
+                        <div class="img-vaga-3"></div>
                         <div class="ttl-vaga">
-                            <h3>Curso de português básico</h3>
+                            <h3>Vaga de auxiliar de vendas</h3>
                         </div>
                         <div class="btn-assistir">
-                            <button>Assistir</button>
+                            <button>Ver mais</button>
                         </div>
                     </div>
                     <div class="card-vagas">
-                        <div class="img-vaga"></div>
+                        <div class="img-vaga-4"></div>
                         <div class="ttl-vaga">
-                            <h3>Curso de português básico</h3>
+                            <h3>Vaga de recepcionista</h3>
                         </div>
                         <div class="btn-assistir">
-                            <button>Assistir</button>
+                            <button>Ver mais</button>
                         </div>
                     </div>
                     <div class="card-vagas">
-                        <div class="img-vaga"></div>
+                        <div class="img-vaga-5"></div>
                         <div class="ttl-vaga">
-                            <h3>Curso de português básico</h3>
+                            <h3>Vaga repositor de produtos</h3>
                         </div>
                         <div class="btn-assistir">
-                            <button>Assistir</button>
+                            <button>Ver mais</button>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                 <h3 class="ttl-padrao">Cursos favoritos</h3>
                 <div class="container-cardVagasFav">
                     <div class="card-vagas">
-                        <div class="img-vaga"></div>
+                        <div class="img-vaga-6"></div>
                         <div class="ttl-vaga">
                             <h3>Curso de português básico</h3>
                         </div>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="card-vagas">
-                        <div class="img-vaga"></div>
+                        <div class="img-vaga-7"></div>
                         <div class="ttl-vaga">
                             <h3>Curso de português básico</h3>
                         </div>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="card-vagas">
-                        <div class="img-vaga"></div>
+                        <div class="img-vaga-8"></div>
                         <div class="ttl-vaga">
                             <h3>Curso de português básico</h3>
                         </div>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="card-vagas">
-                        <div class="img-vaga"></div>
+                        <div class="img-vaga-9"></div>
                         <div class="ttl-vaga">
                             <h3>Curso de português básico</h3>
                         </div>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="card-vagas">
-                        <div class="img-vaga"></div>
+                        <div class="img-vaga-10"></div>
                         <div class="ttl-vaga">
                             <h3>Curso de português básico</h3>
                         </div>
@@ -131,7 +131,79 @@ export default {
     width: 95%;
 }
 
-.img-vaga {
+.img-vaga-1 {
+    width: 100%;
+    height: 50%;
+    background-image: url(../../assets/img/Favoritos/aj-obras.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.img-vaga-2 {
+    width: 100%;
+    height: 50%;
+    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.img-vaga-3 {
+    width: 100%;
+    height: 50%;
+    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.img-vaga-4 {
+    width: 100%;
+    height: 50%;
+    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.img-vaga-5 {
+    width: 100%;
+    height: 50%;
+    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.img-vaga-6 {
+    width: 100%;
+    height: 50%;
+    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.img-vaga-7 {
+    width: 100%;
+    height: 50%;
+    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.img-vaga-8 {
+    width: 100%;
+    height: 50%;
+    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.img-vaga-9 {
+    width: 100%;
+    height: 50%;
+    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.img-vaga-10 {
     width: 100%;
     height: 50%;
     background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
