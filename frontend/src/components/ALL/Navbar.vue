@@ -100,7 +100,7 @@
           <router-link to="/Colaboradores">
             <li>
               <div class="icon">
-                <i class="fa-solid fa-headset"></i>
+                <i class="fa-solid fa-people-group"></i>
               </div>
               <div class="namePage">
                 <p>Colaboradores</p>
