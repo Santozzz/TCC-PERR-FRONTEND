@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container">
-
+            <h1>Colaboradores</h1>
         </div>
     </div>
 </template>
@@ -26,9 +26,10 @@ export default {
     align-items: center;
 }
 
-h3 {
-    font-size: 20px;
+h1 {
+    font-size: 30px;
     color: #252F3F;
     width: 95%;
+    font-weight: 500;
 }
 </style>
