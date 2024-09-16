@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="container-vagasFav">
-                <h3>Cursos favoritas bosta</h3>
+                <h3>Cursos favoritos</h3>
                 <div class="container-cardVagasFav">
                     <div class="card-vagas">
 
