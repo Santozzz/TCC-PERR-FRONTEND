@@ -114,7 +114,8 @@ export default {
         justify-content: space-evenly;
         align-items: center;
     }
-    .headerVagas{
+    
+    .container-pesquisa{.headerVagas{
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -124,7 +125,6 @@ export default {
         box-shadow: 0 1px 1px 1px #ccc;
         border-radius: 2px;
     }
-    .container-pesquisa{
         display: flex;
         justify-content: center;
         width: 100%;
