@@ -142,7 +142,7 @@ export default {
 .img-vaga-2 {
     width: 100%;
     height: 50%;
-    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-image: url(../../assets/img/Favoritos/aux-adm.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -150,7 +150,7 @@ export default {
 .img-vaga-3 {
     width: 100%;
     height: 50%;
-    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-image: url(../../assets/img/Favoritos/aux-vend.webp);
     background-position: center;
     background-size: cover;
 }
@@ -158,7 +158,7 @@ export default {
 .img-vaga-4 {
     width: 100%;
     height: 50%;
-    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-image: url(../../assets/img/Favoritos/recep.png);
     background-position: center;
     background-size: cover;
 }
@@ -166,7 +166,7 @@ export default {
 .img-vaga-5 {
     width: 100%;
     height: 50%;
-    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-image: url(../../assets/img/Favoritos/repo.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -182,7 +182,7 @@ export default {
 .img-vaga-7 {
     width: 100%;
     height: 50%;
-    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-image: url(../../assets/img/Favoritos/Cursoing.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -190,7 +190,7 @@ export default {
 .img-vaga-8 {
     width: 100%;
     height: 50%;
-    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-image: url(../../assets/img/Favoritos/hc.png);
     background-position: center;
     background-size: cover;
 }
@@ -198,7 +198,7 @@ export default {
 .img-vaga-9 {
     width: 100%;
     height: 50%;
-    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-image: url(../../assets/img/Favoritos/adm.webp);
     background-position: center;
     background-size: cover;
 }
@@ -206,7 +206,7 @@ export default {
 .img-vaga-10 {
     width: 100%;
     height: 50%;
-    background-image: url(../../assets/img/Favoritos/curso-de-portugues-online.png);
+    background-image: url(../../assets/img/Favoritos/Design_Grafico.webp);
     background-position: center;
     background-size: cover;
 }
