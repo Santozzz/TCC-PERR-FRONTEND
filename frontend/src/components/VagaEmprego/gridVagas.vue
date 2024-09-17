@@ -115,7 +115,7 @@ export default {
         align-items: center;
     }
     
-    .container-pesquisa{.headerVagas{
+    .headerVagas{
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -125,10 +125,13 @@ export default {
         box-shadow: 0 1px 1px 1px #ccc;
         border-radius: 2px;
     }
+
+    .container-pesquisa{
+        width: 100%;
         display: flex;
         justify-content: center;
-        width: 100%;
     }
+
     .input-search{
         display: flex;
         justify-content: left;
