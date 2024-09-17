@@ -105,9 +105,9 @@ export default {
                     if (this.form.senha.length < 6) {
                         this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
                     } else {
-                        axios.post()
+                        axios.post('http://localhost/backend')
                             .then(response => {
-                                console.log('Usuário cadastrado com sucesso:', response.data);
+                                console.log('Usuário cadastrado com sucesso:', this.form);
                                 // Redireciona para a página de login após o cadastro
                                 this.$router.push({ name: 'Entrar' });
                             })

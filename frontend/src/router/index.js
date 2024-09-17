@@ -52,6 +52,10 @@ const router = createRouter({
       path: "/Colaboradores",
       name: "colaboradores",
       component: () => import("../views/Colaboradores.vue"),
+    },{
+      path: "/API",
+      name: "api",
+      component: () => import("../../backend/api.js"),
     },
   ],
 });
