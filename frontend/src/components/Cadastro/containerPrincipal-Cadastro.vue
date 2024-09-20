@@ -59,7 +59,10 @@
     </div>
 </template>
 <script>
-import axios from 'axios';
+// import Vue from 'vue'   // in Vue 2
+import * as Vue from 'vue' // in Vue 3
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 export default {
     data() {
@@ -105,17 +108,7 @@ export default {
                     if (this.form.senha.length < 6) {
                         this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
                     } else {
-                        axios.post('http://localhost/backend')
-                            .then(response => {
-                                console.log('Usuário cadastrado com sucesso:', this.form);
-                                // Redireciona para a página de login após o cadastro
-                                this.$router.push({ name: 'Entrar' });
-                            })
-                            .catch(error => {
-                                console.error('Erro ao cadastrar usuário:', error);
-                                this.nothing.push('Erro ao cadastrar');
-                                // Manipula o erro, se necessário
-                            });
+                        this.axios.post("", this.form)
                     }
                 }
 
