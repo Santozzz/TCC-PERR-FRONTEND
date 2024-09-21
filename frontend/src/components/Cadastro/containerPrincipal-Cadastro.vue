@@ -108,7 +108,7 @@ export default {
                     if (this.form.senha.length < 6) {
                         this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
                     } else {
-                        this.axios.post("", this.form)
+                        this.axios.post("http://localhost: 3000/", this.form)
                     }
                 }
 
