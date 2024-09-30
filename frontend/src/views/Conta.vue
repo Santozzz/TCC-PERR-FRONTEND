@@ -10,7 +10,7 @@ import Navbar from '@/components/ALL/Navbar.vue';
 import Conta from '@/components/MinhaConta/Conta.vue';
 
 export default {
-    name: 'Cursos',
+    name: 'MinhaConta',
     components: {
         Navbar,
         Conta,
