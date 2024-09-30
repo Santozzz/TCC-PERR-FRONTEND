@@ -23,11 +23,11 @@ const router = createRouter({
       name: "vagaemprego",
       component: () => import("../views/VagaEmprego.vue"),
     },
-    {
-      path: "/Notificacoes",
-      name: "notificacoes",
-      component: () => import("../views/Notificacoes.vue"),
-    },
+    // {
+    //   path: "/Notificacoes",
+    //   name: "notificacoes",
+    //   component: () => import("../views/Notificacoes.vue"),
+    // },
     {
       path: "/SeuCurriculo",
       name: "seucurriculo",
@@ -43,11 +43,11 @@ const router = createRouter({
       name: "cursos",
       component: () => import("../views/Cursos.vue"),
     },
-    {
-      path: "/Entrevista",
-      name: "entrevista",
-      component: () => import("../views/Entrevista.vue"),
-    },
+    // {
+    //   path: "/Entrevista",
+    //   name: "entrevista",
+    //   component: () => import("../views/Entrevista.vue"),
+    // },
     {
       path: "/Colaboradores",
       name: "colaboradores",

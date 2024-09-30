@@ -47,7 +47,7 @@
               </div>
             </li>
           </router-link>
-          <router-link to="/Notificacoes">
+          <!-- <router-link to="/Notificacoes">
             <li>
               <div class="icon">
                 <i class="fa-solid fa-bell"></i>
@@ -56,7 +56,7 @@
                 <p>Notificações</p>
               </div>
             </li>
-          </router-link>
+          </router-link> -->
           <router-link to="/SeuCurriculo">
             <li>
               <div class="icon">
@@ -87,7 +87,7 @@
               </div>
             </li>
           </router-link>
-          <router-link to="/Entrevista">
+          <!-- <router-link to="/Entrevista">
             <li>
               <div class="icon">
                 <i class="fa-solid fa-headset"></i>
@@ -96,7 +96,7 @@
                 <p>Entrevista</p>
               </div>
             </li>
-          </router-link>
+          </router-link> -->
           <router-link to="/Colaboradores">
             <li>
               <div class="icon">
@@ -276,7 +276,7 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 60%;
+  height: 50%;
   width: 90%;
   list-style: none;
 }
