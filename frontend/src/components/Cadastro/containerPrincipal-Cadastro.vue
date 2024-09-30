@@ -28,6 +28,7 @@
                         <input type="submit" @click.prevent="submitData" value="CADASTRAR-SE">
                         <p>Já tenho uma conta.<router-link to="/Entrar">Entrar</router-link></p>
                     </form>
+                    {{ message }}
                     <ul class="container-alert">
                         <li :class="{ active: isActive }" class="alert-form" v-for="(error, index) in nothing"
                             :key="index">
@@ -59,10 +60,7 @@
     </div>
 </template>
 <script>
-// import Vue from 'vue'   // in Vue 2
-import * as Vue from 'vue' // in Vue 3
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+import axios from 'axios';
 
 export default {
     data() {
@@ -95,7 +93,7 @@ export default {
                 this.quantTel.push('Digite seu número por inteiro')
             }
         },
-        submitData() {
+        async submitData() {
             this.nothing = []
 
             if (!this.form.name || !this.form.tel || !this.form.email || !this.form.senha) {
@@ -108,7 +106,24 @@ export default {
                     if (this.form.senha.length < 6) {
                         this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
                     } else {
-                        this.axios.post("http://localhost: 3000/", this.form)
+                        try {
+                            // Requisição de registro via Axios
+                            const response = await axios.post('http://localhost:3000/Cadastro', {
+                                username: this.form.name,
+                                email: this.form.email,
+                                tel: this.form.tel,
+                                password: this.form.senha,
+                            });
+
+                            if (response.data.success) {
+                                this.message = 'Usuário registrado com sucesso!';
+                            } else {
+                                this.message = 'Falha no registro. Tente novamente.';
+                            }
+                        } catch (error) {
+                            console.error('Erro no registro:', error);
+                            this.message = 'Erro ao tentar registrar.';
+                        }
                     }
                 }
 
