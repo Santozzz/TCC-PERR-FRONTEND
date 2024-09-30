@@ -159,6 +159,7 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 50vh;
     align-items: center;
     justify-content: center;
 }
