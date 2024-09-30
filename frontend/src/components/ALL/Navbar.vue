@@ -17,7 +17,7 @@
               <i class="fa-solid fa-user"></i>
             </button>
             <div class="dropdown-content">
-              <a href="#">Minha Conta</a>
+              <router-link to="/MinhaConta">Minha Conta</router-link>
               <router-link to="/Cadastro">Sair</router-link>
             </div>
           </div>
