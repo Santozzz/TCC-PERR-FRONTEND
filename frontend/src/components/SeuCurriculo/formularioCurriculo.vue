@@ -30,8 +30,8 @@
             <!-- Certificados -->
             <div class="container-cursos">
                 <div class="ttl-content">
-                    <h3 class="ttl">Certificados</h3>
-                    <button @click="openModalAddCourse">Adicionar Cursos</button>
+                    <h3 class="ttl">Formação Academica</h3>
+                    <button @click="openModalAddCourse">Adicionar Certificado</button>
                 </div>
                 <div v-if="cardsCertifys.length" class="contentCourse-if">
                     <div class="Arrow" @click="direcao_certificados(1)">
@@ -63,7 +63,7 @@
             </div>
             <div :class="{ 'container-addCourse': true, 'addCourseOpen': isClassCourseAdded }">
                 <div class="ttl-addCourse">
-                    <h4>Adicionando Cursos</h4>
+                    <h4>Adicionando Certificado</h4>
                     <i class="fa-solid fa-x" @click="closeModalAddCourse"></i>
                 </div>
                 <div class="col-addCourse">
@@ -99,93 +99,9 @@
                 </ul>
             </div>
             <!-- Fim de Certificados -->
-            <!-- Experiencias Profissionais -->
-            <div class="container-expoProfissionais">
-                <div class="ttl-content">
-                    <h3 class="ttl">Experiencias Profissionais</h3>
-                    <button @click="openModalAddExpe">Adicionar Experiências</button>
-                </div>
-                <div v-if="cardsExperiences.length" class="contentExpe-if">
-                    <div class="Arrow" @click="direcao_expe(1)">
-                        <i class="fa-solid fa-angle-left"></i>
-                    </div>
-                    <div id="container-cardExpe">
-                        <div v-for="(cardExpe, index) in cardsExperiences" :key="index" class="cardExpe">
-                            <div class="ttl-cardExpe">
-                                <h3>{{ cardExpe.ocupation }}</h3>
-                            </div>
-                            <div class="period-companyCardExpe">
-                                <p><strong>Empresa:</strong>{{ cardExpe.company }}</p>
-                                <p><strong>Período:</strong>{{ cardExpe.period }}</p>
-                            </div>
-                            <h5>Atividades</h5>
-                            <p class="activitiesCardExpe">
-                                {{ cardExpe.activities }}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="Arrow" @click="direcao_expe(2)">
-                        <i class="fa-solid fa-angle-right"></i>
-                    </div>
-                </div>
-                <div class="naoTem-expe" v-else>
-                    <img src="../../assets/img/SeuCurriculo/naoTem-expe.jpg" alt="">
-                    <p>Você ainda não adicionou suas experiências ainda !</p>
-                </div>
-            </div>
-            <div :class="{ 'container-addExpe': true, 'addExpeOpen': isClassExpeAdded }">
-                <div class="ttl-addCourse">
-                    <h4>Adicionando Esperiência</h4>
-                    <i class="fa-solid fa-x" @click="closeModalAddExpe"></i>
-                </div>
-                <div class="rowExpe">
-                    <div class="colExpe">
-                        <div class="cardAddExpe">
-                            <div class="ttlExpe">
-                                <h3>{{ Experiense.ocupation }}</h3>
-                            </div>
-                            <div class="company-period">
-                                <p><strong>Empresa:</strong> {{ Experiense.company }}</p>
-                                <p><strong>Período:</strong> {{ Experiense.period }}</p>
-                            </div>
-                            <h4>Atividades</h4>
-                            <p class="activitiesExpe">
-                                {{ Experiense.activities }}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="colExpe">
-                        <form class="addExpe" @submit.prevent="AddExpe">
-                            <input v-model="Experiense.ocupation" type="text">
-                            <input v-model="Experiense.company" type="text">
-                            <input v-model="Experiense.period" type="text">
-                            <textarea v-model="Experiense.activities"></textarea>
-                            <input type="submit" value="Adicionar">
-                        </form>
-                    </div>
-                    <!-- Verificação para ter ceerteza que todos os campos do formulario de adicionar certificados esteja preenchido -->
-                    <ul class="container-alertExpe">
-                        <li :class="{ active: isActive }" class="alert-form" v-for="(error, index) in nothing"
-                            :key="index">
-                            <div class="alert">
-                                <div class="delete">
-                                    <h3>Ocorreu um erro</h3>
-                                    <i @click="fecharAlert" class="fa-regular fa-circle-xmark"></i>
-                                </div>
-                                <div class="line"></div>
-                                <div class="error">
-                                    {{ error }}
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Fim de Experiencias Profissionais -->
             <!-- Formação Academica -->
             <div class="container-formacao">
                 <div class="ttl-content">
-                    <h3 class="ttl">Formação Acadêmica</h3>
                 </div>
                 <div class="form-formacaoCheck">
                     <div class="col-inputCheck">
@@ -224,6 +140,7 @@
                 </div>
             </div>
             <!-- Fim de Formação Academica -->
+            <button class="btn-gerar">Gerar Currículo</button>
         </div>
     </div>
 </template>
@@ -354,6 +271,17 @@ export default {
 </script>
 
 <style scoped>
+.btn-gerar {
+    cursor: pointer;
+    width: 30%;
+    height: 5vh;
+    background-color: #F78024;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+}
+
 /* Config. Geral do componente */
 .container {
     position: relative;
