@@ -1,90 +1,28 @@
 <template>
     <div>
         <div class="container">
-            <!-- <div class="headerVagas">
-                <div class="container-pesquisa">
-                    <div class="input-search">
-                        <input type="text" placeholder="Procurar vaga de emprego">
-                        <div class="container-icon">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter">
-                    <button>Filtrar</button>
-                </div>
-            </div> -->
             <div class="container-vagas">
-                <div class="buscaRapida">
-                    <div class="rowCardArea">
-                        <div class="cardAreas">
-                            <div class="img-areas"></div>
-                            <div class="cardDescription">
-                                <div class="nomeArea">
-                                    <p>Logistica</p>
-                                </div>
-                                <div class="quantVagas">
-                                    <p>[ quant. vagas ]</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cardAreas">
-                            <div class="img-areas"></div>
-                            <div class="cardDescription">
-                                <div class="nomeArea">
-                                    <p>Fábrica</p>
-                                </div>
-                                <div class="quantVagas">
-                                    <p>[ quant. vagas ]</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rowCardArea">
-                        <div class="cardAreas">
-                            <div class="img-areas"></div>
-                            <div class="cardDescription">
-                                <div class="nomeArea">
-                                    <p>Transportes</p>
-                                </div>
-                                <div class="quantVagas">
-                                    <p>[ quant. vagas ]</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cardAreas">
-                            <div class="img-areas"></div>
-                            <div class="cardDescription">
-                                <div class="nomeArea">
-                                    <p>Saúde</p>
-                                </div>
-                                <div class="quantVagas">
-                                    <p>[ quant. vagas ]</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <h4>Procure por vagas de emprego aqui !</h4>
+                <h4>Vagas</h4>
                 <div class="gridCardVagas">
-                    <div class="container-row">
                         <div class="row">
-                            <div class="container-item" v-if="items.length">
-                                <span v-for="(titulo, index) in titulos" :key="index" class="ttl-row">
-                                    <h4>{{ titulo }}</h4>
-                                </span>
-                                <div class="container-card">
-                                    <span class="card" v-for="(item, index) in items" :key="index">
-                                        {{ item }}
+                            <div class="container-item" v-if="filteredCards.length">
+                                    <span class="card" v-for="(card, index) in cards_vagas" :key="index">
+                                        <div class="ttl-card">
+                                            <h2>{{ card.ttl }}</h2>
+                                        </div>
+                                        <div class="descricao">
+                                            <p>{{ card.descricao }}</p>
+                                        </div>
+                                        <div class="content-btn">
+                                            <RouterLink to="/Cadastro">Ver vaga</RouterLink>
+                                        </div>
                                     </span>
-                                </div>
                             </div>
                             <div class="nao-vagas" v-else>
                                 <img src="../../assets/img/VagaEmprego/nao-vagas.jpg" alt="">
                                 <p>No momento não há vagas disponíveis</p>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -92,20 +30,104 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
     data() {
         return {
-            titulos: [],
-            items: [],
+            id_vaga: null,
+            ttl_vaga: null,
+            descricao_vaga: null,
+            link_vaga: null,
+            cards_vagas: [
+                {
+                    id: this.id_vaga,
+                    ttl: this.ttl_vaga,
+                    descricao: this.descricao_vaga,
+                    link: this.link_vaga,
+                },
+            ],
         }
     },
     methods: {
 
+    },
+    computed: {
+        filteredCards() {
+            return this.cards_vagas.filter(card => card.ttl && card.descricao);
+        }
     }
 }
 </script>
 
 <style scoped>
+/* Para navegadores webkit como Chrome y Safari */
+::-webkit-scrollbar {
+    width: 2px; /* Ancho de la barra de scroll */
+    background-color: #f1f1f1; /* Color de fondo de la barra */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color de la parte desplazable */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color al pasar el ratón */
+}
+
+.ttl-card{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ttl-card h2{
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+}
+
+.descricao{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descricao p {
+    text-align: justify;
+    width: 80%;
+    height: 80%;
+    text-indent: 10px;
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+    padding: 5px;
+}
+
+.content-btn{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-btn a{
+    padding: 5px 15px;
+    background-color: #F78024;
+    font-size: 15px;
+    color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -186,7 +208,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     width: 90%;
-
+    height: 80vh;
 }
 
 .container-vagas h4 {
@@ -235,9 +257,6 @@ export default {
     width: 45%;
 }
 
-.cardDescription {
-    width: 52%;
-}
 
 .quantVagas p {
     color: #7e7e7e;
@@ -249,6 +268,7 @@ export default {
     justify-content: space-evenly;
     align-items: left;
     width: 100%;
+    height: 80vh;
 }
 
 .container-row h4 {
@@ -259,35 +279,32 @@ export default {
 .row {
     display: flex;
     width: 100%;
-    height: 26vh;
+    height: 100%;
     margin-bottom: 5px;
 }
 
 .container-item {
-    width: 100%;
-    height: 100%;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-}
-
-.ttl-row {
-    width: 100%;
-}
-
-.container-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: start;
+    gap: 30px;
+    flex-wrap: wrap;
     width: 100%;
     height: 100%;
 }
+
 
 .card {
-    width: 33%;
+    max-width: 350px;
+    min-width: 350px;
+    max-height: 250px;
+    min-height: 250px;
+    flex: 1 0 280px;
     height: 100%;
-    background-color: #F78024;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    box-shadow: 1px 2px 5px #ccc;
 }
 
 .nao-vagas {
