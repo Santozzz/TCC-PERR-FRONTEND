@@ -4,25 +4,25 @@
             <div class="container-vagas">
                 <h4>Vagas</h4>
                 <div class="gridCardVagas">
-                        <div class="row">
-                            <div class="container-item" v-if="filteredCards.length">
-                                    <span class="card" v-for="(card, index) in cards_vagas" :key="index">
-                                        <div class="ttl-card">
-                                            <h2>{{ card.ttl }}</h2>
-                                        </div>
-                                        <div class="descricao">
-                                            <p>{{ card.descricao }}</p>
-                                        </div>
-                                        <div class="content-btn">
-                                            <RouterLink to="/Cadastro">Ver vaga</RouterLink>
-                                        </div>
-                                    </span>
-                            </div>
-                            <div class="nao-vagas" v-else>
-                                <img src="../../assets/img/VagaEmprego/nao-vagas.jpg" alt="">
-                                <p>No momento não há vagas disponíveis</p>
-                            </div>
+                    <div class="row">
+                        <div class="container-item" v-if="filteredCards.length">
+                            <span class="card" v-for="(card, index) in cards_vagas" :key="index">
+                                <div class="ttl-card">
+                                    <h2>{{ card.ttl }}</h2>
+                                </div>
+                                <div class="descricao">
+                                    <p>{{ card.descricao }}</p>
+                                </div>
+                                <div class="content-btn">
+                                    <RouterLink to="/Cadastro">Ver vaga</RouterLink>
+                                </div>
+                            </span>
                         </div>
+                        <div class="nao-vagas" v-else>
+                            <img src="../../assets/img/VagaEmprego/nao-vagas.jpg" alt="">
+                            <p>No momento não há vagas disponíveis</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@ export default {
             cards_vagas: [
                 {
                     id: this.id_vaga,
-                    ttl: this.ttl_vaga,
+                    ttl: this.ttl_vag,
                     descricao: this.descricao_vaga,
                     link: this.link_vaga,
                 },
@@ -63,20 +63,25 @@ export default {
 <style scoped>
 /* Para navegadores webkit como Chrome y Safari */
 ::-webkit-scrollbar {
-    width: 2px; /* Ancho de la barra de scroll */
-    background-color: #f1f1f1; /* Color de fondo de la barra */
+    width: 2px;
+    /* Ancho de la barra de scroll */
+    background-color: #f1f1f1;
+    /* Color de fondo de la barra */
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #888; /* Color de la parte desplazable */
-    border-radius: 10px; /* Bordes redondeados */
+    background-color: #888;
+    /* Color de la parte desplazable */
+    border-radius: 10px;
+    /* Bordes redondeados */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Color al pasar el ratón */
+    background-color: #555;
+    /* Color al pasar el ratón */
 }
 
-.ttl-card{
+.ttl-card {
     width: 100%;
     height: 20%;
     display: flex;
@@ -84,14 +89,14 @@ export default {
     align-items: center;
 }
 
-.ttl-card h2{
+.ttl-card h2 {
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
 
 }
 
-.descricao{
+.descricao {
     width: 100%;
     height: 60%;
     display: flex;
@@ -109,7 +114,7 @@ export default {
     padding: 5px;
 }
 
-.content-btn{
+.content-btn {
     height: 20%;
     width: 100%;
     display: flex;
@@ -117,7 +122,7 @@ export default {
     align-items: center;
 }
 
-.content-btn a{
+.content-btn a {
     padding: 5px 15px;
     background-color: #F78024;
     font-size: 15px;
@@ -135,6 +140,7 @@ export default {
     margin: 30px 20%;
     justify-content: space-evenly;
     align-items: center;
+    padding: 10px;
 }
 
 .headerVagas {
