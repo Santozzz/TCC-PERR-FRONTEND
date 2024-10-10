@@ -2,6 +2,9 @@ import express from 'express';
 
 const app = express();
 
+// Para ler body com JSON   
+app.use(express.json())
+
 // MOCK
 const usuarios = [
     {id: 1, nome: 'David1', sala: '11'},
@@ -17,6 +20,11 @@ app.get('/', (req, res) => {
 
 app.get('/usuarios', (req, res) => {
     res.status(200).send(usuarios)
+})
+
+app.post('/usuarios', (req, res) => {
+    usuarios.push(req.body)
+    res.status(201).send('Usuario cadastrado com sucesso!')
 })
 
 export default app;
