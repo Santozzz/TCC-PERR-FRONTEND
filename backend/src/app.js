@@ -1,16 +1,9 @@
 import express from 'express';
+import conexao from '../infra/conexao.js'
 const app = express();
 
 // Para ler body com JSON   
 app.use(express.json())
-
-// MOCK
-const usuarios = [
-    {id: 1, nome: 'David1', sala: '11'},
-    {id: 2, nome: 'David2', sala: '10'},
-    {id: 3, nome: 'David3', sala: '11'},
-    {id: 4, nome: 'David4', sala: '31'},
-]
 
 // Busca o usuario pelo ID
 function buscarUsuarioPorID(id){
@@ -22,35 +15,66 @@ function buscarIdUsuario(id){
     return usuarios.findIndex( usuario => usuario.id == id)
 }
 
-// Rota padrão ou raiz  
-app.get('/', (req, res) => {
-    res.send('Olá mundo!')
-});
-
+// ROTAS
 app.get('/usuarios', (req, res) => {
-    res.status(200).send(usuarios)
+    const  sql = 'SELECT * FROM usuarios'
+    conexao.query(sql, (err, result) => {
+        if(err){    
+            res.status(404).json(err)
+        } else{
+            res.status(200).json(result)
+        }
+    })
 })
 
 app.get('/usuarios/:id', (req, res) => {
-    res.status(200).json(buscarUsuarioPorID(req.params.id))
+    const id = req.params.id
+    const  sql = 'SELECT * FROM usuarios WHERE id=?'
+    conexao.query(sql, id, (err, result) => {
+        const linha = result[0]
+        if(err){    
+            res.status(404).json(err)
+        } else{
+            res.status(200).json(linha)
+        }
+    })
 })
 
 app.post('/usuarios', (req, res) => {
-    usuarios.push(req.body)
-    res.status(201).send('Usuario cadastrado com sucesso!')
+    const id = req.body
+    const  sql = 'INSERT INTO usuarios SET ?'
+    conexao.query(sql, usuario, (err, result) => {
+        if(err){    
+            res.status(400).json(err)
+        } else{
+            res.status(201).json(result)
+        }
+    })
 })
 
 app.delete('/usuarios/:id', (req, res) => {
-    let index = buscarIdUsuario(req.params.id)
-    usuarios.splice(index, 1)
-    res.send(`Usuario com o id: ${req.params.id} excluido com sucesso!`)
+    const id = req.params.id
+    const  sql = 'DELETE FROM usuarios WHERE id=?'
+    conexao.query(sql, id, (err, result) => {
+        if(err){    
+            res.status(404).json(err)
+        } else{
+            res.status(200).json(result)
+        }
+    })
 })
 
 app.put('/usuarios/:id', (req, res) => {
-    let index = buscarIdUsuario(req.params.id)
-    usuarios[index].nome = req.body.nome
-    usuarios[index].sala = req.body.sala
-    res.json(usuarios)
+    const id = req.params.id
+    const usuario = req.body
+    const  sql = 'UPDATE usuarios SET ? WHERE id=?'
+    conexao.query(sql, [usuario, id], (err, result) => {
+        if(err){    
+            res.status(400).json(err)
+        } else{
+            res.status(200).json(result)
+        }
+    })
 })
 
 export default app;
