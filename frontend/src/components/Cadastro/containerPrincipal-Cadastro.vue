@@ -103,32 +103,15 @@ export default {
                 if (this.form.tel.length < 11) {
                     this.nothing.push('O campo de telefone deve ter pelo menos 11 caracteres');
                 } else {
-                    if (this.form.senha.length < 6) {
-                        this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
-                    } else {
-                        try {
-                            // Requisição de registro via Axios
-                            const response = await axios.post('http://localhost:3000/Cadastro', {
-                                username: this.form.name,
-                                email: this.form.email,
-                                tel: this.form.tel,
-                                password: this.form.senha,
-                            });
-
-                            if (response.data.success) {
-                                this.message = 'Usuário registrado com sucesso!';
-                            } else {
-                                this.message = 'Falha no registro. Tente novamente.';
-                            }
-                        } catch (error) {
-                            console.error('Erro no registro:', error);
-                            this.message = 'Erro ao tentar registrar.';
+                        if (this.form.senha.length < 6) {
+                            this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
+                        } else {
+                            
                         }
                     }
-                }
+                    }    
 
-            }
-        },
+                },
         fecharAlert(index) {
             this.nothing.splice(index, 1)
         }
