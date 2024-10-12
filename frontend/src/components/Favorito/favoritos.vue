@@ -10,7 +10,7 @@
                             <h3>Vaga de ajudante de obras</h3>
                         </div>
                         <div class="btn-assistir">
-                            <button>Assistir</button>
+                            <button>Ver mais</button>
                         </div>
                     </div>
                     <div class="card-vagas">
