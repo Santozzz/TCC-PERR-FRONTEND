@@ -4,6 +4,7 @@ import UsuarioController from "./app/controllers/UsuarioController.js";
 const router = Router()
 
 // ROTAS
+
 router.get('/usuarios', UsuarioController.index)
 router.get('/usuarios/:id', UsuarioController.show)
 router.post('/usuarios', UsuarioController.store)
