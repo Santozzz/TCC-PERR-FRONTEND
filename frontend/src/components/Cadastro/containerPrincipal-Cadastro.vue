@@ -61,6 +61,7 @@
 </template>
 <script>
 import axios from 'axios';
+import { warn } from 'vue';
 
 export default {
     data() {
@@ -105,25 +106,11 @@ export default {
                 } else {
                     if (this.form.senha.length < 6) {
                         this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
-                    } else {
-                        try {
-                            // Requisição de registro via Axios
-                            const response = await axios.post('http://localhost:3000/Cadastro', {
-                                username: this.form.name,
-                                email: this.form.email,
-                                tel: this.form.tel,
-                                password: this.form.senha,
-                            });
-
-                            if (response.data.success) {
-                                this.message = 'Usuário registrado com sucesso!';
-                            } else {
-                                this.message = 'Falha no registro. Tente novamente.';
-                            }
-                        } catch (error) {
-                            console.error('Erro no registro:', error);
-                            this.message = 'Erro ao tentar registrar.';
-                        }
+                    } else {   
+                        // this.axios.post('localhost:3000/usuarios', this.form) 
+                        // .then((result) => {
+                        //     console.warn(result)
+                        // })
                     }
                 }
 

@@ -1,15 +1,12 @@
 import express from 'express';
-import UsuarioController from './app/controllers/UsuarioController.js';
+import routes from './routes.js';
 const app = express();
 
-// Para ler body com JSON   
+// Para ler body como JSON   
 app.use(express.json())
 
-// ROTAS
-app.get('/usuarios', UsuarioController.index)
-app.get('/usuarios/:id', UsuarioController.show)
-app.post('/usuarios', UsuarioController.store)
-app.put('/usuarios/:id', UsuarioController.update)
-app.delete('/usuarios/:id', UsuarioController.delete)
+// Usar o router
+app.use(routes) 
+
 
 export default app;
