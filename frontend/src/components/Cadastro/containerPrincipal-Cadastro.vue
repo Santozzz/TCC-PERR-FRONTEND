@@ -15,12 +15,12 @@
                         oportunidade de emprego para você !
                     </h3>
                     <form class="form" method="POST">
-                        <input type="text" v-model="form.name" placeholder="Nome Completo">
-                        <input type="tel" v-model="form.tel" @input="applyMask" placeholder="Telefone">
+                        <input type="text" v-model="usuario.name" placeholder="Nome Completo">
+                        <input type="tel" v-model="usuario.telefone" @input="applyMask" placeholder="Telefone">
                         <div class="row-input">
-                            <input type="email" v-model="form.email" placeholder="Email">
+                            <input type="email" v-model="usuario.email" placeholder="Email">
                             <div class="password">
-                                <input :type="inputType" v-model="form.senha" placeholder="Senha" maxlength="16" />
+                                <input :type="inputType" v-model="usuario.senha" placeholder="Senha" maxlength="16" />
                                 <i class="fa-solid" :class="showPassword ? 'fa-eye' : 'fa-eye-slash'"
                                     @click="togglePasswordVisibility"></i>
                             </div>
@@ -70,9 +70,9 @@ export default {
             showPassword: false,
             inputType: 'password',
             //Variaveis de validação e envio de dados dos inputs
-            form: {
+            usuario: {
                 name: null,
-                tel: null,
+                telefone: null,
                 email: null,
                 senha: null,
             },
@@ -96,22 +96,26 @@ export default {
         async submitData() {
             this.nothing = []
 
-            if (!this.form.name || !this.form.tel || !this.form.email || !this.form.senha) {
+            if (!this.usuario.name || !this.usuario.telefone || !this.usuario.email || !this.usuario.senha) {
                 this.nothing.push('Preencha todos os campos');
             }
             else {
-                if (this.form.tel.length < 11) {
+                if (this.usuario.telefone.length < 11) {
                     this.nothing.push('O campo de telefone deve ter pelo menos 11 caracteres');
                 } else {
-                        if (this.form.senha.length < 6) {
-                            this.nothing.push('O campo de senha deve ter pelo menos 6 caracteres');
-                        } else {
-                            
+                    try {
+                          const response = await axios.post('http://localhost:3000/usuarios', this.usuario);
+                          this.message = 'Usuário cadastrado com sucesso!';
+                          // Limpar o formulário
+                          this.usuario = { name: '', email: '', telefone: '', senha: '' };
+                        } catch (error) {
+                          // Ajuste aqui para lidar com a estrutura correta do erro
+                          this.message = 'Erro ao cadastrar usuário: ' + (error.response ? error.response.data.message : error.message);
                         }
                     }
-                    }    
+            }    
 
-                },
+        },
         fecharAlert(index) {
             this.nothing.splice(index, 1)
         }

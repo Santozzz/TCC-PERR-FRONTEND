@@ -3,8 +3,9 @@ import { consult } from "../database/conexao.js"
 class UsuarioRepository {
     // CRUD
     create(usuario) {
-        const  sql = 'INSERT INTO usuarios SET ?'
-        return consult(sql, usuario, 'Não foi possivel cadastrar')
+        // Ajuste aqui para usar 'nome' ao invés de 'name'
+        const sql = 'INSERT INTO usuarios SET ?'
+        return consult(sql, { nome: usuario.name, email: usuario.email, telefone: usuario.telefone, senha: usuario.senha }, 'Não foi possível cadastrar');
     }
 
     findAll() {

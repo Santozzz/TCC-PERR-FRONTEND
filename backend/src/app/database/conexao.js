@@ -17,15 +17,16 @@ conexao.connect()
  * @param {string} mesageReject mensagem a ser exibida
  * @returns objeto da promise
  */
-export const consult = (sql, values='', mesageReject ) => {
+export const consult = (sql, values = '', mesageReject = 'Erro na consulta') => {
     return new Promise((resolve, reject) => {
         conexao.query(sql, values, (err, result) => {
-            if(err) return reject(mesageReject)
-                const row = JSON.parse(JSON.stringify(result))
-                return resolve(row)    
-        })
-    })
-}
-
+            if (err) {
+                return reject(new Error(`${mesageReject}: ${err.message}`));
+            }
+            const row = JSON.parse(JSON.stringify(result));
+            return resolve(row);
+        });
+    });
+};
 
 export default conexao
