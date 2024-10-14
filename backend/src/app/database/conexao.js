@@ -13,7 +13,7 @@ conexao.connect()
 /**
  * Executa um codigo sql com ou sem valores
  * @param {string} sql instrução sql a ser executada
- * @param {string=id / [usuario, id]} values valores a serem passados  para o sql
+ * @param {string=id / [usuario, email]} values valores a serem passados  para o sql
  * @param {string} mesageReject mensagem a ser exibida
  * @returns objeto da promise
  */

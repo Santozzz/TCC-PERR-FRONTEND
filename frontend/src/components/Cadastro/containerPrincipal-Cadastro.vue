@@ -108,6 +108,7 @@ export default {
                           this.message = 'Usuário cadastrado com sucesso!';
                           // Limpar o formulário
                           this.usuario = { name: '', email: '', telefone: '', senha: '' };
+                          this.$router.push('/Entrar')
                         } catch (error) {
                           // Ajuste aqui para lidar com a estrutura correta do erro
                           this.message = 'Erro ao cadastrar usuário: ' + (error.response ? error.response.data.message : error.message);

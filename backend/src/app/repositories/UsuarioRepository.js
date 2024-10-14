@@ -1,4 +1,5 @@
 import { consult } from "../database/conexao.js"
+import bcrypt from 'bcrypt'
 
 class UsuarioRepository {
     // CRUD
@@ -13,9 +14,9 @@ class UsuarioRepository {
         return consult(sql, 'Não foi possivel achar')
     }
 
-    findById(id) {
-        const  sql = 'SELECT * FROM usuarios WHERE id=?'
-        return consult(sql, id, 'Não foi possivel achar o ID')
+    findByEmail(email) {
+        const  sql = 'SELECT * FROM usuarios WHERE email=?'
+        return consult(sql, email, 'Não foi possivel achar o ID')
     }
     update(usuario, id) {
         const  sql = 'UPDATE usuarios SET ? WHERE id=?'

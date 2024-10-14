@@ -7,8 +7,8 @@ class UsuarioController {
         res.json(row)
     }
     async show(req, res) {
-        const id = req.params.id
-        const row = await UsuarioRepository.findById(id)
+        const email = req.params.email
+        const row = await UsuarioRepository.findByEmail(email)
         res.json(row)
     }
     async store(req, res) {

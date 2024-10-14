@@ -9,12 +9,11 @@
                     <h2>Entrar</h2>
                     <p>Fique ligado em todas as novidades referente ao mundo de trabalho</p>
                 </div>
-                <input type="email" placeholder="Email">
+                <input type="email" v-model="email" placeholder="Email">
                 <div class="password">
                     <input class="input-pass" :type="inputType" v-model="senha" placeholder="Senha" maxlength="16">
                     <i class="fa-solid" :class="showPassword ? 'fa-eye' : 'fa-eye-slash'" @click="togglePasswordVisibility"></i>
                 </div>
-                <a href="">Esqueceu a senha ?</a>
                 <input type="submit" @click.prevent="getData" value="Entrar">
                 <div class="line"></div>
                 <p>
@@ -22,6 +21,7 @@
                     a <strong>Política de Cookies</strong> do PERR.
                 </p>
             </form>
+            {{ message }}
             <p>Não possui conta ainda ? <router-link to="/Cadastro">Cadastre-se</router-link></p>
             <ul class="container-alert">
                 <li :class="{ active: isActive}" class="alert-form" v-for="(error, index) in errors" :key="index">
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     data() {
         return {     
@@ -66,6 +68,14 @@ export default {
 
         if(!this.email || !this.senha) {
             this.errors.push('Preencha todos os campos');
+        } else {
+            try{
+                const resp = axios.get('http://localhost/usuarios/:email')
+                this.message = resp
+            } catch(error) {
+                this.message = 'Erro ao buscar usuário: ' + (error.response ? error.response.data.message : error.message);
+            }
+            
         }
     },
     fecharAlert(index){
