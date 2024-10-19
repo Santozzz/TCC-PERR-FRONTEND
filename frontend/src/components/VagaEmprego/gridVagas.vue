@@ -302,7 +302,7 @@ export default {
 
 .container-item {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: start;
     gap: 30px;
     flex-wrap: wrap;
@@ -312,10 +312,10 @@ export default {
 
 
 .card {
-    max-width: 350px;
-    min-width: 350px;
-    max-height: 250px;
-    min-height: 250px;
+    max-width: 260px;
+    min-width: 260px;
+    max-height: 200px;
+    min-height: 200px;
     flex: 1 0 280px;
     height: 100%;
     border: 1px solid #ccc;

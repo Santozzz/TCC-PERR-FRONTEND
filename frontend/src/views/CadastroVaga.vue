@@ -1,6 +1,8 @@
 <template>
     <div>
+        <NavbarAdm />
         <div class="container">
+            <h3>Cadastro de Vagas</h3>
             {{ message }}
             <form method="POST" @submit.prevent="submitData">
                 <label>Titulo:</label>
@@ -56,10 +58,14 @@
 </template>
 
 <script>
+import NavbarAdm from '@/components/ALL/Navbar-adm.vue';
 import axios from 'axios'
 
 export default {
     name: 'CadastroVaga',
+    components: {
+        NavbarAdm,
+    },
     data(){
         return{
             // Variaveis
@@ -131,6 +137,12 @@ export default {
     margin: 100px 10%;
     justify-content: space-evenly;
     align-items: center;
+}
+
+h3{
+    margin-bottom: 50px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 form{
