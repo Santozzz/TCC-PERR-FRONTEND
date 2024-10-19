@@ -5,22 +5,25 @@
                 <h4>Vagas</h4>
                 <div class="gridCardVagas">
                     <div class="row">
-                        <div class="container-item" v-if="filteredCards.length">
+                        <!-- Verifica se há vagas diretamente com cards_vagas -->
+                        <div class="container-item" v-if="cards_vagas.length">
                             <span class="card" v-for="(card, index) in cards_vagas" :key="index">
                                 <div class="ttl-card">
-                                    <h2>{{ card.ttl }}</h2>
+                                    <h2>{{ card.titulo }}</h2> <!-- Corrigido: Usar card.titulo -->
                                 </div>
                                 <div class="descricao">
                                     <p>{{ card.descricao }}</p>
                                 </div>
                                 <div class="content-btn">
-                                    <RouterLink to="/Cadastro">Ver vaga</RouterLink>
+                                    <!-- Certifique-se que o link seja uma rota válida -->
+                                    <a :href="card.link" target="_blank" rel="noopener noreferrer">Ver vaga</a>
                                     <button>Favoritar</button>
                                 </div>
                             </span>
                         </div>
+                        <!-- Mostra mensagem quando não houver vagas -->
                         <div class="nao-vagas" v-else>
-                            <img src="../../assets/img/VagaEmprego/nao-vagas.jpg" alt="">
+                            <img src="../../assets/img/VagaEmprego/nao-vagas.jpg" alt="Imagem sem vagas">
                             <p>No momento não há vagas disponíveis</p>
                         </div>
                     </div>
@@ -31,35 +34,31 @@
 </template>
 
 <script>
-import { RouterLink } from 'vue-router';
+import axios from 'axios'; // Certifique-se de importar axios
 
 export default {
     data() {
         return {
-            id_vaga: null,
-            ttl_vaga: null,
-            descricao_vaga: null,
-            link_vaga: null,
-            cards_vagas: [
-                {
-                    id: this.id_vaga,
-                    ttl: this.ttl_vag,
-                    descricao: this.descricao_vaga,
-                    link: this.link_vaga,
-                },
-            ],
-        }
+            cards_vagas: [], // Array de vagas
+        };
     },
     methods: {
-
-    },
-    computed: {
-        filteredCards() {
-            return this.cards_vagas.filter(card => card.ttl && card.descricao);
+        async getVagas() {
+            try {
+                // Faz a requisição GET para obter as vagas
+                const response = await axios.get('http://localhost:3000/vagas');
+                this.cards_vagas = response.data; // Armazena o resultado no array cards_vagas
+            } catch (error) {
+                console.error('Erro ao buscar vagas:', error);
+            }
         }
+    },
+    mounted() {
+        this.getVagas(); // Chama a função para buscar vagas ao montar o componente
     }
-}
+};
 </script>
+
 
 <style scoped>
 /* Para navegadores webkit como Chrome y Safari */
