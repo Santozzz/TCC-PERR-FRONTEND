@@ -180,12 +180,7 @@ export default {
             //Fim Alertas
         }
     },
-    props: {
-        groupname: {
-            type: String,
-            required: true
-        },
-    },
+
     methods: {
         openModalAddCourse() {
             this.isClassCourseAdded = true; // Alterna o estado da classe
