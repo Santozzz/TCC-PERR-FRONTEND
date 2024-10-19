@@ -15,7 +15,7 @@
                                         </div>
                                         <div class="content-btn">
                                             <RouterLink to="">Ver curso</RouterLink>
-                                            <button @click="">Favoritar</button>
+                                            <button>Favoritar</button>
                                         </div>
                                     </span>
                             </div>

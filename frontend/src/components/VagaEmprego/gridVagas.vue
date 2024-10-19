@@ -15,6 +15,7 @@
                                 </div>
                                 <div class="content-btn">
                                     <RouterLink to="/Cadastro">Ver vaga</RouterLink>
+                                    <button>Favoritar</button>
                                 </div>
                             </span>
                         </div>
@@ -118,13 +119,24 @@ export default {
     height: 20%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .content-btn a {
     padding: 5px 15px;
     background-color: #F78024;
+    font-size: 15px;
+    color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none
+}
+
+.content-btn button{
+    padding: 5px 15px;
+    background-color: #536acc;
     font-size: 15px;
     color: #f1f1f1;
     border: none;
