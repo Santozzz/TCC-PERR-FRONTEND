@@ -14,7 +14,7 @@
                                             <p>{{ card.descricao }}</p>
                                         </div>
                                         <div class="content-btn">
-                                            <RouterLink to="">Ver curso</RouterLink>
+                                            <button @click="openModal">Ver cursos</button>
                                             <button>Favoritar</button>
                                         </div>
                                     </span>
@@ -25,6 +25,15 @@
                             </div>
                         </div>
                 </div>
+                <div :class="{ 'container-modal': true, 'modalOpen': showModal }">
+                    <div class="ttl">
+                        <p>Informações</p>
+                        <div @click="closeModal" class="xis">
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -36,21 +45,26 @@ import { RouterLink } from 'vue-router';
 export default {
     data() {
         return {
-            id_curso: null,
-            ttl_curso: null,
-            descricao_curso: null,
-            link_curso: null,
+
+            showModal:false,
+
             cards_cursos: [
                 {
-                    id: this.id_cursos,
-                    ttl: this.ttl_curso,
-                    descricao: this.descricao_curso,
-                    link: this.link_curso,
+                    id: 'this.id_cursos',
+                    ttl: 'this.ttl_curso',
+                    descricao: 'this.descricao_curso',
+                    link: 'this.link_curso',
                 },
             ],
         }
     },
     methods: {
+        openModal() {
+            this.showModal = true; // Alterna o estado da classe
+        },
+        closeModal() {
+            this.showModal = false; // Alterna o estado da classe
+        },
     },
     computed: {
         filteredCards() {
@@ -61,6 +75,39 @@ export default {
 </script>
 
 <style scoped>
+
+.container-modal{
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    z-index: 999;
+    position: fixed;
+    width: 50vw;
+    height: 60vh;
+    left: 35%;
+    top: 24%;
+    background-color: #FFF;
+    box-shadow: 0px 0px 20000px 20000px #0000003f;
+    border-radius: 5px;
+    display: none;
+}
+
+.container-modal.modalOpen{
+    display: flex;
+}
+
+.ttl{
+    width: 90%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.xis{
+    cursor: pointer;
+}
+
 /* Para navegadores webkit como Chrome y Safari */
 ::-webkit-scrollbar {
     width: 2px; /* Ancho de la barra de scroll */
