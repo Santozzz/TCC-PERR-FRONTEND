@@ -19,6 +19,13 @@ class VagaController{
         res.json(row)
     }
 
+    async update(req, res) {
+        const id = req.params.idvagas
+        const vaga = req.body
+        const row = await VagaRepository.update(vaga, id)
+        res.json(row)
+    }
+
 }
 
 export default new VagaController()

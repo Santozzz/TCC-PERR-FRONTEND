@@ -17,9 +17,9 @@ class UsuarioController {
         res.json(row)
     }
     async update(req, res) {
-        const id = req.params.id
+        const idvagas = req.params.idvagas
         const usuario = req.body
-        const row = await UsuarioRepository.update(usuario, id)
+        const row = await UsuarioRepository.update(usuario, idvagas)
         res.json(row)
     }
     async delete(req, res) {

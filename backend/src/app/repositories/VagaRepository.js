@@ -17,6 +17,11 @@ class VagaRepository{
         return consult(sql, id, 'Não foi possivel deletar')
     }
 
+    update(vaga, idvagas) {
+        const  sql = 'UPDATE vagas SET ? WHERE idvagas=?'
+        return consult(sql, [vaga, idvagas], 'Não foi possivel atualizar')
+    }
+
 }
 
 export default new VagaRepository()

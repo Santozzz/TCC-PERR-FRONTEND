@@ -14,6 +14,7 @@ router.delete('/usuarios/:id', UsuarioController.delete)
 // ROTAS VAGAS
 router.post('/vagas', VagaController.store)
 router.get('/vagas', VagaController.index)
+router.put('/vagas/:idvagas', VagaController.update)
 router.delete('/vagas/:id', VagaController.delete)
 
 

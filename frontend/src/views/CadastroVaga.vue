@@ -4,26 +4,28 @@
         <div class="container">
             <h3>Cadastro de Vagas</h3>
             {{ message }}
-            <form method="POST" @submit.prevent="submitData">
+            <!-- Formulário de Cadastro -->
+            <form class="form" method="POST" @submit.prevent="submitData">
                 <label>Titulo:</label>
-                <input class="data-ttl" type="text" v-model="vaga.titulo">
+                <input class="data-ttl" type="text" v-model="vagaCadastro.titulo">
                 <label>Salario:</label>
-                <input class="data-ttl" type="text" v-model="vaga.salario">
+                <input class="data-ttl" type="text" v-model="vagaCadastro.salario">
                 <label>Local:</label>
-                <input class="data-ttl" type="text" v-model="vaga.local">
+                <input class="data-ttl" type="text" v-model="vagaCadastro.local">
                 <label>Descrição:</label>
-                <textarea v-model="vaga.descricao" class="data-desc"></textarea>
+                <textarea v-model="vagaCadastro.descricao" class="data-desc"></textarea>
                 <label>Link:</label>
-                <input class="data-ttl" type="text" v-model="vaga.link">
+                <input class="data-ttl" type="text" v-model="vagaCadastro.link">
                 <input class="submit" type="submit" value="Inserir Vaga">
             </form>
+
             <ul class="container-alert">
                 <li :class="{ active: isActive }" class="alert-form" v-for="(error, index) in nothing"
                     :key="index">
                     <div class="alert">
                         <div class="delete">
                             <h3>Ocorreu um erro</h3>
-                            <i @click="fecharAlert" class="fa-regular fa-circle-xmark"></i>
+                            <i @click="fecharAlert(index)" class="fa-regular fa-circle-xmark"></i>
                         </div>
                         <div class="line"></div>
                         <div class="error">
@@ -32,6 +34,7 @@
                     </div>
                 </li>
             </ul>
+
             <div class="dashboard">
                 <div class="th">
                     <div class="id-col">
@@ -44,18 +47,43 @@
                         <p>Ferramentas</p>
                     </div>
                 </div>
+
                 <div v-for="(vaga, index) in vagas" :key="index" class="tr">
                     <div class="id-col"><p>{{ vaga.idvagas }}</p></div> <!-- ID da vaga -->
                     <div class="col"><p>{{ vaga.titulo }}</p></div> <!-- Título da vaga -->
                     <div class="col">
                         <div class="btn">
-                            <button @click="editarVaga(vaga.idvagas)">Editar</button>
+                            <button @click="openModal(vaga)">Editar</button>
                         </div>
                         <div class="btn">
                             <button @click="excluirVaga(vaga.idvagas)">Excluir</button>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Modal para Edição -->
+            <div :class="{ 'container-modal': true, 'modalOpen': showModal }">
+                <div class="ttl">
+                    <p>Informações</p>
+                    <div @click="closeModal" class="xis">
+                        <i class="fa-solid fa-x"></i>
+                    </div>
+                </div>
+
+                <form class="form-modal" method="POST" @submit.prevent="updateData">
+                    <label>Titulo:</label>
+                    <input class="data-ttl" type="text" v-model="vagaUpdate.titulo">
+                    <label>Salario:</label>
+                    <input class="data-ttl" type="text" v-model="vagaUpdate.salario">
+                    <label>Local:</label>
+                    <input class="data-ttl" type="text" v-model="vagaUpdate.local">
+                    <label>Descrição:</label>
+                    <textarea v-model="vagaUpdate.descricao" class="data-desc"></textarea>
+                    <label>Link:</label>
+                    <input class="data-ttl" type="text" v-model="vagaUpdate.link">
+                    <input class="submit" type="submit" value="Atualizar Vaga">
+                </form>
             </div>
         </div>
     </div>
@@ -70,71 +98,138 @@ export default {
     components: {
         NavbarAdm,
     },
-    data(){
-        return{
-            // Variaveis
-            vaga: {
+    data() {
+        return {
+            showModal: false,
+            // Objeto para o formulário de cadastro
+            vagaCadastro: {
                 titulo: '',
                 descricao: '',
                 link: '',
                 salario: '',
                 local: '',
             },
-            vagas: [],
-            nothing: []
+            // Objeto para o formulário de atualização
+            vagaUpdate: {
+                idvagas: '',
+                titulo: '',
+                descricao: '',
+                link: '',
+                salario: '',
+                local: '',
+            },
+            vagas: [],  // Lista de vagas
+            nothing: [],  // Para mensagens de erro
+            message: ''  // Mensagens de sucesso ou erro
         }
     },
     methods: {
-        async submitData() {
-
-            if (!this.vaga.titulo || !this.vaga.descricao || !this.vaga.link || !this.vaga.salario || !this.vaga.local) {
-                this.nothing.push('Preencha todos os campos');
-            }
-            else {
-                try {
-                      const response = await axios.post('http://localhost:3000/vagas', this.vaga);
-                      this.message = 'Usuário cadastrado com sucesso!';
-                      // Limpar o formulário
-                      this.vaga = { titulo: '', descricao: '', link: '', local: '', salario: '' };
-                    } catch (error) {
-                      // Ajuste aqui para lidar com a estrutura correta do erro
-                      this.message = 'Erro ao cadastrar usuário: ' + (error.response ? error.response.data.message : error.message);
-                    }
-            }    
-
+        openModal(vaga) {
+            // Abre o modal e carrega a vaga a ser editada
+            this.vagaUpdate = { ...vaga }; // Inclui o ID da vaga na edição
+            this.showModal = true;
         },
-         // Método para buscar as vagas
-         async getVagas() {
+        closeModal() {
+            this.showModal = false;
+        },
+        async submitData() {
+            if (!this.vagaCadastro.titulo || !this.vagaCadastro.descricao || !this.vagaCadastro.link || !this.vagaCadastro.salario || !this.vagaCadastro.local) {
+                this.nothing.push('Preencha todos os campos');
+            } else {
+                try {
+                    const response = await axios.post('http://localhost:3000/vagas', this.vagaCadastro);
+                    this.message = 'Vaga cadastrada com sucesso!';
+                    // Limpar o formulário de cadastro
+                    this.vagaCadastro = { titulo: '', descricao: '', link: '', local: '', salario: '' };
+                    this.getVagas();  // Atualizar a lista de vagas
+                } catch (error) {
+                    this.message = 'Erro ao cadastrar vaga: ' + (error.response ? error.response.data.message : error.message);
+                }
+            }
+        },
+        async updateData() {
+            // Verifique se o ID da vaga existe antes de tentar atualizar
+            console.log("ID da vaga a ser atualizado: ", this.vagaUpdate.idvagas);
+            if (!this.vagaUpdate.titulo || !this.vagaUpdate.descricao || !this.vagaUpdate.link || !this.vagaUpdate.salario || !this.vagaUpdate.local) {
+                this.nothing.push('Preencha todos os campos');
+            } else if (!this.vagaUpdate.idvagas) {
+                this.nothing.push('Erro: ID da vaga não encontrado!');
+            } else {
+                try {
+                    // Usar o ID da vaga diretamente na URL
+                    const response = await axios.put(`http://localhost:3000/vagas/${this.vagaUpdate.idvagas}`, this.vagaUpdate);
+                    this.message = 'Vaga atualizada com sucesso!';
+                    this.closeModal();  // Fecha o modal após a atualização
+                    this.getVagas();  // Atualiza a lista de vagas
+                } catch (error) {
+                    this.message = 'Erro ao atualizar vaga: ' + (error.response ? error.response.data.message : error.message);
+                }
+            }
+        },
+        async getVagas() {
             try {
-                const response = await axios.get('http://localhost:3000/vagas')
-                this.vagas = response.data; 
+                const response = await axios.get('http://localhost:3000/vagas');
+                this.vagas = response.data;
             } catch (error) {
                 console.error('Erro ao buscar vagas:', error);
             }
         },
         async excluirVaga(idvagas) {
-            if (confirm('Tem certeza que deseja excluir esta vaga?')) { // Confirmação antes de excluir
+            if (confirm('Tem certeza que deseja excluir esta vaga?')) {
                 try {
                     const response = await axios.delete(`http://localhost:3000/vagas/${idvagas}`);
                     this.message = response.data.message;
-                    this.getVagas(); // Atualiza a lista de vagas após excluir
+                    this.getVagas();  // Atualiza a lista de vagas após excluir
                 } catch (error) {
                     this.message = 'Erro ao excluir vaga: ' + (error.response ? error.response.data.message : error.message);
                 }
             }
         },
         fecharAlert(index) {
-            this.nothing.splice(index, 1)
+            this.nothing.splice(index, 1);
         }
     },
     mounted() {
         this.getVagas();
-    },
-
+    }
 }
 </script>
 
+
+
 <style scoped>
+
+.container-modal{
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    z-index: 999;
+    position: fixed;
+    width: 50vw;
+    height: 60vh;
+    left: 25%;
+    top: 22%;
+    background-color: #FFF;
+    box-shadow: 0px 0px 20000px 20000px #0000003f;
+    border-radius: 5px;
+    display: none;
+}
+
+.container-modal.modalOpen{
+    display: flex;
+}
+
+.ttl{
+    width: 90%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.xis{
+    cursor: pointer;
+}
 
 .container{
     display: flex;
@@ -151,12 +246,21 @@ h3{
     font-weight: 500;
 }
 
-form{
+.form{
     width: 50%;
     height: 400px;
     background-color: rgb(252, 252, 252);
     border-radius: 5px;
     box-shadow: 1px 2px 2px #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form-modal{
+    width: 80%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
