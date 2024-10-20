@@ -4,7 +4,7 @@ class VagaRepository{
 
     create(vaga) {
         const sql = 'INSERT INTO vagas SET ?'
-        return consult(sql, { titulo: vaga.titulo, descricao: vaga.descricao, link: vaga.link }, 'Não foi possível cadastrar vaga')
+        return consult(sql, { titulo: vaga.titulo, descricao: vaga.descricao, link: vaga.link, salario: vaga.salario, local: vaga.local }, 'Não foi possível cadastrar vaga')
     }
 
     findAll(){

@@ -9,18 +9,53 @@
                         <div class="container-item" v-if="cards_vagas.length">
                             <span class="card" v-for="(card, index) in cards_vagas" :key="index">
                                 <div class="ttl-card">
-                                    <h2>{{ card.titulo }}</h2> <!-- Corrigido: Usar card.titulo -->
+                                    <h2>{{ card.titulo }}</h2>
                                 </div>
                                 <div class="descricao">
                                     <p>{{ card.descricao }}</p>
                                 </div>
                                 <div class="content-btn">
-                                    <!-- Certifique-se que o link seja uma rota válida -->
-                                    <a :href="card.link" target="_blank" rel="noopener noreferrer">Ver vaga</a>
+                                    <a class="L" @click="openModal(card)">Ver vaga</a>
                                     <button>Favoritar</button>
                                 </div>
                             </span>
+
+                            <div :class="{ 'container-modal': true, 'modalOpen': showModal }">
+                                <div class="ttl">
+                                    <p>Informações</p>
+                                    <div @click="closeModal" class="xis">
+                                        <i class="fa-solid fa-x"></i>
+                                    </div>
+                                </div>
+                                <div class="row-modal" v-if="selectedCard">
+                                    <div class="col">
+                                        <img src="../../assets/img/VagaEmprego/img-vaga.jpg" alt="Imagem da vaga">
+                                    </div>
+                                    <div class="col">
+                                        <div class="infos">
+                                            <div class="ttl-modal">
+                                                <h2>{{ selectedCard.titulo }}</h2>
+                                            </div>
+                                            <div class="basic-infos">
+                                                <div class="info">
+                                                    <p>R$ {{ selectedCard.salario }},00</p>
+                                                </div>
+                                                <div class="info">
+                                                    <p>{{ selectedCard.local }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="descricao-modal">
+                                                <p>{{ selectedCard.descricao }}</p>
+                                            </div>
+                                            <div class="content-btn">
+                                                <a :href="selectedCard.link" target="_blank" rel="noopener noreferrer">Ver vaga</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                         <!-- Mostra mensagem quando não houver vagas -->
                         <div class="nao-vagas" v-else>
                             <img src="../../assets/img/VagaEmprego/nao-vagas.jpg" alt="Imagem sem vagas">
@@ -34,12 +69,14 @@
 </template>
 
 <script>
-import axios from 'axios'; // Certifique-se de importar axios
+import axios from 'axios'; 
 
 export default {
     data() {
         return {
-            cards_vagas: [], // Array de vagas
+            cards_vagas: [], 
+            showModal: false,
+            selectedCard: null, 
         };
     },
     methods: {
@@ -47,20 +84,141 @@ export default {
             try {
                 // Faz a requisição GET para obter as vagas
                 const response = await axios.get('http://localhost:3000/vagas');
-                this.cards_vagas = response.data; // Armazena o resultado no array cards_vagas
+                this.cards_vagas = response.data; 
             } catch (error) {
                 console.error('Erro ao buscar vagas:', error);
             }
-        }
+        },
+        openModal(card) {
+            this.selectedCard = card; 
+            this.showModal = true; 
+        },
+        closeModal() {
+            this.showModal = false; 
+            this.selectedCard = null; 
+        },
     },
     mounted() {
-        this.getVagas(); // Chama a função para buscar vagas ao montar o componente
+        this.getVagas();
     }
 };
 </script>
 
 
+
 <style scoped>
+
+.content-info{
+    height: 90%;
+    width: 90%;
+    background-color: #555;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.row-modal{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.col{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.col img{
+    width: 80%;
+    height: 90%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.infos{
+    width: 90%;
+    height: 90%; 
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.ttl-modal{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.ttl-modal h2{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.basic-infos{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.info{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.descricao-modal{
+    height: 40%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.container-modal{
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    z-index: 999;
+    position: fixed;
+    width: 50vw;
+    height: 60vh;
+    left: 35%;
+    top: 24%;
+    background-color: #FFF;
+    box-shadow: 0px 0px 20000px 20000px #0000003f;
+    border-radius: 5px;
+    display: none;
+}
+
+.container-modal.modalOpen{
+    display: flex;
+}
+
+.ttl{
+    width: 90%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.xis{
+    cursor: pointer;
+}
+
 /* Para navegadores webkit como Chrome y Safari */
 ::-webkit-scrollbar {
     width: 2px;
@@ -123,6 +281,21 @@ export default {
 }
 
 .content-btn a {
+    width: 100%;
+    text-align: center;
+    padding: 5px 15px;
+    background-color: #F78024;
+    font-size: 15px;
+    color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none
+}
+
+.content-btn .L {
+    width: 50%;
+    text-align: center;
     padding: 5px 15px;
     background-color: #F78024;
     font-size: 15px;
@@ -302,8 +475,8 @@ export default {
 
 .container-item {
     display: flex;
-    justify-content: left;
-    align-items: start;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
     flex-wrap: wrap;
     width: 100%;
@@ -312,10 +485,10 @@ export default {
 
 
 .card {
-    max-width: 260px;
-    min-width: 260px;
-    max-height: 200px;
-    min-height: 200px;
+    max-width: 280px;
+    min-width: 280px;
+    max-height: 220px;
+    min-height: 220px;
     flex: 1 0 280px;
     height: 100%;
     border: 1px solid #ccc;

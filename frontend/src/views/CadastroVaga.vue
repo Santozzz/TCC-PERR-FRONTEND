@@ -7,6 +7,10 @@
             <form method="POST" @submit.prevent="submitData">
                 <label>Titulo:</label>
                 <input class="data-ttl" type="text" v-model="vaga.titulo">
+                <label>Salario:</label>
+                <input class="data-ttl" type="text" v-model="vaga.salario">
+                <label>Local:</label>
+                <input class="data-ttl" type="text" v-model="vaga.local">
                 <label>Descrição:</label>
                 <textarea v-model="vaga.descricao" class="data-desc"></textarea>
                 <label>Link:</label>
@@ -73,6 +77,8 @@ export default {
                 titulo: '',
                 descricao: '',
                 link: '',
+                salario: '',
+                local: '',
             },
             vagas: [],
             nothing: []
@@ -81,7 +87,7 @@ export default {
     methods: {
         async submitData() {
 
-            if (!this.vaga.titulo || !this.vaga.descricao || !this.vaga.link) {
+            if (!this.vaga.titulo || !this.vaga.descricao || !this.vaga.link || !this.vaga.salario || !this.vaga.local) {
                 this.nothing.push('Preencha todos os campos');
             }
             else {
@@ -89,7 +95,7 @@ export default {
                       const response = await axios.post('http://localhost:3000/vagas', this.vaga);
                       this.message = 'Usuário cadastrado com sucesso!';
                       // Limpar o formulário
-                      this.vaga = { titulo: '', descricao: '',};
+                      this.vaga = { titulo: '', descricao: '', link: '', local: '', salario: '' };
                     } catch (error) {
                       // Ajuste aqui para lidar com a estrutura correta do erro
                       this.message = 'Erro ao cadastrar usuário: ' + (error.response ? error.response.data.message : error.message);
@@ -134,20 +140,20 @@ export default {
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin: 100px 10%;
+    margin: 30px 10%;
     justify-content: space-evenly;
     align-items: center;
 }
 
 h3{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     font-size: 20px;
     font-weight: 500;
 }
 
 form{
     width: 50%;
-    height: 350px;
+    height: 400px;
     background-color: rgb(252, 252, 252);
     border-radius: 5px;
     box-shadow: 1px 2px 2px #ccc;
@@ -197,6 +203,7 @@ textarea:focus{
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
+    margin: 10px 0;
 }
 
 .container-alert {
