@@ -4,7 +4,7 @@
             <nav>
                 <ul>
                     <li><router-link to="/CadastroVaga">Cadastro Vagas</router-link></li>
-                    <li><router-link to="">Cadastro Cursos</router-link></li>
+                    <li><router-link to="/CadastroCurso">Cadastro Cursos</router-link></li>
                 </ul>
             </nav>
         </header>

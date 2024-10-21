@@ -1,19 +1,22 @@
 <template>
     <div>
-
+        <NavbarAdm />
     </div>
 </template>
 
 <script>
-export default {
-    setup () {
-        
+import NavbarAdm from '@/components/ALL/Navbar-adm.vue';
 
+export default {
+    components:{
+        NavbarAdm
+    },
+    data() {
         return {}
     }
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
