@@ -1,52 +1,64 @@
 <template>
+  <div>
+    <NavbarAdm />  
     <div class="table-container">
-        <NavbarAdm />  
-        <table border="1">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Telefone</th>
-          <th>Ação</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, ) in items" :key="item.id">
-          <td>{{ item.id }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.phone }}</td>
-          <td>
-            <button class="btn btn-action1" @click="handleAction1(item)">  Validar  </button>
-            <button class="btn btn-action2" @click="handleAction2(item)">Não Validar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in items" :key="index">
+            <td>{{ item.id }}</td>
+            <td>{{ item.nome }}</td>
+            <td>{{ item.telefone }}</td>
+            <td style="text-align: center;">
+              <button class="btn btn-action1" @click="handleAction1(item)">Validar</button>
+              <button class="btn btn-action2" @click="handleAction2(item)">Não Validar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
+  </div>
 </template>
 
 <script>
+import NavbarAdm from '@/components/ALL/Navbar-adm.vue';
+import axios from 'axios'; 
 export default {
+  components: {
+    NavbarAdm
+  },
   data() {
     return {
-      items: [
-        { id: 1, name: "Gabriel Antas" , phone: "(11) 91234-5678" },
-        { id: 2, name: "Danilo Quente" , phone: "(11) 91234-5678"},
-        { id: 3, name: "David Serie B" , phone: "(11) 91234-5678"},
-        { id: 4, name: "Cintia pinheiro" , phone: "(11) 91234-5678"},
-        { id: 5, name: "Anderson venezuela" , phone: "(11) 91234-5678"},
-        { id: 6, name: "Enzo siqueda" , phone: "(11) 91234-5678"},
-        { id: 7, name: "Danilo Coreia do Sul" , phone: "(11) 91234-5678"},
-      ],
-    };
+      items: [],  
+    }
   },
   methods: {
-    handleClick(item) {
-      alert(`Button clicked for ${item.name}`);
+    async getUsuarios() {
+      try {
+        const response = await axios.get('http://localhost:3000/usuarios'); // Confirme se a URL está correta
+        this.items = response.data; // Armazena os dados recebidos no array items
+      } catch (error) {
+        console.error('Erro ao buscar usuários:', error);
+      }
     },
+    handleAction1(item) {
+      console.log('Validar:', item); // Ação de validação
+    },
+    handleAction2(item) {
+      console.log('Não Validar:', item); // Ação de não validação
+    }
   },
-};
+  mounted() {
+    this.getUsuarios(); // Faz a chamada para buscar os usuários quando o componente é montado
+  }
+}
 </script>
 
 
