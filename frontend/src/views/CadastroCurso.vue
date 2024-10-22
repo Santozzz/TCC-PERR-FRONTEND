@@ -189,6 +189,8 @@ export default {
     mounted() {
         this.getCursos();
     }
+    
+    
 }
 </script>
 
@@ -297,7 +299,7 @@ textarea:focus{
     height: 10%;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #e77517;
+    background-color: #e71760;
     color: #fff;
     font-size: 15px;
     font-weight: 400;

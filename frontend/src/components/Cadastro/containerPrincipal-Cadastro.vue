@@ -27,11 +27,11 @@
                             </div>
                             <div class="termos">
                                 <input type="checkbox" class="col-3">
-                                <h4>Li e aceito os <strong>Termos de uso</strong> e as <strong>Políticas de privacidade</strong></h4> 
+                                <h4>Li e aceito os <a href="termos"><strong>Termos de uso</strong></a> e as <a href="termos"><strong>Políticas de privacidade</strong></a></h4> 
                             </div>
                             <input type="submit" @click.prevent="submitData" value="CADASTRAR-SE">
                             <div class="tenhoconta">
-                                <h4>Já tenho uma conta. <a href="../Entrar">Entrar</a></h4>
+                                <h4>Já tem uma conta? <a href="../Entrar">Entrar</a></h4>
                             </div>
                             </form>
                         {{ message }}
@@ -128,6 +128,33 @@ export default {
 <style scoped>
 /* Content of Cadastro */
 
+.tenhoconta{
+    padding-left: 35%;
+}
+
+.tenhoconta a {
+    color: #F78024; /* Altera a cor de todos os hyperlinks */
+  text-decoration: none;
+}
+
+.tenhoconta a:hover{
+    color: #5b13d8;
+}
+
+.termos{
+    padding-left: 3%;
+}
+
+.termos a{
+    color: #F78024;
+    text-decoration: none;
+}
+
+.termos a:hover{
+    color:#5b13d8;
+    text-decoration: none;
+}
+
 .container-principal {
     display: flex;
     flex-direction: column;
@@ -138,6 +165,7 @@ export default {
 
 .tenhoconta p{
     color: black;
+
 }
 
 .back {
@@ -312,6 +340,12 @@ export default {
 .termos h4 strong {
     color: #F78024;
     border-bottom: 1px solid #F78024;
+    font-weight: 500;
+}
+
+.termos h4 strong:hover{
+    color: #5b13d8;
+    border-bottom: 1px solid #5b13d8;
     font-weight: 500;
 }
 
