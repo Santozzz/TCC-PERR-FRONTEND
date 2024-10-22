@@ -103,43 +103,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="vagaSugeridas">
-                    <h4>Vagas populares</h4>
-                    <div class="rowVagas">
-                        <div class="rowCardVagas">
-                            <div class="cardVagas">
-                                <div class="img-categoria-1"></div>
-                                <div class="nome-categoria">
-                                    <p class="nomeVaga">Administração</p>
-                                    <p class="quantVagas">[ Quant. de vagas]</p>
-                                </div>
-                            </div>
-                            <div class="cardVagas">
-                                <div class="img-categoria-2"></div>
-                                <div class="nome-categoria">
-                                    <p class="nomeVaga">Gastronomia</p>
-                                    <p class="quantVagas">[ Quant. de vagas]</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rowCardVagas">
-                            <div class="cardVagas">
-                                <div class="img-categoria-3"></div>
-                                <div class="nome-categoria">
-                                    <p class="nomeVaga">Construção</p>
-                                    <p class="quantVagas">[ Quant. de vagas]</p>
-                                </div>
-                            </div>
-                            <div class="cardVagas">
-                                <div class="img-categoria-4"></div>
-                                <div class="nome-categoria">
-                                    <p class="nomeVaga">Informatica</p>
-                                    <p class="quantVagas">[ Quant. de vagas]</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

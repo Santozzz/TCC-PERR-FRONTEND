@@ -23,12 +23,18 @@
                                 <input :type="inputType" v-model="usuario.senha" placeholder="Senha" maxlength="16" />
                                 <i class="fa-solid" :class="showPassword ? 'fa-eye' : 'fa-eye-slash'"
                                     @click="togglePasswordVisibility"></i>
+                                </div>
                             </div>
-                        </div>
-                        <input type="submit" @click.prevent="submitData" value="CADASTRAR-SE">
-                        <p>Já tenho uma conta.<router-link to="/Entrar">Entrar</router-link></p>
-                    </form>
-                    {{ message }}
+                            <div class="termos">
+                                <input type="checkbox" class="col-3">
+                                <h4>Li e aceito os <strong>Termos de uso</strong> e as <strong>Políticas de privacidade</strong></h4> 
+                            </div>
+                            <input type="submit" @click.prevent="submitData" value="CADASTRAR-SE">
+                            <div class="tenhoconta">
+                                <h4>Já tenho uma conta. <a href="../Entrar">Entrar</a></h4>
+                            </div>
+                            </form>
+                        {{ message }}
                     <ul class="container-alert">
                         <li :class="{ active: isActive }" class="alert-form" v-for="(error, index) in nothing"
                             :key="index">
@@ -45,12 +51,7 @@
                         </li>
                     </ul>
                     <div class="line"></div>
-                    <div class="politicPolicy">
-                        <p>
-                            Ao clicar em Cadastrar-se, você aceita o <strong>Contrato do Usuário</strong>,
-                            a <strong>Política de Privacidade</strong> e a <strong>Política de Cookies</strong> do PERR.
-                        </p>
-                    </div>
+                
                 </div>
                 <div class="img-decorativa">
                     <img src="../../assets/img/Cadastro/img-decorativa.jpg" alt="">
@@ -126,12 +127,17 @@ export default {
 
 <style scoped>
 /* Content of Cadastro */
+
 .container-principal {
     display: flex;
     flex-direction: column;
     width: 90%;
     height: 20vh;
     margin: 20px auto;
+}
+
+.tenhoconta p{
+    color: black;
 }
 
 .back {
@@ -285,6 +291,50 @@ export default {
     border-bottom: 1px solid #F78024;
     font-weight: 500;
 }
+
+.termos {
+    width: 70%;
+    display: flex;
+    gap: 10px;
+}
+
+.termos h4 {
+    color: #a1a1a1;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 15px;
+    text-align: justify;
+    
+}
+
+.termos h4 strong {
+    color: #F78024;
+    border-bottom: 1px solid #F78024;
+    font-weight: 500;
+}
+
+.tenhoconta {
+    width: 70%;
+}
+
+.tenhoconta h4 {
+    color: #a1a1a1;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 15px;
+    text-align: justify;
+}
+
+.tenhconta h4 a{
+    color: #F78024;
+    border-bottom: 1px solid #F78024;
+    font-weight: 500;
+}
+
 
 .img-decorativa {
     display: flex;
