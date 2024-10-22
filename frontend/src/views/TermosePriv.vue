@@ -1,5 +1,6 @@
 <template>
     <div>
+        <router-link to="/" class="back-button">← Voltar</router-link>
         <div class="container">
             <div class="ttl">
                 <h1>
