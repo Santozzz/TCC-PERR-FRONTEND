@@ -1,6 +1,10 @@
 <template>
     <div>
-        <router-link to="/cadastro" class="back-button">← Voltar</router-link>
+        <router-link to="/cadastro" class="botao-voltar">Retornar</router-link>
+
+
+    
+
         <div class="container">
             <h1 id="inicio"> Diretrizes do Site</h1>
             <div class="ttl">
@@ -121,7 +125,10 @@
 
 export default {
     name: 'TermosePriv',
+    
 }
+
+
 </script>
 
 <style scoped>
@@ -134,6 +141,24 @@ export default {
     justify-content: space-around;
     align-items: center;
     overflow: visible;
+    position:relative;
+}
+
+.botao-voltar {
+    position: fixed; /* Fixa o botão na tela */
+  top: 20px; /* Distância do topo da tela */
+  left: 20px; /* Distância do lado esquerdo da tela */
+  padding: 5px 35px; /* Padding do botão */
+  background-color: #F78024; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  border: none; /* Remove a borda padrão */
+  border-radius: 23px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  text-decoration: none;
+}
+
+.botao-voltar:hover {
+  background-color: #bc6625; /* Cor do botão ao passar o mouse */
 }
 
 .ttl{
@@ -157,7 +182,7 @@ export default {
 
 
 .ttl h1{
-    color: orange;
+    color: #F78024;
 }
 
 .ttl ul{
