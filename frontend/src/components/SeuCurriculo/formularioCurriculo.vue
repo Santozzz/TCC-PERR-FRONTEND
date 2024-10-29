@@ -46,7 +46,16 @@
                 <button @click="adicionarExperiencia" class="btn-add">Adicionar Experiência</button>
             </div>
         </div>
-        <button @click="gerarCurriculo" class="btn-gerar">Gerar Currículo</button>
+        <button @click="abrirModal" class="btn-gerar">Gerar Currículo</button>
+
+        <!-- Modal -->
+        <div v-if="modalAberto" class="modal">
+            <div class="modal-conteudo">
+                <h2>Conta não validada</h2>
+                <p>Para gerar seu currículo, sua conta precisa ser validada.</p>
+                <button @click="fecharModal" class="btn-fechar">Fechar</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -69,10 +78,17 @@ export default {
                 experiencias: [
                     { periodo: '', empresa: '', cargo: '', descricao: '' }
                 ]
-            }
+            },
+            modalAberto: false
         };
     },
     methods: {
+        abrirModal() {
+            this.modalAberto = true;
+        },
+        fecharModal() {
+            this.modalAberto = false;
+        },
         adicionarFormacao() {
             this.curriculo.formacoes.push({ periodo: '', instituicao: '', curso: '' });
         },
@@ -123,8 +139,30 @@ export default {
 </script>
 
 <style scoped>
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-conteudo {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+.btn-fechar {
+    margin-top: 10px;
+}
+
 /* Classe para ocultar botões durante a geração do PDF */
-.ocultar-botoes .btn-remover, .ocultar-botoes .btn-adicionar {
+.ocultar-botoes .btn-remover, .ocultar-botoes .btn-add {
     display: none;
 }
 
@@ -175,7 +213,7 @@ export default {
     max-width: 800px;
     padding: 20px;
     background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.61);
     font-family: Arial, sans-serif;
 }
 

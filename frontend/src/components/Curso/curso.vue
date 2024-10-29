@@ -1,80 +1,136 @@
 <template>
     <div>
         <div class="container">
-            <div class="container-vagas">
-                <h4>Cursos</h4>
-                <div class="gridCardVagas">
-                        <div class="row">
-                            <div class="container-item" v-if="filteredCards.length">
-                                    <span class="card" v-for="(card, index) in cards_cursos" :key="index">
-                                        <div class="ttl-card">
-                                            <h2>{{ card.ttl }}</h2>
+            <h4 class="ttl">Cursos</h4>
+            <div class="container-cursos">
+                <div class="gridCardCursos">
+                    <div class="row">
+                        <!-- Verifica se há cursos diretamente com cards_cursos -->
+                        <div class="container-item" v-if="cards_cursos.length">
+                            <span class="card" v-for="(card, index) in cards_cursos" :key="index">
+                                <div class="ttl-card">
+                                    <h2>{{ card.ttl }}</h2>
+                                </div>
+                                <div class="descricao">
+                                    <p>{{ card.descricao }}</p>
+                                </div>
+                                <div class="content-btn">
+                                    <button @click="openModal(card)">Ver curso</button>
+                                    <button>Favoritar</button>
+                                </div>
+                            </span>
+
+                            <!-- Modal para detalhes do curso -->
+                            <div :class="{ 'container-modal': true, 'modalOpen': showModal }">
+                                <div class="ttl">
+                                    <p>Informações</p>
+                                    <div @click="closeModal" class="xis">
+                                        <i class="fa-solid fa-x"></i>
+                                    </div>
+                                </div>
+                                <div class="row-modal" v-if="selectedCard">
+                                    <div class="col">
+                                        <img src="../../assets/img/VagaEmprego/img-cursos.jpg" alt="Imagem do curso">
+                                    </div>
+                                    <div class="col">
+                                        <div class="infos">
+                                            <div class="ttl-modal">
+                                                <h2>{{ selectedCard.ttl }}</h2>
+                                            </div>
+                                            <div class="basic-infos">
+                                                <div class="info">
+                                                    <p>{{ selectedCard.duracao }}</p>
+                                                </div>
+                                                <div class="info">
+                                                    <p>{{ selectedCard.local }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="descricao-modal">
+                                                <p>{{ selectedCard.descricao }}</p>
+                                            </div>
+                                            <div class="content-btn">
+                                                <a :href="selectedCard.link" target="_blank" rel="noopener noreferrer">Ver curso</a>
+                                            </div>
                                         </div>
-                                        <div class="descricao">
-                                            <p>{{ card.descricao }}</p>
-                                        </div>
-                                        <div class="content-btn">
-                                            <button @click="openModal">Ver cursos</button>
-                                            <button>Favoritar</button>
-                                        </div>
-                                    </span>
-                            </div>
-                            <div class="nao-vagas" v-else>
-                                <img src="../../assets/img/VagaEmprego/nao-vagas.jpg" alt="">
-                                <p>No momento não há vagas disponíveis</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                </div>
-                <div :class="{ 'container-modal': true, 'modalOpen': showModal }">
-                    <div class="ttl">
-                        <p>Informações</p>
-                        <div @click="closeModal" class="xis">
-                            <i class="fa-solid fa-x"></i>
+
+                        <!-- Mostra mensagem quando não houver cursos -->
+                        <div class="nao-cursos" v-else>
+                            <img src="../../assets/img/VagaEmprego/nao-vagas.jpg" alt="Imagem sem cursos">
+                            <p>No momento não há cursos disponíveis</p>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { RouterLink } from 'vue-router';
+import axios from 'axios';
 
 export default {
     data() {
         return {
-
-            showModal:false,
-
-            cards_cursos: [
-                {
-                    id: 'this.id_cursos',
-                    ttl: 'this.ttl_curso',
-                    descricao: 'this.descricao_curso',
-                    link: 'this.link_curso',
-                },
-            ],
-        }
+            cards_cursos: [],
+            showModal: false,
+            selectedCard: null,
+        };
     },
     methods: {
-        openModal() {
-            this.showModal = true; // Alterna o estado da classe
+        async getCursos() {
+            try {
+                // Faz a requisição GET para obter os cursos
+                const response = await axios.get('http://localhost:3000/cursos');
+                this.cards_cursos = response.data;
+            } catch (error) {
+                console.error('Erro ao buscar cursos:', error);
+            }
+        },
+        openModal(card) {
+            this.selectedCard = card;
+            this.showModal = true;
         },
         closeModal() {
-            this.showModal = false; // Alterna o estado da classe
+            this.showModal = false;
+            this.selectedCard = null;
         },
     },
-    computed: {
-        filteredCards() {
-            return this.cards_cursos.filter(card => card.ttl && card.descricao);
-        }
+    mounted() {
+        this.getCursos();
     }
-}
+};
 </script>
 
 <style scoped>
+.ttl{
+    width: 100%;
+    text-align: left;
+    font-size: 25px;
+    font-weight: 500;
+    color: #252F3F;
+}
+
+.nao-cursos{
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.nao-cursos img{
+    width: 400px;
+}
+/* Adicione seu estilo aqui */
+.container-modal {
+    display: none; /* Inicialmente oculto */
+}
+.modalOpen {
+    display: block; /* Exibe o modal quando está aberto */
+}
 
 .container-modal{
     flex-direction: column;
