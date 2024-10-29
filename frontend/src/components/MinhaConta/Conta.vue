@@ -3,24 +3,6 @@
         <div class="container">
             <div class="fundo"></div>
             <div class="space">
-                <div class="container-profile">
-                    <div class="content-img">
-                        <div class="img">
-                            <img src="../../assets/img/9203764.png" alt="">
-                        </div>
-                        <h3>[ nome ]</h3>
-                    </div>
-                    <div class="content-contact">
-                        <div class="insta">
-                            <i class="fa-brands fa-instagram"></i>
-                            <p>[ instagran ]</p>
-                        </div>
-                        <div class="linkedin">
-                            <i class="fa-brands fa-linkedin"></i>
-                            <p>[ linkedin ]</p>
-                        </div>
-                    </div>
-                </div>
                 <div class="container-data">
                     <div class="ttl">
                         <h3>Detalhes da conta</h3>
@@ -47,7 +29,7 @@
                     </form>
                     <div class="line"></div>
                     <div class="content-btn">
-                        <button>Editar</button>
+                        <button>Salvar ALterações</button>
                     </div>
                 </div>
             </div>

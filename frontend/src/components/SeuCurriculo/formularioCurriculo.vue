@@ -52,8 +52,11 @@
         <div v-if="modalAberto" class="modal">
             <div class="modal-conteudo">
                 <h2>Conta não validada</h2>
-                <p>Para gerar seu currículo, sua conta precisa ser validada.</p>
-                <button @click="fecharModal" class="btn-fechar">Fechar</button>
+                <p>
+                    Para gerar seu currículo, sua conta precisa ser validada, 
+                    para isso clique em validar e espere uma mensagem no seu whatsapp.
+                </p>
+                <button @click="fecharModal" class="btn-fechar">validar</button>
             </div>
         </div>
     </div>
@@ -139,6 +142,7 @@ export default {
 </script>
 
 <style scoped>
+
 .modal {
     position: fixed;
     top: 0;
@@ -155,12 +159,26 @@ export default {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
+    width: 40%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal-conteudo p {
+    width: 70%;
+    margin: 10px 0 10px 0;
 }
 .btn-fechar {
-    margin-top: 10px;
+    padding: 10px;
+    background-color: #e9830e;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
 }
-
 /* Classe para ocultar botões durante a geração do PDF */
 .ocultar-botoes .btn-remover, .ocultar-botoes .btn-add {
     display: none;
