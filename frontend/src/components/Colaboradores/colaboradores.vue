@@ -29,15 +29,15 @@
                 </div>
                 <div class="lugares">
                     <img src="../../assets/img/Colaboradores/Libano.jpeg" alt="">
-                    <p>Libano</p>
+                    <p>Brasil</p>
                 </div>
                 <div class="lugares">
                     <img src="../../assets/img/Colaboradores/Palestina.jpeg" alt="">
-                    <p>Palestina</p>
+                    <p>Libano</p>
                 </div>
                 <div class="lugares">
                     <img src="../../assets/img/Colaboradores/Roraima.jpeg" alt="">
-                    <p>Roraima</p>
+                    <p>Palestina</p>
                 </div>
             </div>
         </div>
