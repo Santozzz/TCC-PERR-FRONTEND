@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="row-modal" v-if="selectedCard">
                                     <div class="col">
-                                        <img src="../../assets/img/VagaEmprego/img-cursos.jpg" alt="Imagem do curso">
+                                        <img src="../../assets/img/VagaEmprego/img-vaga.jpg" alt="Imagem do curso">
                                     </div>
                                     <div class="col">
                                         <div class="infos">
