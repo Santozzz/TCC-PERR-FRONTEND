@@ -18,7 +18,7 @@
             </button>
             <div class="dropdown-content">
               <router-link to="/MinhaConta">Minha Conta</router-link>
-              <router-link to="/Cadastro">Sair</router-link>
+              <div class="logout" @click="logout">Sair</div>
             </div>
           </div>
         </div>
@@ -123,11 +123,14 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
       isDropdownOpen: false,
       isMenuOpen: false,
+      message: '',
     };
   },
   computed: {
@@ -136,6 +139,22 @@ export default {
     }
   },
   methods: {
+    async logout() {
+    try {
+        console.log('Iniciando logout...');
+        const resp = await axios.post('http://localhost:3000/logout');
+        console.log('Resposta do servidor:', resp);
+        this.message = resp.data.message || 'Deslogado com sucesso!';
+        localStorage.removeItem('token');
+        sessionStorage.removeItem('token');
+        this.$router.push('/Cadastro');
+        } catch (error) {
+            console.error('Erro ao deslogar:', error);
+            this.message = 'Erro ao deslogar usuário: ' + (error.response ? error.response.data.message : error.message);
+        }
+    },
+
+
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen;
     },
@@ -259,11 +278,12 @@ nav {
   z-index: 999;
 }
 
-.dropdown-content a {
+.dropdown-content a, .logout {
   color: #333333;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  cursor: pointer;
 }
 
 .dropdown.show .dropdown-content {

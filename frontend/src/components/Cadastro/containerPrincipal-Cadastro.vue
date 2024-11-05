@@ -15,7 +15,7 @@
                         oportunidade de emprego para você !
                     </h3>
                     <form class="form" method="POST">
-                        <input type="text" v-model="usuario.name" placeholder="Nome Completo">
+                        <input type="text" v-model="usuario.nome" placeholder="Nome Completo">
                         <input type="tel" v-model="usuario.telefone" @input="applyMask" placeholder="Telefone">
                         <div class="row-input">
                             <input type="email" v-model="usuario.email" placeholder="Email">
@@ -72,7 +72,7 @@ export default {
             inputType: 'password',
             //Variaveis de validação e envio de dados dos inputs
             usuario: {
-                name: null,
+                nome: null,
                 telefone: null,
                 email: null,
                 senha: null,
@@ -97,7 +97,7 @@ export default {
         async submitData() {
             this.nothing = []
 
-            if (!this.usuario.name || !this.usuario.telefone || !this.usuario.email || !this.usuario.senha) {
+            if (!this.usuario.nome || !this.usuario.telefone || !this.usuario.email || !this.usuario.senha) {
                 this.nothing.push('Preencha todos os campos');
             }
             else {
@@ -108,7 +108,7 @@ export default {
                           const response = await axios.post('http://localhost:3000/usuarios', this.usuario);
                           this.message = 'Usuário cadastrado com sucesso!';
                           // Limpar o formulário
-                          this.usuario = { name: '', email: '', telefone: '', senha: '' };
+                          this.usuario = { nome: '', email: '', telefone: '', senha: '' };
                           this.$router.push('/Entrar')
                         } catch (error) {
                           // Ajuste aqui para lidar com a estrutura correta do erro
