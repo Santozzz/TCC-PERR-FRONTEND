@@ -9,9 +9,9 @@
                     <h2>Entrar</h2>
                     <p>Fique ligado em todas as novidades referente ao mundo de trabalho</p>
                 </div>
-                <input type="email" v-model="email" placeholder="Email">
+                <input type="email" v-model="form.email" placeholder="Email">
                 <div class="password">
-                    <input class="input-pass" :type="inputType" v-model="senha" placeholder="Senha" maxlength="16">
+                    <input class="input-pass" :type="inputType" v-model="form.senha" placeholder="Senha" maxlength="16">
                     <i class="fa-solid" :class="showPassword ? 'fa-eye' : 'fa-eye-slash'" @click="togglePasswordVisibility"></i>
                 </div>
                 <input type="submit" @click.prevent="getData" value="Entrar">
@@ -53,8 +53,10 @@ export default {
       inputType: 'password',
       isActive: true,
     //Variaveis de validação dos inputs
-      email: null,
-      senha: null,
+    form: {
+        email: null,
+        senha: null
+    },
       errors: [],
     };
   },
@@ -66,12 +68,16 @@ export default {
     getData() {
         this.errors = [];
 
-        if(!this.email || !this.senha) {
+        if(!this.form.email || !this.form.senha) {
             this.errors.push('Preencha todos os campos');
         } else {
             try{
-                const resp = axios.get('http://localhost/usuarios/:email')
+                const resp = axios.post('http://localhost:3000/login', this.form)
+                console.log(this.form);
+                
+                console.log(resp);
                 this.message = resp
+                this.$router.push('/')
             } catch(error) {
                 this.message = 'Erro ao buscar usuário: ' + (error.response ? error.response.data.message : error.message);
             }
