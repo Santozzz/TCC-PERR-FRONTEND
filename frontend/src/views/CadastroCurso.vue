@@ -8,8 +8,6 @@
             <form class="form" method="POST" @submit.prevent="submitData">
                 <label>Titulo:</label>
                 <input class="data-ttl" type="text" v-model="cursoCadastro.titulo">
-                <label>Fonte( nome do canal ):</label>
-                <input class="data-ttl" type="text" v-model="cursoCadastro.fonte">
                 <label>Descrição:</label>
                 <textarea v-model="cursoCadastro.descricao" class="data-desc"></textarea>
                 <label>Link:</label>
@@ -72,8 +70,6 @@
                 <form class="form-modal" method="POST" @submit.prevent="updateData">
                     <label>Titulo:</label>
                     <input class="data-ttl" type="text" v-model="cursoUpdate.titulo">
-                    <label>Fonte( nome do canal ):</label>
-                    <input class="data-ttl" type="text" v-model="cursoUpdate.fonte">
                     <label>Descrição:</label>
                     <textarea v-model="cursoUpdate.descricao" class="data-desc"></textarea>
                     <label>Link:</label>
@@ -101,7 +97,6 @@ export default {
             cursoCadastro: {
                 titulo: '',
                 descricao: '',
-                fonte: '',
                 link: '',
             },
             // Objeto para o formulário de atualização
@@ -109,7 +104,6 @@ export default {
                 idcursos: '',
                 titulo: '',
                 descricao: '',
-                fonte: '',
                 link: '',
             },
             cursos: [],  // Lista de cursos
@@ -127,7 +121,7 @@ export default {
             this.showModal = false;
         },
         async submitData() {
-            if (!this.cursoCadastro.titulo || !this.cursoCadastro.descricao || !this.cursoCadastro.link || !this.cursoCadastro.fonte) {
+            if (!this.cursoCadastro.titulo || !this.cursoCadastro.descricao || !this.cursoCadastro.link) {
                 this.nothing.push('Preencha todos os campos');
                 return; // Impede o envio se os campos não estiverem preenchidos
             } 

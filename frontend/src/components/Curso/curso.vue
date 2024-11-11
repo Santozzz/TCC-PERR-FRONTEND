@@ -9,13 +9,13 @@
                         <div class="container-item" v-if="cards_cursos.length">
                             <span class="card" v-for="(card, index) in cards_cursos" :key="index">
                                 <div class="ttl-card">
-                                    <h2>{{ card.ttl }}</h2>
+                                    <h2>{{ card.titulo }}</h2>
                                 </div>
                                 <div class="descricao">
                                     <p>{{ card.descricao }}</p>
                                 </div>
                                 <div class="content-btn">
-                                    <button @click="openModal(card)">Ver curso</button>
+                                    <button class="L" @click="openModal(card)">Ver curso</button>
                                     <button>Favoritar</button>
                                 </div>
                             </span>
@@ -30,12 +30,12 @@
                                 </div>
                                 <div class="row-modal" v-if="selectedCard">
                                     <div class="col">
-                                        <img src="../../assets/img/VagaEmprego/img-vaga.jpg" alt="Imagem do curso">
+                                        <img src="../../assets/img/curso/portrait-teacher-female-holding-book.jpg" alt="Imagem do curso">
                                     </div>
                                     <div class="col">
                                         <div class="infos">
                                             <div class="ttl-modal">
-                                                <h2>{{ selectedCard.ttl }}</h2>
+                                                <h2>{{ selectedCard.titulo }}</h2>
                                             </div>
                                             <div class="basic-infos">
                                                 <div class="info">
@@ -132,6 +132,13 @@ export default {
     display: block; /* Exibe o modal quando está aberto */
 }
 
+.descricao-modal{
+    height: 40%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+
 .container-modal{
     flex-direction: column;
     justify-content: start;
@@ -164,22 +171,66 @@ export default {
     cursor: pointer;
 }
 
+.infos{
+    width: 90%;
+    height: 90%; 
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.ttl-modal{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.ttl-modal h2{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.basic-infos{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.info{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
 /* Para navegadores webkit como Chrome y Safari */
 ::-webkit-scrollbar {
-    width: 2px; /* Ancho de la barra de scroll */
-    background-color: #f1f1f1; /* Color de fondo de la barra */
+    width: 2px;
+    /* Ancho de la barra de scroll */
+    background-color: #f1f1f1;
+    /* Color de fondo de la barra */
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #888; /* Color de la parte desplazable */
-    border-radius: 10px; /* Bordes redondeados */
+    background-color: #888;
+    /* Color de la parte desplazable */
+    border-radius: 10px;
+    /* Bordes redondeados */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Color al pasar el ratón */
+    background-color: #555;
+    /* Color al pasar el ratón */
 }
 
-.ttl-card{
+.ttl-card {
     width: 100%;
     height: 20%;
     display: flex;
@@ -187,32 +238,57 @@ export default {
     align-items: center;
 }
 
-.ttl-card h2{
+.ttl-card h2 {
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
 
 }
 
-.descricao{
+.row-modal{
     width: 100%;
-    height: 60%;
+    height: 85%;
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.col{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.col img{
+    width: 80%;
+    height: 90%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.descricao {
+    width: 90%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+
 .descricao p {
     text-align: justify;
-    width: 80%;
+    width: 100%;
     height: 80%;
     text-indent: 10px;
-    overflow-y: scroll;
     text-overflow: ellipsis;
     padding: 5px;
 }
 
-.content-btn{
+.content-btn {
     height: 20%;
     width: 100%;
     display: flex;
@@ -220,7 +296,22 @@ export default {
     align-items: center;
 }
 
-.content-btn a{
+.content-btn a {
+    width: 100%;
+    text-align: center;
+    padding: 5px 15px;
+    background-color: #F78024;
+    font-size: 15px;
+    color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none
+}
+
+.content-btn .L {
+    width: 50%;
+    text-align: center;
     padding: 5px 15px;
     background-color: #F78024;
     font-size: 15px;
@@ -241,7 +332,6 @@ export default {
     cursor: pointer;
     text-decoration: none
 }
-
 .container {
     display: flex;
     flex-direction: column;
@@ -400,7 +490,7 @@ export default {
 .container-item {
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     gap: 30px;
     flex-wrap: wrap;
     width: 100%;
@@ -409,11 +499,15 @@ export default {
 
 
 .card {
-    max-width: 350px;
-    min-width: 350px;
-    max-height: 250px;
-    min-height: 250px;
+    max-width: 280px;
+    min-width: 280px;
+    max-height: 220px;
+    min-height: 220px;
     flex: 1 0 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     height: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;

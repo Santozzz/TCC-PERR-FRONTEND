@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="content-btn">
                                     <a class="L" @click="openModal(card)">Ver vaga</a>
-                                    <button>Favoritar</button>
+                                    <button class="F">Favoritar</button>
                                 </div>
                             </span>
 
@@ -124,6 +124,8 @@ export default {
     justify-content: space-evenly;
     align-items: center;
 }
+
+
 
 .col{
     width: 50%;
