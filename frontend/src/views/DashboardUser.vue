@@ -18,7 +18,6 @@
             <td>{{ item.telefone }}</td>
             <td style="text-align: center;">
               <button class="btn btn-action1" @click="handleAction1(item)">Validar</button>
-              <button class="btn btn-action2" @click="handleAction2(item)">Não Validar</button>
             </td>
           </tr>
         </tbody>

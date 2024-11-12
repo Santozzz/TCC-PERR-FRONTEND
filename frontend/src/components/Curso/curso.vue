@@ -272,7 +272,7 @@ export default {
 
 .descricao {
     width: 90%;
-    height: 60%;
+    height: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
