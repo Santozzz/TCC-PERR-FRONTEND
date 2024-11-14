@@ -16,14 +16,13 @@
                                 </div>
                                 <div class="content-btn">
                                     <button class="L" @click="openModal(card)">Ver curso</button>
-                                    <button>Favoritar</button>
                                 </div>
                             </span>
 
                             <!-- Modal para detalhes do curso -->
                             <div :class="{ 'container-modal': true, 'modalOpen': showModal }">
                                 <div class="ttl">
-                                    <p>Informações</p>
+                                    <p>Sobre o curso:</p>
                                     <div @click="closeModal" class="xis">
                                         <i class="fa-solid fa-x"></i>
                                     </div>
@@ -112,6 +111,16 @@ export default {
     font-size: 25px;
     font-weight: 500;
     color: #252F3F;
+    margin-bottom: 20px;
+}
+
+.ttl p{
+    width: 100%;
+    text-align: left;
+    font-size: 25px;
+    font-weight: 500;
+    color: #252F3F;
+    margin-top: 20px;
 }
 
 .nao-cursos{
@@ -235,7 +244,9 @@ export default {
     height: 20%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    text-align: center;
+    margin-top: 15px;
+        
 }
 
 .ttl-card h2 {
@@ -294,6 +305,7 @@ export default {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+   
 }
 
 .content-btn a {
@@ -313,6 +325,7 @@ export default {
     width: 50%;
     text-align: center;
     padding: 5px 15px;
+    margin: 10px;
     background-color: #F78024;
     font-size: 15px;
     color: #f1f1f1;

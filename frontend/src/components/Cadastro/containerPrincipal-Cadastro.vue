@@ -107,6 +107,7 @@ export default {
                     try {
                           const response = await axios.post('http://localhost:3000/usuarios', this.usuario);
                           this.message = 'Usuário cadastrado com sucesso!';
+                          
                           // Limpar o formulário
                           this.usuario = { nome: '', email: '', telefone: '', senha: '' };
                           this.$router.push('/Entrar')

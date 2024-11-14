@@ -4,7 +4,7 @@
             <router-link to="/">PER<strong>R</strong></router-link>
         </div>
         <div class="container-form">
-            <form class="form">
+            <form class="form" method="GET">
                 <div class="topForm">
                     <h2>Entrar</h2>
                     <p>Fique ligado em todas as novidades referente ao mundo de trabalho</p>
@@ -65,14 +65,19 @@ export default {
       this.showPassword = !this.showPassword;
       this.inputType = this.showPassword ? 'text' : 'password';
     },
-    getData() {
+    async getData() {
         this.errors = [];
 
         if(!this.form.email || !this.form.senha) {
             this.errors.push('Preencha todos os campos');
         } else {
             try{
-                const resp = axios.post('http://localhost:3000/login', this.form)
+                const resp = await axios.post('http://localhost:3000/login', this.form) 
+                .then(
+                    response => {
+                        console.log(response.data);
+                    }
+                )
                 console.log(this.form);
                 
                 console.log(resp);
