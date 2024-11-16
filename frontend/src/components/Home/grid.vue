@@ -24,7 +24,34 @@
                     </div> -->
                 </div>
             </div>
-            <div class="gridCards">
+        <section class="apresentacao">
+            <div class="conteudo-apresentacao">
+                <div class="texto">
+                    <h1>Conectando Refugiados no Mercado de Trabalho</h1>
+                    <p>
+                        Nossa plataforma facilita a integração de refugiados ao mercado de trabalho, conectando-os com empresas que buscam promover diversidade e inclusão em suas equipes. Oferecemos aos refugiados a oportunidade de mostrar suas habilidades e experiências, enquanto proporcionamos às empresas o acesso a um pool de talentos diversificados e comprometidos.
+                    </p>
+                </div>
+            <div class="imagem">
+                <img src="@/assets/img/home/categ-adm.jpg" alt="Imagem representativa" />
+            </div>
+            
+            </div>
+        </section>
+
+                <div class="highlighted-section">
+                    <h2>Impulsione sua Vida Profissional!</h2>
+                    <div class="cards2-container">
+                        <div class="card2" v-for="(card, index) in cards" :key="index">
+                            <div class="icon">
+                                <i :class="card.icon"></i>
+                            </div>
+                            <h3>{{ card.title }}</h3>
+                            <p>{{ card.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gridCards">
                 <div class="container-cursos">
                     <h4>Confira nossos cursos!</h4>
                     <div class="row">
@@ -103,18 +130,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="highlighted-section">
-                    <h2>Impulsione sua Vida Profissional!</h2>
-                    <div class="cards2-container">
-                        <div class="card2" v-for="(card, index) in cards" :key="index">
-                            <div class="icon">
-                                <i :class="card.icon"></i>
-                            </div>
-                            <h3>{{ card.title }}</h3>
-                            <p>{{ card.description }}</p>
-                        </div>
-                    </div>
-                </div>
                 <div class="how-it-works">
                 <h2>Como Funciona?</h2>
                 <div class="steps-container">
@@ -154,7 +169,21 @@
             <p>A plataforma facilita a conexão entre ambos.</p>
           </div>
         </div>
+        
       </div>
+      <!-- Seção de Benefícios -->
+      <section class="beneficios-timeline">
+      <h2>Benefícios</h2>
+      <div class="timeline">
+        <div class="timeline-item" v-for="(benefit, index) in benefits" :key="index">
+          <div class="circle"></div>
+          <div class="content">
+            <h3>{{ benefit.title }} <i class="fas fa-check-circle check-icon"></i></h3>
+            <p>{{ benefit.description }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
     </div>
         </div>
     </div>
@@ -163,12 +192,30 @@
 
 <script>
 export default {
+
+    name: 'Apresentacao',
+
     data() {
         return {
             isBellNotify: false,
             notifys: [],
             
-            cards: [
+            benefits: [
+        {
+          title: "Conexões Rápidas",
+          description: "Conecte-se rapidamente com empresas que buscam talentos diversificados."
+        },
+        {
+          title: "Perfil Personalizado",
+          description: "Crie um perfil único que destaca suas habilidades e experiências."
+        },
+        {
+          title: "Suporte Contínuo",
+          description: "Receba suporte contínuo durante todo o processo de integração."
+        }
+      ]
+
+            ,cards: [
         {
           icon: "fas fa-briefcase",  // Exemplo de ícone do Font Awesome
           title: "Vagas Disponíveis",
@@ -181,7 +228,7 @@ export default {
         },
         {
           icon: "fas fa-user-check",  // Exemplo de ícone do Font Awesome
-          title: "Conexão Direta",
+          title: "Conexão",
           description: "Conecte-se com empresas que valorizam a diversidade."
         }
       ]
@@ -201,18 +248,152 @@ export default {
 
 <style scoped>
 
+.home {
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.beneficios-timeline {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.beneficios-timeline h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.timeline {
+    display: flex;
+  margin-bottom: 30px;
+  width: 30%; /* Garante que os itens ocuparam toda a largura */
+  flex-wrap: wrap; /* Permite que os itens se ajustem conforme o tamanho da tela */
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+  flex: 1 1 300px; /* Faz com que cada item ocupe uma largura mínima de 300px, mas pode crescer */
+  justify-content: center; /* Alinha o conteúdo no centro */
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  background-color:#F78024;
+  border-radius: 50%;
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.content {
+  padding-left: 40px;
+  text-align: left;
+}
+
+.content h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 20px;
+  color: #555;
+}
+
+.check-icon {
+  color: green; /* Cor verde para o ícone de check */
+  margin-left: 10px; /* Espaço entre o texto e o ícone */
+}
+
+
+
+
+/* Container da seção */
+.apresentacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px;
+  
+}
+
+/* Div que contém o texto e a imagem */
+.conteudo-apresentacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px; /* Limita a largura */
+  width: 100%;
+}
+
+/* Estilo do texto */
+.texto {
+  flex:1;
+  margin-right: 40px; /* Espaçamento entre o texto e a imagem */
+}
+
+/* Estilo da imagem */
+.imagem {
+  flex: 1; /* A imagem ocupa 50% do espaço */
+}
+
+/* Estilo da imagem */
+.imagem img {
+  max-width: 75%; /* Faz a imagem ocupar toda a largura disponível */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 10px; /* Canto arredondado */
+}
+
+/* Responsividade: Ajusta a disposição em telas menores */
+@media (max-width: 768px) {
+  .conteudo-apresentacao {
+    flex-direction: column;
+    text-align: center;
+  }
+  .texto {
+    margin-right: 17px;
+    margin-bottom: 20px; /* Adiciona um espaçamento entre o texto e a imagem em dispositivos menores */
+  }
+}   
+
+.texto h1{
+    font-size: 30px;
+}
+
+.texto p{
+    font-size: 16px
+}
+
+
 /* Estilo para a seção 'Como Funciona?' */
 .how-it-works {
   background-color: #fafafb;
   padding: 50px 0;
   text-align: center;
   width: 110%;
+  
 }
 
 .how-it-works h2 {
   font-size: 2.5em;
   margin-bottom: 40px;
-   
+   color: #252F3F;
 }
 
 .steps-container {
@@ -286,35 +467,36 @@ export default {
 
 
 .highlighted-section {
-  
-  padding: 40px 0;
+    background-color: #f4f3f3;
+  padding: 40px 20px;
   margin: 20px 0;
   margin-top: 20px;
   text-align: center;
+  width: 110%;
 }
 
 .highlighted-section h2{
-    padding: 20px;
+    padding: 30px;
 }
 
 /* Estilização dos cards */
 .cards2-container {
   display: flex;
   justify-content: space-around;
-  gap: 20px;
+  gap: 2px;
   flex-wrap: wrap;
-  width: 100%;
+  padding:  20px; 
 }
 
 .card2 {
   background-color: #fff;  /* Mantém os cards com fundo branco */
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   flex: 1;
-  max-width: 300px;
+  max-width: 250px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
