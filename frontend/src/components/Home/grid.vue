@@ -103,10 +103,62 @@
                         </div>
                     </div>
                 </div>
+                <div class="highlighted-section">
+                    <h2>Impulsione sua Vida Profissional!</h2>
+                    <div class="cards2-container">
+                        <div class="card2" v-for="(card, index) in cards" :key="index">
+                            <div class="icon">
+                                <i :class="card.icon"></i>
+                            </div>
+                            <h3>{{ card.title }}</h3>
+                            <p>{{ card.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="how-it-works">
+                <h2>Como Funciona?</h2>
+                <div class="steps-container">
+                <!-- Passo 1 -->
+                <div class="step">
+                <div class="step-icon">
+                <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="step-content">
+                <h3>Criação de Perfil</h3>
+                <p>Refugiados criam um perfil com currículo validado.</p>
+                </div>
+            </div>
+        
+                <div class="line"></div> <!-- Linha de Conexão -->
 
+                <!-- Passo 2 -->
+                <div class="step">
+                <div class="step-icon">
+                <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="step-content">
+                <h3>Vagas de Emprego</h3>
+                <p>Empresas postam vagas e encontram talentos.</p>
             </div>
         </div>
+
+        <div class="line"></div> <!-- Linha de Conexão -->
+
+        <!-- Passo 3 -->
+        <div class="step">
+          <div class="step-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="step-content">
+            <h3>Conexão Facilitada</h3>
+            <p>A plataforma facilita a conexão entre ambos.</p>
+          </div>
+        </div>
+      </div>
     </div>
+        </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -115,17 +167,179 @@ export default {
         return {
             isBellNotify: false,
             notifys: [],
+            
+            cards: [
+        {
+          icon: "fas fa-briefcase",  // Exemplo de ícone do Font Awesome
+          title: "Vagas Disponíveis",
+          description: "Explore vagas de empresas inclusivas."
+        },
+        {
+          icon: "fas fa-graduation-cap",  // Exemplo de ícone do Font Awesome
+          title: "Cursos Gratuitos",
+          description: "Aprimore suas habilidades com cursos online."
+        },
+        {
+          icon: "fas fa-user-check",  // Exemplo de ícone do Font Awesome
+          title: "Conexão Direta",
+          description: "Conecte-se com empresas que valorizam a diversidade."
+        }
+      ]
+      
         }
     },
     methods: {
         toggleNotify() {
             this.isBellNotify = !this.isBellNotify;
         }
+
+        
     }
+    
 }
 </script>
 
 <style scoped>
+
+/* Estilo para a seção 'Como Funciona?' */
+.how-it-works {
+  background-color: #fafafb;
+  padding: 50px 0;
+  text-align: center;
+  width: 110%;
+}
+
+.how-it-works h2 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+   
+}
+
+.steps-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  justify-content: center;
+  text-align: left;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.step-icon {
+  font-size: 50px;
+  color: #F78024;
+}
+
+.step-content h3 {
+  font-size: 1.4em;
+  color: #333;
+  margin: 10px 0;
+}
+
+.step-content p {
+  font-size: 1em;
+  color: #555;
+}
+
+/* Linha de Conexão */
+.line {
+  width: 2px;
+  height: 50px;
+  background-color: #F78024;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .steps-container {
+    gap: 20px;
+  }
+
+  .step {
+    width: 90%;
+  }
+
+  .line {
+    width: 2px;
+    height: 30px;
+  }
+
+}
+
+
+.highlighted-section {
+  
+  padding: 40px 0;
+  margin: 20px 0;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.highlighted-section h2{
+    padding: 20px;
+}
+
+/* Estilização dos cards */
+.cards2-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card2 {
+  background-color: #fff;  /* Mantém os cards com fundo branco */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: 300px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  font-size: 50px;
+  color:  #F78024;  /* Cor do ícone */
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.4em;
+  margin: 2px 0;
+}
+
+p {
+  font-size: 1em;
+  color: #555;
+}
+
+
 .container {
     display: flex;
     flex-direction: column;
