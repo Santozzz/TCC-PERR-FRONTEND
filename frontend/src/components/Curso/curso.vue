@@ -83,7 +83,7 @@ export default {
         async getCursos() {
             try {
                 // Faz a requisição GET para obter os cursos
-                const response = await axios.get('http://localhost:3000/cursos');
+                const response = await axios.get('https://tcc-perr-backend-h5b7.onrender.com/cursos');
                 this.cards_cursos = response.data;
             } catch (error) {
                 console.error('Erro ao buscar cursos:', error);
