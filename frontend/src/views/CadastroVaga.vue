@@ -137,7 +137,7 @@ export default {
                 this.nothing.push('Preencha todos os campos');
             } else {
                 try {
-                    const response = await axios.post('http://localhost:3000/vagas', this.vagaCadastro);
+                    const response = await axios.post('https://tcc-perr-backend-h5b7.onrender.com/vagas', this.vagaCadastro);
                     this.message = 'Vaga cadastrada com sucesso!';
                     // Limpar o formulário de cadastro
                     this.vagaCadastro = { titulo: '', descricao: '', link: '', local: '', salario: '' };
@@ -157,7 +157,7 @@ export default {
             } else {
                 try {
                     // Usar o ID da vaga diretamente na URL
-                    const response = await axios.put(`http://localhost:3000/vagas/${this.vagaUpdate.idvagas}`, this.vagaUpdate);
+                    const response = await axios.put(`https://tcc-perr-backend-h5b7.onrender.com/vagas/${this.vagaUpdate.idvagas}`, this.vagaUpdate);
                     this.message = 'Vaga atualizada com sucesso!';
                     this.closeModal();  // Fecha o modal após a atualização
                     this.getVagas();  // Atualiza a lista de vagas
@@ -168,7 +168,7 @@ export default {
         },
         async getVagas() {
             try {
-                const response = await axios.get('http://localhost:3000/vagas');
+                const response = await axios.get('https://tcc-perr-backend-h5b7.onrender.com/vagas');
                 this.vagas = response.data;
             } catch (error) {
                 console.error('Erro ao buscar vagas:', error);
@@ -177,7 +177,7 @@ export default {
         async excluirVaga(idvagas) {
             if (confirm('Tem certeza que deseja excluir esta vaga?')) {
                 try {
-                    const response = await axios.delete(`http://localhost:3000/vagas/${idvagas}`);
+                    const response = await axios.delete(`https://tcc-perr-backend-h5b7.onrender.com/vagas/${idvagas}`);
                     this.message = response.data.message;
                     this.getVagas();  // Atualiza a lista de vagas após excluir
                 } catch (error) {

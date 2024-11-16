@@ -41,7 +41,7 @@ export default {
   methods: {
     async getUsuarios() {
       try {
-        const response = await axios.get('http://localhost:3000/usuarios'); // Confirme se a URL está correta
+        const response = await axios.get('https://tcc-perr-backend-h5b7.onrender.com/usuarios'); // Confirme se a URL está correta
         this.items = response.data; // Armazena os dados recebidos no array items
       } catch (error) {
         console.error('Erro ao buscar usuários:', error);
