@@ -72,7 +72,7 @@ export default {
             this.errors.push('Preencha todos os campos');
         } else {
             try{
-                const resp = await axios.post('http://localhost:3000/login', this.form) 
+                const resp = await axios.post('https://tcc-perr-backend-h5b7.onrender.com/login', this.form) 
                 .then(
                     response => {
                         console.log(response.data);

@@ -126,7 +126,7 @@ export default {
                 return; // Impede o envio se os campos não estiverem preenchidos
             } 
             try {
-                const response = await axios.post('http://localhost:3000/cursos', this.cursoCadastro);
+                const response = await axios.post('https://tcc-perr-backend-h5b7.onrender.com/cursos', this.cursoCadastro);
                 this.message = 'Curso cadastrado com sucesso!';
                 this.cursoCadastro = { titulo: '', descricao: '', link: '', fonte: '' }; // Limpa os campos após o cadastro
                 this.getCursos();  // Atualiza a lista de cursos
@@ -145,7 +145,7 @@ export default {
                 return;
             }
             try {
-                const response = await axios.put(`http://localhost:3000/cursos/${this.cursoUpdate.idcursos}`, this.cursoUpdate);
+                const response = await axios.put(`https://tcc-perr-backend-h5b7.onrender.com/cursos/${this.cursoUpdate.idcursos}`, this.cursoUpdate);
                 this.message = 'Curso atualizado com sucesso!';
                 this.closeModal();
                 this.getCursos();  // Atualiza a lista de cursos após a edição
@@ -156,7 +156,7 @@ export default {
         },
         async getCursos() {
             try {
-                const response = await axios.get('http://localhost:3000/cursos');
+                const response = await axios.get('https://tcc-perr-backend-h5b7.onrender.com/cursos');
                 this.cursos = response.data; // Certifica-se de que a resposta é um array de cursos
             } catch (error) {
                 console.error('Erro ao buscar cursos:', error);
@@ -166,7 +166,7 @@ export default {
         async excluirCurso(idcursos) {
             if (confirm('Tem certeza que deseja excluir este curso?')) {
                 try {
-                    const response = await axios.delete(`http://localhost:3000/cursos/${idcursos}`);
+                    const response = await axios.delete(`https://tcc-perr-backend-h5b7.onrender.com/cursos/${idcursos}`);
                     this.message = response.data.message || 'Curso excluído com sucesso!';
                     this.getCursos();  // Atualiza a lista de cursos após a exclusão
                 } catch (error) {

@@ -105,7 +105,7 @@ export default {
                     this.nothing.push('O campo de telefone deve ter pelo menos 11 caracteres');
                 } else {
                     try {
-                          const response = await axios.post('http://localhost:3000/usuarios', this.usuario);
+                          const response = await axios.post('https://tcc-perr-backend-h5b7.onrender.com/usuarios', this.usuario);
                           this.message = 'Usuário cadastrado com sucesso!';
                           
                           // Limpar o formulário
