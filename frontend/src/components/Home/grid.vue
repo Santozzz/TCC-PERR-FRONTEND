@@ -33,7 +33,7 @@
                     </p>
                 </div>
             <div class="imagem">
-                <img src="@/assets/img/home/categ-adm.jpg" alt="Imagem representativa" />
+                <img src="../../assets/img/Home/categ-adm.jpg" alt="Imagem representativa" />
             </div>
             
             </div>
