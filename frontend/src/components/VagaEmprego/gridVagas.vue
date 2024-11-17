@@ -16,7 +16,6 @@
                                 </div>
                                 <div class="content-btn">
                                     <a class="L" @click="openModal(card)">Ver vaga</a>
-                                    <button class="F">Favoritar</button>
                                 </div>
                             </span>
 
