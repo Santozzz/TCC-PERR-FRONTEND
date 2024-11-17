@@ -10,7 +10,7 @@ import Navbar from '@/components/ALL/Navbar.vue';
 import Colab from '@/components/Colaboradores/colaboradores.vue';
 
 export default {
-    name: 'Cursos',
+    name: 'Colaboradores',
     components: {
         Navbar,
         Colab,
