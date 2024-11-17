@@ -27,7 +27,7 @@
                             </div>
                             <div class="termos">
                                 <input type="checkbox" class="col-3">
-                                <h4>Li e aceito os <a href="termos"><strong>Termos de uso</strong></a> e as <a href="termos"><strong>Políticas de privacidade</strong></a></h4> 
+                                <h4>Li e aceito os <a href="/Termos"><strong>Termos de uso</strong></a> e as <a href="/Termos"><strong>Políticas de privacidade</strong></a></h4> 
                             </div>
                             <input type="submit" @click.prevent="submitData" value="CADASTRAR-SE">
                             <div class="tenhoconta">

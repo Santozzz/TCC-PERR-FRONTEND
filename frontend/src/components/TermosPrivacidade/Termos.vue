@@ -8,7 +8,7 @@
         <div class="container">
             <h1 id="inicio"> Diretrizes do Site</h1>
             <div class="ttl">
-                <h1 id="termos">
+                <h1>
                     Termos De Uso
                 </h1>
                     <h2>1. Aceitação dos Termos</h2> 
@@ -76,7 +76,7 @@
                     <h2>4. Modificações da Política de Privacidade</h2> 
                     <p>Podemos alterar esta Política de Privacidade periodicamente. Notificaremos os usuários sobre quaisquer modificações significativas, publicando um aviso em destaque no site ou enviando um e-mail para os usuários registrados. Recomendamos que você reveja esta política regularmente para estar ciente de qualquer alteração.</p> <br>
 
-                    <h2>5. Uso de Cookies</h2> <p>Este site utiliza cookies para melhorar a experiência do usuário e analisar o uso do site. Para mais informações sobre como usamos cookies, consulte nossa Política de <router-link :to="{ path: '/termos', hash: '#cookies' }">Cookies</router-link></p> <br>
+                    <h2>5. Uso de Cookies</h2> <p>Este site utiliza cookies para melhorar a experiência do usuário e analisar o uso do site. Para mais informações sobre como usamos cookies, consulte nossa Política de Cookies</p> <br>
 
                     <h2>6. Faixa Etária</h2> 
                     <p>Nosso site é destinado a usuários com idade mínima de 18 anos. Se você é menor de 18 anos, não deve fornecer informações pessoais. Se tomarmos conhecimento de que coletamos informações pessoais de um adolescente menor de 18 anos, tomaremos medidas para excluir essas informações.</p> <br>
