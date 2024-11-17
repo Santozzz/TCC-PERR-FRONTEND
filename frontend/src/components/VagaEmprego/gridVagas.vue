@@ -83,7 +83,7 @@ export default {
         async getVagas() {
             try {
                 // Faz a requisição GET para obter as vagas
-                const response = await axios.get('http://localhost:3000/vagas');
+                const response = await axios.get('https://tcc-perr-backend-h5b7.onrender.com/vagas');
                 this.cards_vagas = response.data; 
             } catch (error) {
                 console.error('Erro ao buscar vagas:', error);

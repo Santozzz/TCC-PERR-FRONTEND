@@ -142,7 +142,7 @@ export default {
     async logout() {
     try {
         console.log('Iniciando logout...');
-        const resp = await axios.post('http://localhost:3000/logout');
+        const resp = await axios.post('https://tcc-perr-backend-h5b7.onrender.com/logout');
         console.log('Resposta do servidor:', resp);
         this.message = resp.data.message || 'Deslogado com sucesso!';
         localStorage.removeItem('token');
