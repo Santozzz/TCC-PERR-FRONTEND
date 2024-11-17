@@ -53,7 +53,7 @@
                 </div>
                 <div class="gridCards">
                 <div class="container-cursos">
-                    <h4>Confira nossos cursos!</h4>
+                    <h4>Confira os cursos disponíveis!</h4>
                     <div class="row">
                         <div class="cardPrincipal">
                             <div class="spaceCardPrincipal">
@@ -61,9 +61,12 @@
                                 <div class="display-video">
                                     <div class="legenda">
                                         <p>Curso de HTML e CSS completo.</p>
+                                        <p>Otávio Miranda</p>
                                     </div>
                                     <div class="container-btn">
-                                        <button>Assistir<i class="fa-solid fa-play"></i></button>
+                                        <button @click="redirectTo('https://www.youtube.com/watch?v=bCFTv8a59PE&list=PLbIBj8vQhvm00J3f3rD33tRuNLem8EgEA')">
+                                            Assistir<i class="fa-solid fa-play"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -71,61 +74,83 @@
                         <div class="container-cardSecundarios">
                             <div class="rowCardCourse">
                                 <div class="card">
-                                    <div class="spaceCardSecundario">
+                                    <a 
+                                        href="https://www.youtube.com/watch?v=yZ1eLvSGtcE&list=PL9Q7wXUcss37yi8sYd10ExPtXC9m_u6D8" 
+                                        target="_blank" 
+                                        class="spaceCardSecundario">
                                         <div class="banner-imgSec-1"></div>
                                         <div class="display-videoSec">
-                                            <div class="legenda-cardSec">
-                                                <p>Curso industrial</p>
-                                            </div>
-                                            <div class="container-btnSec">
-                                                <button>Assistir<i class="fa-solid fa-play"></i></button>
-                                            </div>
+                                        <div class="legenda-cardSec">
+                                            <p>Curso de Automação Industrial</p>
+                                            <p>Gesep</p>
                                         </div>
-                                    </div>
+                                        <div class="container-btnSec">
+                                        <button>
+                                         Assistir<i class="fa-solid fa-play"></i>
+                                        </button>
+                                        </div>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="card">
-                                    <div class="spaceCardSecundario">
+                                    <a 
+                                        href="https://www.youtube.com/watch?v=kxEAs2PC-UM&list=PLAP3mwpdry2urruth81GDwMyr71bMOutV" 
+                                        target="_blank" 
+                                        class="spaceCardSecundario">
                                         <div class="banner-imgSec-2"></div>
                                         <div class="display-videoSec">
-                                            <div class="legenda-cardSec">
-                                                <p>Curso de logistica</p>
-                                            </div>
-                                            <div class="container-btnSec">
-                                                <button>Assistir<i class="fa-solid fa-play"></i></button>
-                                            </div>
+                                        <div class="legenda-cardSec">
+                                            <p>Curso de Logística</p>
+                                            <p>ARB15</p>
                                         </div>
-                                    </div>
+                                        <div class="container-btnSec">
+                                        <button>
+                                         Assistir<i class="fa-solid fa-play"></i>
+                                        </button>
+                                        </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="rowCardCourse">
                                 <div class="card">
-                                    <div class="spaceCardSecundario">
+                                    <a 
+                                        href="https://www.youtube.com/watch?v=g6eC2MQ1Kv8&list=PLZ65xj2SRHQB0T2GGk-R7bYxorKUkcyoj" 
+                                        target="_blank" 
+                                        class="spaceCardSecundario">
                                         <div class="banner-imgSec-3"></div>
                                         <div class="display-videoSec">
-                                            <div class="legenda-cardSec">
-                                                <p>Curso de inglês</p>
-                                            </div>
-                                            <div class="container-btnSec">
-                                                <button>Assistir<i class="fa-solid fa-play"></i></button>
-                                            </div>
+                                        <div class="legenda-cardSec">
+                                            <p>Curso de Inglês Básico</p>
+                                            <p>EnglishBay</p>
                                         </div>
-                                    </div>
+                                        <div class="container-btnSec">
+                                        <button>
+                                         Assistir<i class="fa-solid fa-play"></i>
+                                        </button>
+                                        </div>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="card">
-                                    <div class="spaceCardSecundario">
-                                        <div class="banner-imgSec-4"></div>
-                                        <div class="display-videoSec">
-                                            <div class="legenda-cardSec">
-                                                <p>Curso de Língua Portguesa</p>
-                                            </div>
-                                            <div class="container-btnSec">
-                                                <button>
-                                                    Assistir<i class="fa-solid fa-play"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                                <a 
+                                    href="https://www.youtube.com/watch?v=w8nI8BBZbSw&list=PLF2J-8QoLzYFC87vgMZ_cqIZLE5qShbyB" 
+                                    target="_blank" 
+                                    class="spaceCardSecundario">
+                                    <div class="banner-imgSec-4"></div>
+                                    <div class="display-videoSec">
+                                    <div class="legenda-cardSec">
+                                        <p>Curso de Língua Portuguesa</p>
+                                        <p>Canal: Aula De   </p>
+                                    </div>
+                                    <div class="container-btnSec">
+                                    <button>
+                                        Assistir<i class="fa-solid fa-play"></i>
+                                    </button>
                                     </div>
                                 </div>
+                                </a>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -176,7 +201,7 @@
       <h2>Benefícios</h2>
       <div class="timeline">
         <div class="timeline-item" v-for="(benefit, index) in benefits" :key="index">
-          <div class="circle"></div>
+          
           <div class="content">
             
           <!-- Adicionando ícones ao lado do título -->
@@ -190,10 +215,39 @@
           </div>
     </div>
     </section>
+    <section class="plano-empresas-card5">
+    <div class="card5">
+      <h2>Plano para Empresas</h2>
+      <p class="preco">Apenas <span>R$ 13,99/mês</span></p>
+      <p class="descricao">
+        Conecte-se com talentos diversos e promova a inclusão em sua empresa. Com nosso plano acessível, você pode encontrar profissionais qualificados que fazem a diferença.
+      </p>
+      <button class="btn5-assinar">Assine Agora</button>
+      <p>(Somente Empresas)</p>
+      
+      <div class="beneficios">
+        <h3>Benefícios ao Assinar:</h3>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Acesso a perfis de profissionais qualificados</li>
+          <li><i class="fas fa-check-circle"></i> Suporte exclusivo para empresas</li>
+          <li><i class="fas fa-check-circle"></i> Destaque em nossa plataforma</li>
+          <li><i class="fas fa-check-circle"></i> Contribua para a diversidade e inclusão</li>
+        </ul>
+      </div>
+    </div>
+  </section>
     </div>
     <section class="faq-section">
             <h2>Perguntas Frequentes</h2>
         <div class="faq-container">
+        <div class="faq-item">
+            <h3>A plataforma é gratuita?</h3>
+            <p>A plataforma oferece acesso totalmente gratuito para refugiados e imigrantes em busca de oportunidades de emprego ou cursos de capacitação. As empresas, por sua vez, têm a opção de aderir a um plano mensal, com a contrapartida de benefícios exclusivos.</p>
+        </div>
+        <div class="faq-item">
+            <h3>(EMPRESAS) Como garantir que os candidatos tenham as habilidades descritas no currículo?</h3>
+            <p>A plataforma incentiva e oferece a verificação de informações pelos candidatos através de entrevistas ou testes para validação.</p>
+        </div>
         <div class="faq-item">
             <h3>Como os refugiados podem criar um perfil?</h3>
             <p>Os refugiados podem se cadastrar gratuitamente e adicionar o currículo na plataforma.</p>
@@ -203,20 +257,12 @@
             <p>Sim, é necessário documentos que comprovem seu status.</p>
         </div>
         <div class="faq-item">
-            <h3>Posso editar meu perfil e currículo depois de criado?</h3>
-            <p>Sim, você pode atualizar suas informações a qualquer momento para refletir novas experiências e habilidades.</p>
-        </div>
-        <div class="faq-item">
-            <h3>(EMPRESAS) Como garantir que os candidatos tenham as habilidades descritas no currículo?</h3>
-            <p>A plataforma incentiva e oferece a verificação de informações pelos candidatos através de entrevistas ou testes para validação.</p>
-        </div>
-        <div class="faq-item">
-        <h3>Preciso instalar algum software para usar a plataforma?</h3>
-        <p>Não, tudo funciona diretamente no navegador, sem necessidade de downloads ou instalações.</p>
+        <h3>Posso editar meu perfil e currículo depois de criado?</h3>
+        <p>Sim, você pode atualizar suas informações a qualquer momento para refletir novas experiências e habilidades.</p>
     </div>
     <div class="faq-item">
-      <h3>Como a plataforma protege os dados dos usuários?</h3>
-      <p>Utilizamos tecnologia de criptografia para segurança e privacidade.</p>
+      <h3>Preciso instalar algum software para usar a plataforma?</h3>
+      <p>Não, tudo funciona diretamente no navegador, sem necessidade de downloads ou instalações.</p>
     </div>
   </div>
     </section>
@@ -234,6 +280,31 @@ export default {
         return {
             isBellNotify: false,
             notifys: [],
+
+            
+
+            courses: [
+        {
+          name: "Curso industrial",
+          link: "https://youtube.com/curso-industrial",
+          bannerClass: "banner-imgSec-1",
+        },
+        {
+          name: "Curso de logística",
+          link: "https://youtube.com/curso-logistica",
+          bannerClass: "banner-imgSec-2",
+        },
+        {
+          name: "Curso de inglês",
+          link: "https://youtube.com/curso-ingles",
+          bannerClass: "banner-imgSec-3",
+        },
+        {
+          name: "Curso de Língua Portuguesa",
+          link: "https://youtube.com/curso-portugues",
+          bannerClass: "banner-imgSec-4",
+        },
+      ],
             
             
 
@@ -281,6 +352,10 @@ export default {
             this.isBellNotify = !this.isBellNotify;
         }
 
+        ,redirectTo(url) {
+      window.open(url, "_blank");
+    },
+
         
     }
     
@@ -289,11 +364,120 @@ export default {
 
 <style scoped>
 
+.card5 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+}
+
+.card5:hover{
+    transform: translateY(-10px); /* Move o card para cima */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Move o card para cima */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+}
+
+.plano-empresas-card5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f4f4f9;
+}
+
+.card5 {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 400px;
+  text-align: center;
+  border: 2px solid #f78024; /* Contorno do card */
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna */
+  align-items: center; /* Centraliza os itens dentro do card */
+}
+
+.card5 h2 {
+  font-size: 24px;
+  color: #252f3f;
+  margin-bottom: 15px;
+}
+
+.preco span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f78024;
+}
+
+.descricao {
+  font-size: 14px;
+  color: #555;
+  margin: 10px 0 20px;
+}
+
+.btn5-assinar {
+  background-color: #f78024;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.btn5-assinar:hover {
+  background-color: #e06c20;
+}
+
+/* Benefícios */
+.beneficios {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.beneficios h3 {
+  font-size: 18px;
+  color: #252f3f;
+  margin-bottom: 10px;
+}
+
+.beneficios ul {
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+  flex-wrap: wrap; 
+   
+}
+
+.beneficios li {
+  font-size: 14px;
+  color: #555;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  width: 100%;
+}
+
+.beneficios li i {
+  color: #28a745;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
 .faq-section {
   padding: 40px 20px;
   background-color: #f9f9f9; /* Cor de fundo da seção */
   width:102%;
-  margin-right: 25px;
+  margin-right: 0px;
 }
 
 .faq-section h2 {
@@ -334,8 +518,26 @@ export default {
   .faq-container {
     grid-template-columns: 1fr; /* Uma única coluna em telas menores */
   }
+
+  /* Ajustar o título para telas menores */
+  .faq-section h2 {
+    font-size: 24px;
+  }
+
+  /* Ajustar o tamanho do texto dentro da FAQ */
+  .faq-item h3 {
+    font-size: 16px;
+  }
+
+  .faq-item p {
+    font-size: 14px;
+  }
 }
 
+.card a{
+    text-decoration: none;
+  color: #333;
+}
 
 
 
@@ -360,51 +562,46 @@ h1 {
 
 
 .beneficios-timeline h2 {
-  font-size: 36px;
+  font-size: 33px;
   color: #333;
   margin-bottom: 30px;
 }
 
 .timeline {
     display: flex;
-  margin-bottom: 30px;
-  width: 30%; /* Garante que os itens ocuparam toda a largura */
-  flex-wrap: wrap; /* Permite que os itens se ajustem conforme o tamanho da tela */
-  justify-content: center;
+  margin-bottom: 15px;
+  width: 90%; /* Garante que os itens ocuparam toda a largura */
+  flex-wrap: nowrap; /* Permite que os itens se ajustem conforme o tamanho da tela */
+  justify-content: space-around;
+  margin-right: 30px;
 }
 
 .timeline-item {
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
   position: relative;
-  
+  flex: 1; /* Faz com que cada item ocupe o mesmo espaço */
+    text-align: center; /* Centraliza o conteúdo */
+    margin: 0 20px;
 }
-
-.circle {
-  width: 20px;
-  height: 20px;
-  background-color:#F78024;
-  border-radius: 50%;
-  position: absolute;
-  left: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .content {
-  padding-left: 40px;
-  text-align: left;
-  
+    padding-left: 5px;
+  text-align: center;
+ width: 100%;
+
 }
 
 .content h3 {
-  font-size: 27px;
+  font-size: 21px;
   margin-bottom: 10px;
+  flex-grow: 1; /* Faz o título crescer para ocupar o espaço restante */
+  word-wrap: break-word;
+  margin: 0;
 }
 
 .content p {
-  font-size: 20px;
+  font-size: 17px;
   color: #555;
 }
 
@@ -412,18 +609,37 @@ h1 {
 .icon-title {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-start; /* Alinha horizontalmente */
+   gap: 8px;
+  
 }
 
 .benefit-icon {
   font-size: 24px;
   color: #F78024; /* Cor do ícone */
+  margin-right: 20px;
+  margin-left: 10px; 
 }
 
 .check-icon {
   color: green; /* Ícone de verificação verde */
 }
 
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .timeline-item {
+    flex-basis: 100%; /* Cada item ocupará 100% da largura em telas pequenas */
+    margin-bottom: 20px; /* Reduz o espaçamento entre os itens */
+  }
+
+  .content h3 {
+    font-size: 22px; /* Ajusta o tamanho do título */
+  }
+
+  .content p {
+    font-size: 18px; /* Ajusta o tamanho da descrição */
+  }
+}
 
 
 /* Container da seção */
@@ -885,8 +1101,9 @@ p {
 
 .container-btn {
     display: flex;
-    width: 45%;
+    width: 35%;
     justify-content: flex-end;
+    margin-bottom: 10px;
 }
 
 .container-btn button {
