@@ -178,14 +178,49 @@
         <div class="timeline-item" v-for="(benefit, index) in benefits" :key="index">
           <div class="circle"></div>
           <div class="content">
+            
+          <!-- Adicionando ícones ao lado do título -->
+          <div class="icon-title">
+            <i :class="benefit.iconClass" class="benefit-icon"></i>
+
             <h3>{{ benefit.title }} <i class="fas fa-check-circle check-icon"></i></h3>
+            </div>
             <p>{{ benefit.description }}</p>
           </div>
-        </div>
-      </div>
+          </div>
+    </div>
     </section>
     </div>
+    <section class="faq-section">
+            <h2>Perguntas Frequentes</h2>
+        <div class="faq-container">
+        <div class="faq-item">
+            <h3>Como os refugiados podem criar um perfil?</h3>
+            <p>Os refugiados podem se cadastrar gratuitamente e adicionar o currículo na plataforma.</p>
         </div>
+        <div class="faq-item">
+            <h3>Preciso de documentos para a validação?</h3>
+            <p>Sim, é necessário documentos que comprovem seu status.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Posso editar meu perfil e currículo depois de criado?</h3>
+            <p>Sim, você pode atualizar suas informações a qualquer momento para refletir novas experiências e habilidades.</p>
+        </div>
+        <div class="faq-item">
+            <h3>(EMPRESAS) Como garantir que os candidatos tenham as habilidades descritas no currículo?</h3>
+            <p>A plataforma incentiva e oferece a verificação de informações pelos candidatos através de entrevistas ou testes para validação.</p>
+        </div>
+        <div class="faq-item">
+        <h3>Preciso instalar algum software para usar a plataforma?</h3>
+        <p>Não, tudo funciona diretamente no navegador, sem necessidade de downloads ou instalações.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Como a plataforma protege os dados dos usuários?</h3>
+      <p>Utilizamos tecnologia de criptografia para segurança e privacidade.</p>
+    </div>
+  </div>
+    </section>
+</div>
     </div>
   </div>
 </template>
@@ -200,18 +235,24 @@ export default {
             isBellNotify: false,
             notifys: [],
             
+            
+
+
             benefits: [
         {
           title: "Conexões Rápidas",
-          description: "Conecte-se rapidamente com empresas que buscam talentos diversificados."
+          description: "Conecte-se rapidamente com empresas que buscam talentos diversificados.",
+          iconClass: "fas fa-plug" // Ícone para conexões rápidas
         },
         {
           title: "Perfil Personalizado",
-          description: "Crie um perfil único que destaca suas habilidades e experiências."
+          description: "Crie um perfil único que destaca suas habilidades e experiências.",
+          iconClass: "fas fa-user-edit" // Ícone para perfil personalizado
         },
         {
           title: "Suporte Contínuo",
-          description: "Receba suporte contínuo durante todo o processo de integração."
+          description: "Receba suporte contínuo durante todo o processo de integração.",
+          iconClass: "fas fa-life-ring" // Ícone para suporte contínuo
         }
       ]
 
@@ -248,6 +289,56 @@ export default {
 
 <style scoped>
 
+.faq-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9; /* Cor de fundo da seção */
+  width:102%;
+  margin-right: 25px;
+}
+
+.faq-section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.faq-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Define duas colunas de tamanho igual */
+  gap: 20px; /* Espaçamento entre os itens */
+}
+
+.faq-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.faq-item h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #252F3F;
+}
+
+.faq-item p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .faq-container {
+    grid-template-columns: 1fr; /* Uma única coluna em telas menores */
+  }
+}
+
+
+
+
 .home {
   padding: 20px;
   text-align: center;
@@ -261,12 +352,12 @@ h1 {
 
 .beneficios-timeline {
   padding: 60px 20px;
-  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  background-color: white;
 }
+
 
 .beneficios-timeline h2 {
   font-size: 36px;
@@ -279,6 +370,7 @@ h1 {
   margin-bottom: 30px;
   width: 30%; /* Garante que os itens ocuparam toda a largura */
   flex-wrap: wrap; /* Permite que os itens se ajustem conforme o tamanho da tela */
+  justify-content: center;
 }
 
 .timeline-item {
@@ -286,8 +378,7 @@ h1 {
   align-items: center;
   margin-bottom: 40px;
   position: relative;
-  flex: 1 1 300px; /* Faz com que cada item ocupe uma largura mínima de 300px, mas pode crescer */
-  justify-content: center; /* Alinha o conteúdo no centro */
+  
 }
 
 .circle {
@@ -304,10 +395,11 @@ h1 {
 .content {
   padding-left: 40px;
   text-align: left;
+  
 }
 
 .content h3 {
-  font-size: 25px;
+  font-size: 27px;
   margin-bottom: 10px;
 }
 
@@ -316,11 +408,21 @@ h1 {
   color: #555;
 }
 
-.check-icon {
-  color: green; /* Cor verde para o ícone de check */
-  margin-left: 10px; /* Espaço entre o texto e o ícone */
+/* Estilos para os ícones ao lado do título */
+.icon-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+.benefit-icon {
+  font-size: 24px;
+  color: #F78024; /* Cor do ícone */
+}
+
+.check-icon {
+  color: green; /* Ícone de verificação verde */
+}
 
 
 
@@ -330,6 +432,7 @@ h1 {
   align-items: center;
   justify-content: center;
   padding: 70px;
+  margin-left: 5px;
   
 }
 
@@ -355,7 +458,7 @@ h1 {
 
 /* Estilo da imagem */
 .imagem img {
-  max-width: 75%; /* Faz a imagem ocupar toda a largura disponível */
+  max-width: 100%; /* Faz a imagem ocupar toda a largura disponível */
   height: auto; /* Mantém a proporção da imagem */
   border-radius: 10px; /* Canto arredondado */
 }
@@ -373,11 +476,12 @@ h1 {
 }   
 
 .texto h1{
-    font-size: 30px;
+    font-size: 35px;
+    color: #252F3F;
 }
 
 .texto p{
-    font-size: 16px
+    font-size: 18px
 }
 
 
@@ -477,6 +581,8 @@ h1 {
 
 .highlighted-section h2{
     padding: 30px;
+    font-size: 30px;
+    color: #252F3F;
 }
 
 /* Estilização dos cards */
@@ -486,6 +592,7 @@ h1 {
   gap: 2px;
   flex-wrap: wrap;
   padding:  20px; 
+  margin-right: 20px;
 }
 
 .card2 {
@@ -515,6 +622,8 @@ h3 {
   font-size: 1.4em;
   margin: 2px 0;
 }
+
+
 
 p {
   font-size: 1em;
