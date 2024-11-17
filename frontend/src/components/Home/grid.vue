@@ -3,7 +3,7 @@
         <div class="container">
             <div class="header">
                 <div class="user-notify">
-                    <p>[Usuario]</p>
+                    <p>[UsuarioOOOOOOOO]</p>
                     <!-- <i class="fa-solid fa-bell" :class="{ 'notifyOpen': isBellNotify }" @click="toggleNotify"></i>
                     <div class="notifications" :class="['notify', { 'notifyOpen': isBellNotify }]">
                         <h4>Notificações</h4>
