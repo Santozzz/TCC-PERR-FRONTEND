@@ -67,7 +67,7 @@
               </div>
             </li>
           </router-link>
-          <router-link to="/Favoritos">
+         <!-- <router-link to="/Favoritos">
             <li>
               <div class="icon">
                 <i class="fa-solid fa-bookmark"></i>
@@ -76,7 +76,7 @@
                 <p>Favoritos</p>
               </div>
             </li>
-          </router-link>
+          </router-link>-->
           <router-link to="/Cursos">
             <li>
               <div class="icon">

@@ -53,11 +53,11 @@ const router = createRouter({
       name: "seucurriculo",
       component: () => import("../views/SeuCurriculo.vue"),
     },
-    {
-      path: "/Favoritos",
-      name: "favoritos",
-      component: () => import("../views/Favoritos.vue"),
-    },
+   // {
+    //  path: "/Favoritos",
+    //  name: "favoritos",
+     // component: () => import("../views/Favoritos.vue"),
+// },
     {
       path: "/Cursos",
       name: "cursos",
