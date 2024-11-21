@@ -16,7 +16,6 @@
                     <form class="form" method="POST">
                         <input type="text" v-model="empresa.nome" placeholder="Nome da Empresa" />
                         <input type="text" v-model="empresa.cnpj" @input="applyCNPJMask" placeholder="CNPJ" />
-                        <input type="text" v-model="empresa.setor" placeholder="Setor de Atuação" />
                         <input type="tel" v-model="empresa.telefone" @input="applyMask" placeholder="Telefone" />
                         <div class="row-input">
                             <input type="email" v-model="empresa.email" placeholder="Email" />
@@ -68,9 +67,9 @@ export default {
             showPassword: false,
             inputType: 'password',
             empresa: {
+                idempresa: null,
                 nome: null,
                 cnpj: null,
-                setor: null,
                 telefone: null,
                 email: null,
                 senha: null,
@@ -101,13 +100,13 @@ export default {
         async submitData() {
             this.nothing = [];
 
-            if (!this.empresa.nome || !this.empresa.cnpj || !this.empresa.setor || !this.empresa.telefone || !this.empresa.email || !this.empresa.senha) {
+            if (!this.empresa.nome || !this.empresa.cnpj || !this.empresa.telefone || !this.empresa.email || !this.empresa.senha) {
                 this.nothing.push('Preencha todos os campos');
             } else {
                 try {
                     const response = await axios.post('https://tcc-perr-backend-h5b7.onrender.com/empresas', this.empresa);
                     this.message = 'Empresa cadastrada com sucesso!';
-                    this.empresa = { nome: '', cnpj: '', setor: '', telefone: '', email: '', senha: '' };
+                    this.empresa = { nome: '', cnpj: '', telefone: '', email: '', senha: '' };
                     this.$router.push('/Entrar');
                 } catch (error) {
                     this.message = 'Erro ao cadastrar empresa: ' + (error.response ? error.response.data.message : error.message);
