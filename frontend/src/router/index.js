@@ -48,6 +48,16 @@ const router = createRouter({
     //   name: "notificacoes",
     //   component: () => import("../views/Notificacoes.vue"),
     // },
+
+
+
+
+    
+    //{
+      //path: "/CadastrodaEmpresa",
+      //name: "cadastrodaempresa",
+      //component: () => import("../views/CadastrodaEmpresa.vue"),
+    //},
     {
       path: "/SeuCurriculo",
       name: "seucurriculo",
@@ -80,6 +90,10 @@ const router = createRouter({
       component: () => import("../views/TermosePriv.vue"),
     },
   ],
+
+
+  
+
 });
 
 export default router;

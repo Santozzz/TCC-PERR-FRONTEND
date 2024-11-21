@@ -11,36 +11,31 @@
             <div class="row">
                 <div class="formCadastro">
                     <h3 class="desc">
-                        Cadastre-se já para encontrar a melhor
-                        oportunidade de emprego para você !
+                        Cadastre sua empresa para encontrar os melhores talentos!
                     </h3>
                     <form class="form" method="POST">
-                        <input type="text" v-model="usuario.nome" placeholder="Nome Completo">
-                        <input type="tel" v-model="usuario.telefone" @input="applyMask" placeholder="Telefone">
+                        <input type="text" v-model="empresa.nome" placeholder="Nome da Empresa" />
+                        <input type="text" v-model="empresa.cnpj" @input="applyCNPJMask" placeholder="CNPJ" />
+                        <input type="text" v-model="empresa.setor" placeholder="Setor de Atuação" />
+                        <input type="tel" v-model="empresa.telefone" @input="applyMask" placeholder="Telefone" />
                         <div class="row-input">
-                            <input type="email" v-model="usuario.email" placeholder="Email">
+                            <input type="email" v-model="empresa.email" placeholder="Email" />
                             <div class="password">
-                                <input :type="inputType" v-model="usuario.senha" placeholder="Senha" maxlength="16" />
+                                <input :type="inputType" v-model="empresa.senha" placeholder="Senha" maxlength="16" />
                                 <i class="fa-solid" :class="showPassword ? 'fa-eye' : 'fa-eye-slash'"
                                     @click="togglePasswordVisibility"></i>
-                                </div>
                             </div>
-                            <div class="termos">
-                                <input type="checkbox" class="col-3">
-                                <h4>Li e aceito os <a href="/Termos"><strong>Termos de uso</strong></a> e as <a href="/Termos"><strong>Políticas de privacidade</strong></a></h4> 
-                            </div>
-                            <input type="submit" @click.prevent="submitData" value="CADASTRAR-SE">
-                            <div class="tenhoconta">
-                                <h4>Já tem uma conta? <a href="../Entrar">Entrar</a></h4>
-                            </div>
-                            </form>
-
-                            <!-- Botão para redirecionar empresas -->
-                            <button @click="redirectToEmpresa" class="botao-empresa">Sou uma Empresa</button>
-
-                            
-
-                        {{ message }}
+                        </div>
+                        <div class="termos">
+                            <input type="checkbox" class="col-3">
+                            <h4>Li e aceito os <a href="/Termos"><strong>Termos de uso</strong></a> e as <a href="/Termos"><strong>Políticas de privacidade</strong></a></h4>
+                        </div>
+                        <input type="submit" @click.prevent="submitData" value="CADASTRAR EMPRESA" />
+                        <div class="tenhoconta">
+                            <h4>Já tem uma conta? <a href="../Entrar">Entrar</a></h4>
+                        </div>
+                    </form>
+                    {{ message }}
                     <ul class="container-alert">
                         <li :class="{ active: isActive }" class="alert-form" v-for="(error, index) in nothing"
                             :key="index">
@@ -50,14 +45,10 @@
                                     <i @click="fecharAlert" class="fa-regular fa-circle-xmark"></i>
                                 </div>
                                 <div class="line"></div>
-                                <div class="error">
-                                    {{ error }}
-                                </div>
+                                <div class="error">{{ error }}</div>
                             </div>
                         </li>
                     </ul>
-                    <div class="line"></div>
-                
                 </div>
                 <div class="img-decorativa">
                     <img src="../../assets/img/Cadastro/img-decorativa.jpg" alt="">
@@ -66,25 +57,27 @@
         </div>
     </div>
 </template>
+
 <script>
 import axios from 'axios';
 
 export default {
     data() {
         return {
-            //Variaveis do mostrar senha
             password: '',
             showPassword: false,
             inputType: 'password',
-            //Variaveis de validação e envio de dados dos inputs
-            usuario: {
+            empresa: {
                 nome: null,
+                cnpj: null,
+                setor: null,
                 telefone: null,
                 email: null,
                 senha: null,
             },
             nothing: [],
             isActive: true,
+            message: '',
         };
     },
     methods: {
@@ -96,68 +89,40 @@ export default {
             let telefone = event.target.value.replace(/\D/g, '');
             if (telefone.length > 10) {
                 event.target.value = telefone.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
-            } else {
-                this.quantTel.push('Digite seu número por inteiro')
             }
+        },
+        applyCNPJMask(event) {
+            let cnpj = event.target.value.replace(/\D/g, '');
+            if (cnpj.length > 14) {
+                cnpj = cnpj.substring(0, 14);
+            }
+            event.target.value = cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2}).*/, '$1.$2.$3/$4-$5');
         },
         async submitData() {
-            this.nothing = []
+            this.nothing = [];
 
-            if (!this.usuario.nome || !this.usuario.telefone || !this.usuario.email || !this.usuario.senha) {
+            if (!this.empresa.nome || !this.empresa.cnpj || !this.empresa.setor || !this.empresa.telefone || !this.empresa.email || !this.empresa.senha) {
                 this.nothing.push('Preencha todos os campos');
+            } else {
+                try {
+                    const response = await axios.post('https://tcc-perr-backend-h5b7.onrender.com/empresas', this.empresa);
+                    this.message = 'Empresa cadastrada com sucesso!';
+                    this.empresa = { nome: '', cnpj: '', setor: '', telefone: '', email: '', senha: '' };
+                    this.$router.push('/Entrar');
+                } catch (error) {
+                    this.message = 'Erro ao cadastrar empresa: ' + (error.response ? error.response.data.message : error.message);
+                }
             }
-            else {
-                if (this.usuario.telefone.length < 11) {
-                    this.nothing.push('O campo de telefone deve ter pelo menos 11 caracteres');
-                } else {
-                    try {
-                          const response = await axios.post('https://tcc-perr-backend-h5b7.onrender.com/usuarios', this.usuario);
-                          this.message = 'Usuário cadastrado com sucesso!';
-                          
-                          // Limpar o formulário
-                          this.usuario = { nome: '', email: '', telefone: '', senha: '' };
-                          this.$router.push('/Entrar')
-                        } catch (error) {
-                          // Ajuste aqui para lidar com a estrutura correta do erro
-                          this.message = 'Erro ao cadastrar usuário: ' + (error.response ? error.response.data.message : error.message);
-                        }
-                    }
-            }    
-
         },
-        redirectToEmpresa() {
-            // Redireciona para a página de cadastro de empresa
-            this.$router.push('/CadastroEmpresa');
-        },
-
         fecharAlert(index) {
-            this.nothing.splice(index, 1)
-        }
+            this.nothing.splice(index, 1);
+        },
     },
 };
 </script>
 
 <style scoped>
-/* Content of Cadastro */
-
-.botao-empresa {
-    
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #2d2f49;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: background-color 0.3s;
-}
-
-.botao-empresa:hover {
-    background-color: #565d81;
-}
-
-
-
+/* Reaproveite o estilo do formulário de usuário */
 .tenhoconta{
     padding-left: 35%;
 }
