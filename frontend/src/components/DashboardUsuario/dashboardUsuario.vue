@@ -45,9 +45,20 @@
           console.error('Erro ao buscar usuários:', error);
         }
       },
-      handleAction1(item) {
-        console.log('Validar:', item); // Ação de validação
-      },
+      async handleAction1(item) {
+    try {
+        await axios.put(`https://tcc-perr-backend-h5b7.onrender.com/usuarios/${item.id}/status`, {
+            status: true // Atualiza o status para true (validado)
+        });
+        console.log('Usuário validado com sucesso');
+
+        // Atualiza o status localmente para refletir na interface
+        item.status = true;
+      }   catch (error) {
+        console.error('Erro ao validar usuário:', error);
+    }
+    },
+
       handleAction2(item) {
         console.log('Não Validar:', item); // Ação de não validação
       }
@@ -66,6 +77,7 @@
     justify-content: center; 
     align-items: center; 
     height: 100vh; 
+    margin-top: 40px;
   }
   
   table {

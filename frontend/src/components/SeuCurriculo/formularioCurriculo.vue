@@ -105,15 +105,12 @@ export default {
             this.curriculo.experiencias.splice(index, 1);
         },
         async gerarCurriculo() {
-            const container = this.$refs.curriculoContainer;
-
-            if (!container) {
-                console.error('Erro: Elemento curriculoContainer não encontrado.');
+            if (!this.usuarioLogado) {
+                this.modalAberto = true; // Mostra o modal de login necessário
                 return;
             }
 
-            // Adiciona a classe de ocultação antes de gerar o PDF
-            container.classList.add('ocultar-botoes');
+            const container = this.$refs.curriculoContainer;
 
             try {
                 const canvas = await html2canvas(container, { scale: 2 });
@@ -132,13 +129,42 @@ export default {
                 pdf.save('curriculo.pdf');
             } catch (error) {
                 console.error('Erro ao gerar PDF:', error);
-            } finally {
-                // Remove a classe de ocultação após a geração do PDF
-                container.classList.remove('ocultar-botoes');
+            }
+        },
+
+        async verificarSessao() {
+            try {
+            const response = await axios.get('https://tcc-perr-backend-h5b7.onrender.com/checkSession');
+             if (response.data.loggedIn) {
+                this.usuarioId = response.data.userId; // Armazena o ID do usuário
+                this.usuarioLogado = true;
+            } else {
+                this.usuarioLogado = false;
+            }
+            } catch (error) {
+                console.error('Erro ao verificar sessão:', error);
             }
         }
-    }
-};
+            },
+            mounted() {
+                this.verificarSessao(); // Verifica a sessão ao carregar o componente
+            },
+
+            async logout() {
+                try {
+                    await axios.post('https://tcc-perr-backend-h5b7.onrender.com/logout');
+                    this.usuarioLogado = false;
+                    this.usuarioId = null;
+                    // Redireciona para a página de login
+                    window.location.href = '/login';
+                } catch (error) {
+                    console.error('Erro ao fazer logout:', error);
+                }
+            }
+
+
+    };
+
 </script>
 
 <style scoped>
