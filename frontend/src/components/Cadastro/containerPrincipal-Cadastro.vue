@@ -144,17 +144,20 @@ export default {
     
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #2d2f49;
-    color: white;
+    background-color: #ffffff;
+    color: #F78024;
     border: none;
     cursor: pointer;
     border-radius: 20px;
     transition: background-color 0.3s;
+    border: 2px solid #F78024; /* Borda de 2px, cor preta */
 }
 
 .botao-empresa:hover {
-    background-color: #565d81;
+    background-color:#f9ede1;
 }
+
+
 
 
 

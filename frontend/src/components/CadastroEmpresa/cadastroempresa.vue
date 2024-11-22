@@ -4,7 +4,7 @@
             <div class="back">
                 <div class="toPag-principal">
                     <i class="fa-solid fa-angle-left"></i>
-                    <router-link class="link" to="/">Página inicial</router-link>
+                    <router-link class="link" to="/Cadastro">Voltar</router-link>
                 </div>
                 <router-link class="logo" to="/">PER<strong>R</strong></router-link>
             </div>
@@ -345,6 +345,7 @@ export default {
 
 .tenhoconta {
     width: 70%;
+    margin-bottom: 30px;
 }
 
 .tenhoconta h4 {
