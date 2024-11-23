@@ -16,6 +16,18 @@ const router = createRouter({
       component: () => import("../views/homedaempresa.vue"),
     },
 
+      {
+        path: "/PerfisValidadosEmpresa",
+        name: "perfilsval",
+        component: () => import("../views/Perfil-validado-em.vue"),
+      },
+
+      {
+        path: "/PlanoEmpresas",
+        name: "planomensal",
+        component: () => import("../views/planoempresa.vue"),
+      },
+
     {
       path: "/Cadastro",
       name: "cadastro",

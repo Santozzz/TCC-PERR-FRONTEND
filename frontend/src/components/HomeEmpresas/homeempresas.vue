@@ -5,7 +5,7 @@
       <ul>
         <li>
           <button @click="goToPlano">
-            <i class="fas fa-credit-card"></i> Plano
+            <i class="fas fa-credit-card"></i> Plano Mensal
           </button>
         </li>
         <li>
@@ -207,10 +207,10 @@
     },
     methods: {
       goToPlano() {
-      this.$router.push('/plano-mensal');  // Redireciona para a página do plano
+      this.$router.push('/PlanoEmpresas');  // Redireciona para a página do plano
     },
     goToPerfis() {
-      this.$router.push('/perfils-validos');  // Redireciona para a página de perfis validados
+      this.$router.push('/PerfisValidadosEmpresa');  // Redireciona para a página de perfis validados
     },
       // Redirect to external link or handle other actions
       redirectTo(url) {
@@ -452,11 +452,13 @@
   }
 }
 
-  /* Navbar Estilo */
 .navbar {
   background-color: #252f3f;
-  padding: 15px;
+  padding: 30px;
   text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 
 .navbar ul {
@@ -508,6 +510,7 @@
   padding: 20px;
   text-align: center;
   border-radius: 8px;
+  margin-top: 90px;
 }
 
 .user-notify p {
@@ -738,30 +741,28 @@
 }
 
 .faq-container {
-  margin-top: 20px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas de tamanho igual */
+    gap: 20px; /* Espaço entre as perguntas */
+    padding: 20px;
 }
 
 .faq-item {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .faq-item h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .faq-item p {
-  font-size: 18px;
-  color: #666;
-  line-height: 1.6;
+    font-size: 16px;
+    color: #666;
 }
 
 /* Responsividade */
