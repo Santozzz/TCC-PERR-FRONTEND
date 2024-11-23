@@ -68,9 +68,9 @@ import html2canvas from 'html2canvas';
 import axios from 'axios';
 
 export default {
-    data() {
-        return {
-            curriculo: {
+                data() {
+            return {
+                curriculo: {
                 nome: '',
                 profissao: '',
                 telefone: '',
@@ -82,36 +82,41 @@ export default {
                 experiencias: [
                     { periodo: '', empresa: '', cargo: '', descricao: '' }
                 ]
+                },
+                modalAberto: false,
+                usuarioLogado: false,  // Variável para armazenar o estado da sessão
+                usuarioId: null
+            };
             },
-            modalAberto: false
-        };
-    },
-    methods: {
-        abrirModal() {
-            this.modalAberto = true;
-        },
-        fecharModal() {
-            this.modalAberto = false;
-        },
-        adicionarFormacao() {
-            this.curriculo.formacoes.push({ periodo: '', instituicao: '', curso: '' });
-        },
-        removerFormacao(index) {
-            this.curriculo.formacoes.splice(index, 1);
-        },
-        adicionarExperiencia() {
-            this.curriculo.experiencias.push({ periodo: '', empresa: '', cargo: '', descricao: '' });
-        },
-        removerExperiencia(index) {
-            this.curriculo.experiencias.splice(index, 1);
-        },
-        async gerarCurriculo() {
-            if (!this.usuarioLogado) {
-                this.modalAberto = true; // Mostra o modal de login necessário
+            methods: {
+            abrirModal() {
+                this.modalAberto = true;
+            },
+            fecharModal() {
+                this.modalAberto = false;
+            },
+            adicionarFormacao() {
+                this.curriculo.formacoes.push({ periodo: '', instituicao: '', curso: '' });
+            },
+            removerFormacao(index) {
+                this.curriculo.formacoes.splice(index, 1);
+            },
+            adicionarExperiencia() {
+                this.curriculo.experiencias.push({ periodo: '', empresa: '', cargo: '', descricao: '' });
+            },
+            removerExperiencia(index) {
+                this.curriculo.experiencias.splice(index, 1);
+            },
+            async gerarCurriculo() {
+                const container = this.$refs.curriculoContainer;
+
+            if (!container) {
+                console.error('Erro: Elemento curriculoContainer não encontrado.');
                 return;
             }
 
-            const container = this.$refs.curriculoContainer;
+            // Adiciona a classe de ocultação antes de gerar o PDF
+            container.classList.add('ocultar-botoes');
 
             try {
                 const canvas = await html2canvas(container, { scale: 2 });
@@ -130,42 +135,13 @@ export default {
                 pdf.save('curriculo.pdf');
             } catch (error) {
                 console.error('Erro ao gerar PDF:', error);
-            }
-        },
-
-        async verificarSessao() {
-            try {
-            const response = await axios.get('https://tcc-perr-backend-h5b7.onrender.com/checkSession');
-             if (response.data.loggedIn) {
-                this.usuarioId = response.data.userId; // Armazena o ID do usuário
-                this.usuarioLogado = true;
-            } else {
-                this.usuarioLogado = false;
-            }
-            } catch (error) {
-                console.error('Erro ao verificar sessão:', error);
+            } finally {
+                // Remove a classe de ocultação após a geração do PDF
+                container.classList.remove('ocultar-botoes');
             }
         }
-            },
-            mounted() {
-                this.verificarSessao(); // Verifica a sessão ao carregar o componente
-            },
-
-            async logout() {
-                try {
-                    await axios.post('https://tcc-perr-backend-h5b7.onrender.com/logout');
-                    this.usuarioLogado = false;
-                    this.usuarioId = null;
-                    // Redireciona para a página de login
-                    window.location.href = '/login';
-                } catch (error) {
-                    console.error('Erro ao fazer logout:', error);
-                }
-            }
-
-
-    };
-
+    }
+};
 </script>
 
 <style scoped>

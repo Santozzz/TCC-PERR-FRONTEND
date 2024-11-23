@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import axios from "axios";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -70,11 +71,13 @@ const router = createRouter({
       //name: "cadastrodaempresa",
       //component: () => import("../views/CadastrodaEmpresa.vue"),
     //},
-    {
-      path: "/SeuCurriculo",
-      name: "seucurriculo",
-      component: () => import("../views/SeuCurriculo.vue"),
-    },
+      {
+        path: "/SeuCurriculo",
+        name: "seucurriculo",
+        component: () => import("../views/SeuCurriculo.vue"),
+        meta: { requiresAuth: true }, // Protege a rota
+      },
+      
    // {
     //  path: "/Favoritos",
     //  name: "favoritos",
@@ -106,6 +109,39 @@ const router = createRouter({
 
   
 
+});
+
+async function verificarSessao() {
+  try {
+    const response = await axios.get("https://tcc-perr-backend-h5b7.onrender.com/checkSession", { withCredentials: true });
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao verificar a sessão:", error);
+    return { loggedIn: false }; // Retorna loggedIn: false em caso de erro
+  }
+}
+
+
+// Guard de navegação global
+// Guard de navegação global
+router.beforeEach(async (to, from, next) => {
+  // Verifica se a rota requer autenticação
+  if (to.meta.requiresAuth) {
+    try {
+      // Verifica a sessão do usuário
+      const session = await verificarSessao();
+      if (session.loggedIn) {
+        next(); // Usuário autenticado, permite acesso à rota
+      } else {
+        next("/Entrar"); // Redireciona para a página de login se não estiver autenticado
+      }
+    } catch (error) {
+      console.error("Erro ao verificar sessão:", error);
+      next("/Entrar"); // Caso ocorra erro, redireciona para a página de login
+    }
+  } else {
+    next(); // Rota pública, permite acesso
+  }
 });
 
 export default router;
