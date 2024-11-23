@@ -2,7 +2,7 @@
     <div>
         <!-- Navbar -->
     <nav class="navbar">
-    <ul>
+    <ul class="navbar-links">
         <li>
         <button @click="goToHome">
             <i class="fas fa-home"></i> Home
@@ -14,6 +14,14 @@
         </button>
         </li>
     </ul>
+    <!-- Botão de Sair -->
+    <ul class="navbar-right">
+    <li>
+      <button class="sair-btn" @click="logout">
+        <i class="fas fa-sign-out-alt"></i> Sair
+      </button>
+    </li>
+  </ul>
     </nav>
     <div class="perfils-validados">
       <h1>Perfis Validados</h1>
@@ -79,6 +87,14 @@
     goToPlano() {
       this.$router.push('/PlanoEmpresas');  // Redireciona para a página do plano
     },
+    // Função de Logout
+    logout() {
+        // Aqui você pode adicionar qualquer lógica de logout, como limpar o localStorage, cookies ou estado
+        // Exemplo: localStorage.removeItem('user'); ou qualquer outro método de autenticação que esteja utilizando.
+        
+        // Redireciona para a página de login após sair
+        this.$router.push('/CadastroEmpresa');  // Ajuste conforme o caminho da sua página de login
+      }
   },
 
   };
@@ -88,20 +104,34 @@
   /* Navbar Estilo */
   .navbar {
   background-color: #252f3f;
-  padding: 30px;
-  text-align: center;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between; /* Distância entre os elementos */
+  align-items: center;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 100;
 }
 
-.navbar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.navbar-links {
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  justify-content: flex-start; /* Alinha os itens à esquerda */
+  align-items: center;
+  gap: 15px; /* Distância entre os itens centrais */
+  list-style: none;
+  flex-grow: 1; /* Ocupa o espaço restante */
+  margin: 0;
+  padding: 0;
+  padding-left: 30px;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: flex-end; /* Mantém o botão "Sair" à direita */
+  gap: 10px; /* Ajusta a distância entre o botão "Sair" e os itens centrais */
+  padding-right: 70px;
 }
 
 .navbar li {
@@ -126,6 +156,39 @@
 .navbar i {
   font-size: 24px;
 }
+
+.sair-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sair-btn:hover {
+  color: #f78024;
+}
+
+/* Verifique se o botão não está sendo escondido por algum elemento sobreposto */
+.navbar-right li {
+  margin-left: 20px; /* Distância do botão em relação ao lado direito */
+}
+
+.sair-btn:hover {
+  color: #f78024;
+}
+
+.navbar button:hover {
+  color: #f78024;
+}
+
+.navbar i {
+  font-size: 24px;
+}
+
 
 .barra-pesquisa {
   display: flex;
