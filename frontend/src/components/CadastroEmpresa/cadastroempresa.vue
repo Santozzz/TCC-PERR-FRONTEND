@@ -1,13 +1,27 @@
 <template>
     <div>
-        <div class="container-principal">
-            <div class="back">
-                <div class="toPag-principal">
-                    <i class="fa-solid fa-angle-left"></i>
-                    <router-link class="link" to="/Cadastro">Voltar</router-link>
+        <div>
+        <div class="header">
+            <div class="content">
+                <div class="container-btnEntrar">
+                    <router-link to="/Entrar">Entrar</router-link>
                 </div>
-                <router-link class="logo" to="/">PER<strong>R</strong></router-link>
+                <div class="container-apresentacao">
+                    <div class="logo">
+                        <router-link to="/">PER<strong>R</strong></router-link>
+                    </div>
+                    <div class="frase">
+                        <p>Site de apoio profissional para <strong>Refugiados</strong> e <strong>Imigrantes</strong></p>
+                    </div>
+                </div>
             </div>
+            <div class="overlay"></div>
+        </div>
+    </div>
+        <div class="container-principal">
+            
+
+
             <div class="row">
                 <div class="formCadastro">
                     <h3 class="desc">
@@ -29,10 +43,13 @@
                             <input type="checkbox" class="col-3">
                             <h4>Li e aceito os <a href="/Termos"><strong>Termos de uso</strong></a> e as <a href="/Termos"><strong>Políticas de privacidade</strong></a></h4>
                         </div>
-                        <input type="submit" @click.prevent="submitData" value="CADASTRAR EMPRESA" />
+                        <input class="cadastro" type="submit" @click.prevent="submitData" value="CADASTRAR EMPRESA" />
                         <div class="tenhoconta">
-                            <h4>Já tem uma conta? <a href="../Entrar">Entrar</a></h4>
+                            <h4>Já tem uma conta? <a href="../EntrarEmpresas">Entrar</a></h4>
                         </div>
+
+                                                    <!-- Botão para redirecionar empresas -->
+                                                    <button @click="redirectToCadastro" class="botao-usuario">Sou um Usuário</button>
                     </form>
                     {{ message }}
                     <ul class="container-alert">
@@ -80,6 +97,11 @@ export default {
         };
     },
     methods: {
+        redirectToCadastro() {
+            // Redireciona para a página de cadastro de empresa
+            this.$router.push('/Cadastro');
+        },
+
         togglePasswordVisibility() {
             this.showPassword = !this.showPassword;
             this.inputType = this.showPassword ? 'text' : 'password';
@@ -121,13 +143,163 @@ export default {
 </script>
 
 <style scoped>
+/* Background */
+.header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 38vh;
+        background-position: center;
+        background-size: cover;
+        background-image: url(../../assets/img/Cadastro/bg-headerCadastro.jpg);
+        z-index: 1;
+        box-shadow: 0 0 10px 1px #000;
+    }
+    .overlay{
+        position: absolute;
+        width: 100%;
+        height: 38vh;
+        background-color: #000;
+        opacity: .8;
+        z-index: 2;
+    }
+    /* Content of Header */
+    .content{
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+    .container-btnEntrar{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 15px;
+        width: 99%;
+        height: 25%;
+    }
+    .container-btnEntrar a{
+        color: #fff;
+        text-decoration: none;
+        border: 2px solid #F78024;
+        padding: 10px 30px;
+        border-radius: 20px;
+        font-family: sans-serif;
+    }
+    .container-btnEntrar .empresa{
+        color: #fff;
+        background-color: #F78024;
+        text-decoration: none;
+        padding: 10px 30px;
+        border-radius: 20px;
+        font-family: sans-serif;
+    }
+    .container-apresentacao{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo a{
+        color: #fff;
+        text-decoration: none;
+        font-style: italic;
+        font-family: sans-serif;
+        font-weight: 700;
+        font-size: 100px;
+    }
+    .logo a strong{
+        color: #F78024;
+        font-style: italic;
+    }
+    .frase p{
+        color: #fff;
+        font-size: 20px;
+        font-family: sans-serif;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    .frase p strong{
+        border-bottom: 1px solid #F78024;
+        font-weight: 500;
+    }
+    /* Responsivo */
+    /* 300 Pixel */
+    @media screen and (min-width: 300px) {
+        .header{
+            display: none;
+        }
+    }
+    /* 500 Pixel */
+    @media screen and (min-width: 500px) {
+        .header{
+            display: flex;
+        }
+        .logo a{
+            font-size: 85px;
+        }
+        .frase p{
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+    /* 1000 Pixel */
+    @media screen and (min-width: 1000px) {
+        .logo a{
+            font-size: 85px;
+        }
+        .frase p{
+            font-size: 18px;
+        }
+    }
+    /* 1500 Pixel */
+    @media screen and (min-width: 1500px) {
+        .logo a{
+            font-size: 110px;
+        }
+        .frase p{
+            font-size: 35px;
+        }
+    }
+
+
+
+
+
+
+
+
+.botao-usuario {
+    
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #F78024;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    border: 2px solid #F78024; /* Borda de 2px, cor preta */
+    width: 25%;
+    margin-left: 225px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.botao-usuario:hover {
+    background-color:#f9ede1;
+}
+
+
 /* Reaproveite o estilo do formulário de usuário */
 .tenhoconta{
     padding-left: 35%;
 }
 
 .tenhoconta a {
-    color: #F78024; /* Altera a cor de todos os hyperlinks */
+    color: #252f3f; /* Altera a cor de todos os hyperlinks */
   text-decoration: none;
 }
 
@@ -140,7 +312,7 @@ export default {
 }
 
 .termos a{
-    color: #F78024;
+    color: #252f3f;
     text-decoration: none;
 }
 
@@ -178,7 +350,7 @@ export default {
 
 .toPag-principal i,
 .toPag-principal a {
-    color: #F78024;
+    color: #252f3f;
     text-decoration: none;
     letter-spacing: 1px;
 }
@@ -196,7 +368,7 @@ export default {
 }
 
 .back .logo strong {
-    color: #F78024;
+    color: #252f3f;
 }
 
 .row {
@@ -234,7 +406,7 @@ export default {
 }
 
 .form p a {
-    color: #F78024;
+    color: #252f3f;
 }
 
 .form input {
@@ -251,16 +423,17 @@ export default {
 
 .form input:focus {
     outline: none;
-    border: #F78024 solid 1px;
+    border: #252f3f solid 1px;
 }
 
 .form input[type="submit"] {
-    background-color: #F78024;
+    background-color: #252f3f;
     color: #fff;
     letter-spacing: 1px;
     border: none;
     cursor: pointer;
 }
+
 
 .row-input {
     display: flex;
@@ -309,8 +482,8 @@ export default {
 }
 
 .politicPolicy p strong {
-    color: #F78024;
-    border-bottom: 1px solid #F78024;
+    color: #252f3f;
+    border-bottom: 1px solid #252f3f;
     font-weight: 500;
 }
 
@@ -332,8 +505,8 @@ export default {
 }
 
 .termos h4 strong {
-    color: #F78024;
-    border-bottom: 1px solid #F78024;
+    color: #252f3f;
+    border-bottom: 1px solid #252f3f;
     font-weight: 500;
 }
 
@@ -359,8 +532,8 @@ export default {
 }
 
 .tenhconta h4 a{
-    color: #F78024;
-    border-bottom: 1px solid #F78024;
+    color: #252f3f;
+    border-bottom: 1px solid #252f3f;
     font-weight: 500;
 }
 
@@ -398,6 +571,9 @@ export default {
     color: #fff;
     animation-name: move;
     animation-duration: .5s;
+    position: fixed;
+    width: 25%;
+    
 }
 
 .alert i {

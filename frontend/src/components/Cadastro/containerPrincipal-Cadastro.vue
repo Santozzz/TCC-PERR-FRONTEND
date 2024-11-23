@@ -145,16 +145,17 @@ export default {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #ffffff;
-    color: #F78024;
+    color: #252f3f;
     border: none;
     cursor: pointer;
     border-radius: 20px;
     transition: background-color 0.3s;
-    border: 2px solid #F78024; /* Borda de 2px, cor preta */
+    border: 2px solid #252f3f; /* Borda de 2px, cor preta */
+    margin-left: -50px;
 }
 
 .botao-empresa:hover {
-    background-color:#f9ede1;
+    background-color:#1e244b19;
 }
 
 
@@ -436,6 +437,9 @@ export default {
     color: #fff;
     animation-name: move;
     animation-duration: .5s;
+    position: fixed;
+    width: 25%;
+    
 }
 
 .alert i {

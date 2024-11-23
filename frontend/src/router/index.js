@@ -59,6 +59,11 @@ const router = createRouter({
       component: () => import("../views/Conta.vue"),
     },
     {
+      path: "/EntrarEmpresas",
+      name: "entrar-empresas",
+      component: () => import("../views/entrar-empresas.vue"),
+    },
+    {
       path: "/Entrar",
       name: "entrar",
       component: () => import("../views/Entrar.vue"),

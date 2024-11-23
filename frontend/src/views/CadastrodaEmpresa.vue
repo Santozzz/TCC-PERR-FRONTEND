@@ -5,7 +5,7 @@ import containerPrincipal from '../components/CadastroEmpresa/cadastroempresa.vu
 export default {
     name: 'Cadastro',
     components: {
-        headerCadastro,
+        
         containerPrincipal,
     }, 
 }
