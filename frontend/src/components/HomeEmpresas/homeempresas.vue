@@ -55,9 +55,16 @@
         <li><i class="fas fa-check-circle"></i> Contribua para a diversidade e inclusão</li>
       </ul>
     </div>
+    
     <!-- Botão de Saiba Mais -->
     <div class="saiba-mais">
       <button @click="goToPlano">Saiba Mais</button>
+    </div>
+    <!-- Mensagem de plano adquirido -->
+    <div class="plano-adquirido">
+      <p>
+        <i class="fas fa-check-circle"></i> Plano já adquirido!
+      </p>
     </div>
   </div>
 
@@ -214,7 +221,10 @@
   </script>
   
   <style scoped>
-
+  
+.saiba-mais{
+  margin-bottom: 10px;
+}
 /* Seção Informativa */
 .processo-integracao {
   background-color: #f9f9f9;
@@ -255,7 +265,6 @@
 }
 
 .processo-integracao p::after {
-  content: "”";
   font-size: 48px;
   color: #45a049;
   position: absolute;
@@ -587,6 +596,7 @@
   line-height: 1.5;
 }
 
+
 .btn-assinar {
   background-color: #252f3f;
   color: white;
@@ -620,6 +630,11 @@
   margin: 10px 0;
   display: flex;
   align-items: center;
+}
+
+.plano-adquirido i{
+  color:#45a049;
+  margin-right: 5px;
 }
 
 .beneficios li i {
