@@ -17,7 +17,7 @@
         <!-- Botão de Sair -->
         <ul class="navbar-right">
     <li>
-      <button class="sair-btn" @click="logout">
+      <button class="sair-btn" @click="logoutEmpresas">
         <i class="fas fa-sign-out-alt"></i> Sair
       </button>
     </li>
@@ -226,7 +226,7 @@
         window.open(url, "_blank");
       },
       // Função de Logout
-      logout() {
+      logoutEmpresas() {
         // Aqui você pode adicionar qualquer lógica de logout, como limpar o localStorage, cookies ou estado
         // Exemplo: localStorage.removeItem('user'); ou qualquer outro método de autenticação que esteja utilizando.
         
