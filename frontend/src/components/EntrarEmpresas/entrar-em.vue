@@ -91,11 +91,11 @@
         } else {
           try {
             const resp = await axios.post(
-              "https://tcc-perr-backend-h5b7.onrender.com/login",
+              "https://tcc-perr-backend-h5b7.onrender.com/loginEmpresa",
               this.form
             );
             console.log(resp.data);
-            this.$router.push("/empresa/dashboard");
+            this.$router.push("/HomeEmpresas");
           } catch (error) {
             this.errors.push(
               "Erro ao entrar: " +

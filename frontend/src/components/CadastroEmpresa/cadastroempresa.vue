@@ -4,7 +4,7 @@
         <div class="header">
             <div class="content">
                 <div class="container-btnEntrar">
-                    <router-link to="/Entrar">Entrar</router-link>
+                    <router-link to="/EntrarEmpresas">Entrar</router-link>
                 </div>
                 <div class="container-apresentacao">
                     <div class="logo">
@@ -129,7 +129,7 @@ export default {
                     const response = await axios.post('https://tcc-perr-backend-h5b7.onrender.com/empresas', this.empresa);
                     this.message = 'Empresa cadastrada com sucesso!';
                     this.empresa = { nome: '', cnpj: '', telefone: '', email: '', senha: '' };
-                    this.$router.push('/Entrar');
+                    this.$router.push('/EntrarEmpresas');
                 } catch (error) {
                     this.message = 'Erro ao cadastrar empresa: ' + (error.response ? error.response.data.message : error.message);
                 }
