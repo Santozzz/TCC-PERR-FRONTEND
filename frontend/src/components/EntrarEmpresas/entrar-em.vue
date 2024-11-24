@@ -150,7 +150,7 @@
         height: 75vh;
     }
     .container-form a{
-        color: #F78024;
+        color: #252f3f  ;
     }
     .topForm{
         display: flex;
@@ -193,16 +193,16 @@
     }
     .form input:focus{
         outline: none;
-        border: #F78024 solid 1px;
+        border: #252f3f solid 1px;
     }
     .form a{
-        color: #F78024;
+        color: #252f3f;
         width: 82%;
         font-size: 13px;
     }
     .form input[type="submit"]{
         border: none;
-        background-color: #F78024;
+        background-color:#252f3f;
         color: #fff;
         font-weight: 600;
         text-transform: uppercase;
@@ -235,7 +235,7 @@
         color: #6e6e6e;
     } 
     .form strong{
-        color: #F78024;
+        color: #252f3f;
         cursor: pointer;
     }
     .container-alert{
