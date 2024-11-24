@@ -24,7 +24,7 @@
                     </div> -->
                 </div>
             </div>
-        <section class="apresentacao">
+       <!-- <section class="apresentacao">
             <div class="conteudo-apresentacao">
                 <div class="texto">
                     <h1>Conectando Refugiados no Mercado de Trabalho</h1>
@@ -37,7 +37,104 @@
             </div>
             
             </div>
+        </section> -->
+
+                <section class="features-alternative">
+            <h2>O que você pode fazer aqui?</h2>
+            <div class="features-content">
+            <div class="feature">
+                <div class="icon-circle">
+                <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="feature-text">
+                <h3>Procurar Vagas de Emprego</h3>
+                <p>Descubra as melhores oportunidades para sua carreira.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="icon-circle">
+                <i class="fa-solid fa-chalkboard-teacher"></i>
+                </div>
+                <div class="feature-text">
+                <h3>Inscrever-se em Cursos</h3>
+                <p>Capacite-se com cursos gratuitos e entre no mercado com confiança.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="icon-circle">
+                <i class="fa-solid fa-user-circle"></i>
+                </div>
+                <div class="feature-text">
+                <h3>Criar um Perfil Profissional</h3>
+                <p>Mostre o que você sabe e conecte-se com empresas interessadas.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="icon-circle">
+                <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div class="feature-text">
+                <h3>Acessar Dicas e Materiais</h3>
+                <p>Aprenda com conteúdos exclusivos sobre o mercado brasileiro.</p>
+                </div>
+            </div>
+            </div>
         </section>
+
+        <section class="start-guide">
+  <h2>Por Onde Começar?</h2>
+  <p>Explore nossos recursos e comece sua jornada profissional com o pé direito. Aqui estão algumas dicas para ajudá-lo a se orientar:</p>
+
+  <div class="articles">
+    <div class="article-card">
+        <div class="article-image">
+                <img src="../../assets/img/Home/curriculo.jpg" alt="Imagem representativa" />
+            </div>
+      <div class="article-text">
+        <h3>Como Criar um Currículo Impactante</h3>
+        <p>Aprenda a destacar suas habilidades e experiências de forma atraente para os empregadores.</p>
+        <a href="/criando-curriculo" class="btn">Leia mais</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <img src="../../assets/img/Home/entrevista.jpg" alt="Dicas para Entrevista" class="article-image">
+      <div class="article-text">
+        <h3>Dicas para Entrevistas de Emprego</h3>
+        <p>Prepare-se para entrevistas com confiança e saiba como se destacar.</p>
+        <a href="/dicas-entrevista" class="btn">Leia mais</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <img src="../../assets/img/Home/direitos.jpg" alt="Mercado de Trabalho Brasileiro" class="article-image">
+      <div class="article-text">
+        <h3>Introdução ao Mercado de Trabalho Brasileiro</h3>
+        <p>Entenda as principais características e o que esperar ao procurar emprego no Brasil.</p>
+        <a href="/mercado-trabalho-br" class="btn">Leia mais</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+        <section class="benefits-section-checklist">
+    <div class="headerrr">
+      <h2>Por que usar nossa plataforma?</h2>
+    </div>
+    <div class="checklist-wrapper">
+      <div class="checklist-column">
+        <div class="checklist-item" v-for="(benefit, index) in leftBenefits" :key="index">
+          <i class="fa-solid fa-check"></i>
+          <p>{{ benefit }}</p>
+        </div>
+      </div>
+      <div class="checklist-column">
+        <div class="checklist-item" v-for="(benefit, index) in rightBenefits" :key="index">
+          <i class="fa-solid fa-check"></i>
+          <p>{{ benefit }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
                 <div class="highlighted-section">
                     <h2>Impulsione sua Vida Profissional!</h2>
@@ -196,46 +293,56 @@
         </div>
         
       </div>
-      <!-- Seção de Benefícios -->
-      <section class="beneficios-timeline">
-      <h2>Benefícios</h2>
-      <div class="timeline">
-        <div class="timeline-item" v-for="(benefit, index) in benefits" :key="index">
-          
-          <div class="content">
-            
-          <!-- Adicionando ícones ao lado do título -->
-          <div class="icon-title">
-            <i :class="benefit.iconClass" class="benefit-icon"></i>
+      <section class="inclusao-chamada-cinza">
+  <div class="inclusao-texto-cinza">
+    <h2>Conectamos histórias, criamos futuros.</h2>
+    <p>Cada pessoa tem um talento único. Ao unirmos nossas histórias, conseguimos construir um futuro mais próspero e inclusivo para todos.</p>
+  </div>
+</section>
+      <section class="inclusao-chamada-branco">
+  <div class="inclusao-texto-branco">
+    <h2>Sua história importa.</h2>
+    <p>Juntos, estamos construindo um futuro onde cada talento é valorizado e cada pessoa tem a chance de brilhar.</p>
+  </div>
+</section>
 
-            <h3>{{ benefit.title }} <i class="fas fa-check-circle check-icon"></i></h3>
-            </div>
-            <p>{{ benefit.description }}</p>
-          </div>
-          </div>
-    </div>
-    </section>
-    <section class="plano-empresas-card5">
-    <div class="card5">
-      <h2>Plano para Empresas</h2>
-      <p class="preco">Apenas <span>R$ 13,99/mês</span></p>
-      <p class="descricao">
-        Conecte-se com talentos diversos e promova a inclusão em sua empresa. Com nosso plano acessível, você pode encontrar profissionais qualificados que fazem a diferença.
-      </p>
-      <button class="btn5-assinar">Assine Agora</button>
-      <p>(Somente Empresas)</p>
-      
-      <div class="beneficios">
-        <h3>Benefícios ao Assinar:</h3>
-        <ul>
-          <li><i class="fas fa-check-circle"></i> Acesso a perfis de profissionais qualificados</li>
-          <li><i class="fas fa-check-circle"></i> Suporte exclusivo para empresas</li>
-          <li><i class="fas fa-check-circle"></i> Destaque em nossa plataforma</li>
-          <li><i class="fas fa-check-circle"></i> Contribua para a diversidade e inclusão</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+<section class="inclusao-chamada-cinza">
+  <div class="inclusao-texto-cinza">
+    <h2>Cada história é única.</h2>
+    <p>Acreditamos que a diversidade é nossa maior força. Cada trajetória traz uma visão única, e juntos podemos construir um ambiente mais inclusivo e inovador.</p>
+  </div>
+</section>
+
+<section class="inclusao-chamada-branco">
+  <div class="inclusao-texto-branco">
+    <h2>O seu crescimento é nossa missão.</h2>
+    <p>Oferecemos o suporte necessário para que você alcance seus objetivos. Estamos comprometidos com o seu sucesso em cada passo da sua jornada profissional.</p>
+  </div>
+</section>
+
+<section class="inclusao-chamada-cinza">
+  <div class="inclusao-texto-cinza">
+    <h2>Juntos, podemos fazer a diferença.</h2>
+    <p>Acreditamos que cada indivíduo merece uma chance para se destacar. Ao trabalharmos juntos, podemos criar um futuro mais justo e igualitário para todos.</p>
+  </div>
+</section>
+
+<section class="inclusao-chamada-branco">
+  <div class="inclusao-texto-branco">
+    <h2>Os desafios são oportunidades.</h2>
+    <p>Não importa o quão difícil pareça o caminho, cada desafio é uma chance de crescer. Juntos, vamos superar barreiras e alcançar novos horizontes.</p>
+  </div>
+</section>
+
+<section class="inclusao-chamada-cinza">
+  <div class="inclusao-texto-cinza">
+    <h2>O futuro é feito agora.</h2>
+    <p>O momento de transformar sua vida é agora. Dê o primeiro passo com confiança, e juntos construiremos um futuro cheio de oportunidades para você.</p>
+  </div>
+</section>
+
+     
+    
     </div>
     <section class="faq-section">
             <h2>Perguntas Frequentes</h2>
@@ -278,6 +385,16 @@ export default {
 
     data() {
         return {
+            leftBenefits: [
+        "Gratuito para todos os usuários.",
+        "Vagas que valorizam a diversidade.",
+        "Cursos que melhoram suas chances no mercado.",
+      ],
+      rightBenefits: [
+        "Suporte dedicado em todas as etapas.",
+        "Plataforma fácil de usar e acessível.",
+        "Acesso a materiais exclusivos para o mercado de trabalho.",
+      ],
             isBellNotify: false,
             notifys: [],
 
@@ -304,29 +421,7 @@ export default {
           link: "https://youtube.com/curso-portugues",
           bannerClass: "banner-imgSec-4",
         },
-      ],
-            
-            
-
-
-            benefits: [
-        {
-          title: "Conexões Rápidas",
-          description: "Conecte-se rapidamente com empresas que buscam talentos diversificados.",
-          iconClass: "fas fa-plug" // Ícone para conexões rápidas
-        },
-        {
-          title: "Perfil Personalizado",
-          description: "Crie um perfil único que destaca suas habilidades e experiências.",
-          iconClass: "fas fa-user-edit" // Ícone para perfil personalizado
-        },
-        {
-          title: "Suporte Contínuo",
-          description: "Receba suporte contínuo durante todo o processo de integração.",
-          iconClass: "fas fa-life-ring" // Ícone para suporte contínuo
-        }
       ]
-
             ,cards: [
         {
           icon: "fas fa-briefcase",  // Exemplo de ícone do Font Awesome
@@ -363,6 +458,291 @@ export default {
 </script>
 
 <style scoped>
+
+
+/* Seção com fundo branco */
+.inclusao-chamada-branco {
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Seção com fundo cinza */
+.inclusao-chamada-cinza {
+  background-color: #252f3f;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos (h2) na seção com fundo branco */
+.inclusao-chamada-branco .inclusao-texto-branco h2 {
+  font-size: 2.2rem;
+  color: #252f3f;  /* Cor escura para contraste sobre o fundo claro */
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* Títulos (h2) na seção com fundo cinza */
+.inclusao-chamada-cinza .inclusao-texto-cinza h2 {
+  font-size: 2.2rem;
+  color: #f8f9fa;  /* Cor branca para contraste sobre o fundo escuro */
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* Parágrafos na seção com fundo branco */
+.inclusao-texto-branco p {
+  font-size: 1.2rem;
+  color: #2a2b2b;
+  max-width: 700px;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* Parágrafos na seção com fundo cinza */
+.inclusao-texto-cinza p {
+  font-size: 1.2rem;
+  color: #f3f3f3;
+  max-width: 700px;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+
+
+
+.start-guide {
+  padding: 60px;
+  background-color: #f4f4f4;
+  text-align: center;
+  width: 95%;
+  margin-right: 20px;
+
+}
+
+.start-guide h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.start-guide p {
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+  
+}
+
+.article-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  width: 350px;
+  height: 450px;
+}
+
+.article-card:hover {
+  transform: translateY(-10px);
+}
+
+.article-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  filter: brightness(95%);
+  width: 100%;
+}
+
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* Diminui o brilho para melhorar a visibilidade do texto */
+}
+
+.article-text {
+  padding: 20px;
+  text-align: left;
+}
+
+.article-text h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.article-text p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.article-text .btn {
+  background-color: #f78024;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.article-text .btn:hover {
+  background-color: transparent;
+  border: 2px solid #e06c20; 
+  color: #e06c20;
+  border-color: #e06c20;
+}
+
+
+
+
+.benefits-section-checklist {
+  padding: 40px 20px;
+  background-color: #f9fdf9;
+  text-align: center;
+  width: 110%;
+ 
+}
+.headerrr h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+.checklist-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  margin: 0 auto;
+}
+.checklist-column {
+  width: 48%;
+}
+.checklist-item {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px;
+  gap: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.2s ease-in-out;
+  height: 35px;
+}
+.checklist-item:hover {
+  transform: translateX(10px);
+}
+.checklist-item i {
+  color: #28a745; /* Verde conferente */
+  font-size: 24px;
+}
+.checklist-item p {
+  font-size: 18px;
+  color: #555;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .checklist-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .checklist-column {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  .checklist-item p {
+    font-size: 14px;
+  }
+}
+
+
+
+.features-alternative {
+  padding: 60px 20px;
+  background: transparent;
+  text-align: center;
+  width: 110%;
+}
+.features-alternative h2 {
+  font-size: 35px;
+  color: #333;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+.features-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.icon-circle {
+  background: #f78024;
+  color: #fff;
+  font-size: 30px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feature-text {
+  text-align: left;
+}
+.feature-text h3 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 5px;
+}
+.feature-text p {
+  font-size: 16px;
+  color: #666;
+}
+@media (max-width: 768px) {
+  .features-content {
+    grid-template-columns: 1fr;
+  }
+  .feature {
+    text-align: center;
+    flex-direction: column;
+  }
+  .feature-text {
+    text-align: center;
+  }
+}
+
+
+
+
 
 .card5 {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
@@ -436,43 +816,6 @@ export default {
 .btn5-assinar:hover {
   background-color: #e06c20;
 }
-
-/* Benefícios */
-.beneficios {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.beneficios h3 {
-  font-size: 18px;
-  color: #252f3f;
-  margin-bottom: 10px;
-}
-
-.beneficios ul {
-  list-style: none;
-  padding: 0;
-  justify-content: center;
-  flex-wrap: wrap; 
-   
-}
-
-.beneficios li {
-  font-size: 14px;
-  color: #555;
-  margin: 8px 0;
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-  width: 100%;
-}
-
-.beneficios li i {
-  color: #28a745;
-  margin-right: 8px;
-  font-size: 16px;
-}
-
 .faq-section {
   padding: 40px 20px;
   background-color: #f9f9f9; /* Cor de fundo da seção */
@@ -707,13 +1050,13 @@ h1 {
   padding: 50px 0;
   text-align: center;
   width: 110%;
-  
 }
 
 .how-it-works h2 {
   font-size: 2.5em;
   margin-bottom: 40px;
    color: #252F3F;
+   
 }
 
 .steps-container {
@@ -738,6 +1081,7 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  margin-bottom: 30px;
 }
 
 .step:hover {
