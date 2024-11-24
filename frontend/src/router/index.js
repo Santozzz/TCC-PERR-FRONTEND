@@ -34,6 +34,18 @@ const router = createRouter({
         component: () => import("../views/Artigo-Curriculo.vue"),
       },
 
+      {
+        path: "/Dicas-Entrevista",
+        name: "dicas-entrevista",
+        component: () => import("../views/Artigo-Entrevista.vue"),
+      },
+
+      {
+        path: "/Mercado-Trabalho",
+        name: "mercado-trabalho",
+        component: () => import("../views/Artigo-MercadoTrabalho.vue"),
+      },
+
     {
       path: "/Cadastro",
       name: "cadastro",

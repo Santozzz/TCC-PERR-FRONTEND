@@ -109,7 +109,7 @@
       <div class="article-text">
         <h3>Introdução ao Mercado de Trabalho Brasileiro</h3>
         <p>Entenda as principais características e o que esperar ao procurar emprego no Brasil.</p>
-        <a href="/mercado-trabalho-br" class="btn">Leia mais</a>
+        <a href="/mercado-trabalho" class="btn">Leia mais</a>
       </div>
     </div>
   </div>
