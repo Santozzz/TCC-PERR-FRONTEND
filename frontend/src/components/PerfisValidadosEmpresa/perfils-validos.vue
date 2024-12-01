@@ -1,43 +1,34 @@
 <template>
-    <div>
-        <!-- Navbar -->
+  <div>
+    <!-- Navbar -->
     <nav class="navbar">
-    <ul class="navbar-links">
+      <ul class="navbar-links">
         <li>
-        <button @click="goToHome">
+          <button @click="goToHome">
             <i class="fas fa-home"></i> Home
-        </button>
+          </button>
         </li>
         <li>
-        <button @click="goToPlano">
+          <button @click="goToPlano">
             <i class="fas fa-credit-card"></i> Plano Mensal
-        </button>
+          </button>
         </li>
-    </ul>
-    <!-- Botão de Sair -->
-    <ul class="navbar-right">
-    <li>
-      <button class="sair-btn" @click="logout">
-        <i class="fas fa-sign-out-alt"></i> Sair
-      </button>
-    </li>
-  </ul>
+      </ul>
+      <!-- Botão de Sair -->
+      <ul class="navbar-right">
+        <li>
+          <button class="sair-btn" @click="logout">
+            <i class="fas fa-sign-out-alt"></i> Sair
+          </button>
+        </li>
+      </ul>
     </nav>
+
     <div class="perfils-validados">
       <h1>Perfis Validados</h1>
       <p class="descricao">
-      Os perfis abaixo passaram por uma validação criteriosa realizada por nossa equipe, garantindo a autenticidade das informações e a qualificação dos profissionais. Conecte-se com confiança!
-    </p>
-
-    <!-- Barra de Pesquisa -->
-    <div class="barra-pesquisa">
-      <input 
-        type="text" 
-        v-model="pesquisa" 
-        placeholder="Pesquise por nome, email ou telefone..." 
-      />
-      <button @click="filtrarPerfis">Pesquisar</button>
-    </div>
+        Os perfis abaixo passaram por uma validação criteriosa realizada por nossa equipe, garantindo a autenticidade das informações e a qualificação dos profissionais. Conecte-se com confiança!
+      </p>
 
       <div class="perfil-container">
         <div class="perfil" v-for="(perfil, index) in perfisValidos" :key="index">
@@ -47,58 +38,50 @@
         </div>
       </div>
     </div>
-</div>
-  </template>
-  <script>
-  export default {
-    name: "PerfilsValidados",
-    data() {
-      return {
-        filtrarPerfis() {
-      // A filtragem já é feita na propriedade computada, mas o botão pode ser usado para outros fins.
-      console.log("Pesquisa realizada:", this.pesquisa);
+  </div>
+</template>
+
+
+<script>
+import axios from "axios";
+
+export default {
+  name: "PerfilsValidados",
+  data() {
+    return {
+      perfisValidos: [], // Dados dos perfis validados
+    };
+  },
+  methods: {
+    // Requisição para buscar os usuários validados
+    async fetchPerfisValidos() {
+      try {
+        const response = await axios.get(
+          "https://tcc-perr-backend-h5b7.onrender.com/usuarios/validados"
+        ); // Endpoint para buscar usuários validados
+        this.perfisValidos = response.data; // Popula os dados dos perfis validados
+      } catch (error) {
+        console.error("Erro ao buscar os perfis validados:", error);
+      }
     },
-        perfisValidos: [
-          { nome: "Carlos Ramirez", email: "carlos.ramirez@email.com", telefone: "(21) 91234-5678" },
-          { nome: "Amina Hassan", email: "amina.hassan@email.com", telefone: "(11) 93456-7890" },
-          { nome: "Chen Wei", email: "chen.wei@email.com", telefone: "(31) 94567-8901" },
-          { nome: "Juan Pablo Rodríguez", email: "juan.rodriguez@email.com", telefone: "(77) 98765-4321" },
-          { nome: "Carolina Torres", email: "carolina.torres@email.com", telefone: "(42) 94567-8901" },
-          { nome: "Luis Fernando Vásquez", email: "luis.vasquez@email.com", telefone: "(85) 93456-7890" },
-          { nome: "Maria Alejandra Pérez ", email: "maria.perez@email.com", telefone: "(11) 94567-8901" },
-          { nome: "Ángel Eduardo Gómez", email: "angel.gomez@email.com", telefone: "(23) 95678-9012" },
-          { nome: "Vanessa Rojas", email: "vanessa.rojas@email.com", telefone: "(37)  97890-1234" },
-          { nome: "Kofi Nkrumah", email: "kofi.nkrumah@email.com", telefone: "(62) 98901-2345" },
-          { nome: "Amina Ibrahim", email: "amina.ibrahim@email.com", telefone: "(83) 91234-5678" },
-          { nome: "Chen Li", email: "chen.li@email.com", telefone: "(25) 93456-7890" },
-          { nome: "Siti Rahmawati", email: "siti.rahmawati@email.com", telefone: "(28) 94567-8901" },
-          { nome: "Adama Diallo", email: "adama.diallo@email.com", telefone: "(49) 95678-9012" },
-          { nome: "Mei Wong", email: "mei.wong@email.com", telefone: "(14) 97890-1234" },
-          { nome: "Diego Martínez", email: "diego.martinez@email.com", telefone: "(69) 98765-4321" },
-          { nome: "Fatoumata Diop", email: "fatoumata.diop@email.com", telefone: "(48) 93456-7890" },
-          { nome: "Haruto Takahashi", email: "haruto.takahashi@email.com", telefone: "(65) 94567-8900" },
-        ],
-      };
-    },
-    methods: {
     goToHome() {
-      this.$router.push('/HomeEmpresas'); // Supondo que você tenha uma rota chamada 'home'
+      this.$router.push("/HomeEmpresas");
     },
     goToPlano() {
-      this.$router.push('/PlanoEmpresas');  // Redireciona para a página do plano
+      this.$router.push("/PlanoEmpresas");
     },
-    // Função de Logout
     logout() {
-        // Aqui você pode adicionar qualquer lógica de logout, como limpar o localStorage, cookies ou estado
-        // Exemplo: localStorage.removeItem('user'); ou qualquer outro método de autenticação que esteja utilizando.
-        
-        // Redireciona para a página de login após sair
-        this.$router.push('/CadastroEmpresa');  // Ajuste conforme o caminho da sua página de login
-      }
+      // Lógica de logout
+      this.$router.push("/CadastroEmpresa");
+    },
   },
+  mounted() {
+    this.fetchPerfisValidos(); // Carregar os perfis validados ao montar o componente
+  },
+};
+</script>
 
-  };
-  </script>
+
   <style scoped>
 
   /* Navbar Estilo */

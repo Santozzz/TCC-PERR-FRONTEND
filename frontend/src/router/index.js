@@ -111,6 +111,11 @@ const router = createRouter({
         name: "seucurriculo",
         component: () => import("../views/SeuCurriculo.vue"),
       },
+      {
+        path: "/CurriculoValidado",
+        name: "curriculoValidado",
+        component: () => import("../views/CurriculoValidado.vue"),
+      },
       
    // {
     //  path: "/Favoritos",
